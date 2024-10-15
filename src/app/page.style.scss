@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes bg-animation {
+    0% {
+        background-position: 0 0;
+    }
+
+    25% {
+        background-position: -100px -300px;
+    }
+
+    50% {
+        background-position: 0 0;
+    }
+
+
+    75% {
+        background-position: 40px 300px;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes pet-box-animation {
+    0% {
+        transform: rotate(0deg);
+        transform: translateY(0px);
+    }
+
+    25% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    75% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.main-container {
+    @apply flex items-center justify-center;
+    height: 100vh;
+    background-image:
+        url('./assets/background.png');
+    background-size: contain;
+    background-repeat: repeat;
+    animation: bg-animation 30s linear infinite;
+
+    .wrapper {
+        @apply flex items-center justify-center bg-white w-4/5 px-3 py-6 rounded-xl shadow-2xl;
+    }
+}
+
+.introduction-content {
+    @apply w-1/3;
+
+    h1 {
+        @apply text-petnetDarkblue text-4xl uppercase font-extrabold mb-6;
+    }
+
+    p {
+        @apply text-lg my-3;
+    }
+
+    .btnLogin {
+        @apply bg-petnetDarkblue text-white px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5;
+    }
+
+    .btnMoreInfo {
+        @apply bg-white text-petnetDarkblue px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5 border border-petnetDarkblue;
+    }
+
+    .btnMoreInfo,
+    .btnLogin {
+        @apply mr-2;
+    }
+
+    .btnRow-container {
+        @apply flex items-center justify-between;
+    }
+}
+
+.petbox-container {
+    @apply w-1/3;
+    animation: pet-box-animation 10s linear infinite;
+}
+
+
+@media screen and (max-width: 880px) {
+    .main-container {
+        height: auto;
+        .wrapper {
+            @apply flex-col-reverse;
+
+            .introduction-content {
+                @apply w-2/3;
+
+                h1 {
+                    @apply text-2xl;
+                }
+
+                p {
+                    @apply text-lg;
+                }
+            }
+
+            .petbox-container  {
+                @apply w-2/3;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-container {
+        .wrapper {
+            .introduction-content {
+                .btnRow-container {
+                    @apply flex-col;
+                }
+            }
+        }
+    }
+}
