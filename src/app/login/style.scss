@@ -3,37 +3,44 @@
 @tailwind base;
 
 @mixin btnLogin() {
-    @apply px-4 py-3 my-3 cursor-pointer rounded-lg w-60 font-bold flex items-center;
+    @apply px-4 py-3 my-3 cursor-pointer rounded-lg w-4/5 font-bold flex items-center;
 }
 
 #login {
     @apply flex justify-center w-full h-screen bg-red-600;
 
     .login-section {
-        @apply bg-white w-4/6 p-14 flex justify-center;
+        @apply bg-white w-4/6 p-14 flex justify-center flex-col items-center;
+
+        h1 {
+            @apply text-5xl text-petnetDarkblue font-bold mt-12;
+        }
 
         form {
-            @apply shadow-2xl w-4/5 rounded-xl flex items-center flex-col h-fit;
+            @apply w-4/5 rounded-xl flex items-center h-fit justify-between;
 
-            h1 {
-                @apply text-5xl text-petnetDarkblue font-bold mt-12;
+            div {
+                h3 {
+                    @apply text-lg mt-8 text-gray-400;
+                }
+
+                input {
+                    @apply px-4 py-3 border-solid border-2 border-petnetDarkblue mt-3 rounded-md w-4/5;
+                }
+
+                button {
+                    @include btnLogin();
+                    @apply text-white bg-petnetDarkblue flex items-center justify-center;
+                }
+
+                .btnCreateAccount {
+                    @apply bg-white text-petnetDarkblue border-2 border-solid border-petnetDarkblue;
+                }
             }
 
-            h3 {
-                @apply text-lg mt-8 text-gray-400;
-            }
-
-            input {
-                @apply px-4 py-3 border-solid border-2 border-petnetDarkblue mt-3 rounded-md;
-            }
-
-            button {
-                @include btnLogin();
-                @apply text-white bg-petnetDarkblue flex items-center justify-center;
-            }
-
-            .btnCreateAccount {
-                @apply bg-white text-petnetDarkblue border-2 border-solid border-petnetDarkblue;
+            .container-social-media,
+            .container-account-login {
+                @apply w-3/6;
             }
         }
     }
@@ -66,4 +73,40 @@
 
 .btnFacebook {
     @apply bg-facebookBlue text-white;
+}
+
+// Media queries
+
+@media screen and (max-width: 1200px) {
+    .login-section {
+        form {
+            @apply flex flex-col;
+
+            .container-account-login {
+                @apply w-full;
+
+                input {
+                    @apply w-4/5;
+                }
+            }
+
+            .container-buttons {
+                @apply flex flex-row;
+
+                .btnGoogle,
+                .btnFacebook,
+                .btnGithub {
+                    @apply w-12 mx-3;
+
+                    p {
+                        @apply hidden;
+                    }
+                }
+            }
+        }
+    }
+
+    .login-section, .login-figure {
+        @apply w-3/6;
+    }
 }

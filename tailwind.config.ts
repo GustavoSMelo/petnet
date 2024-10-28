@@ -11,7 +11,7 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                petnetDarkblue: '#00046f',
+                petnetDarkblue: '#00046F',
                 UARed: '#d9473e',
                 facebookBlue: '#245298',
             },
