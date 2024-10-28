@@ -1,6 +1,41 @@
+import './style.scss';
+import Image from 'next/image';
+import LoginImg from '../assets/woman_cat.png';
+import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+
 const Login = () => {
     return (
-        <h1>Hello world !</h1>
+        <main>
+            <section id="login">
+                <div className='login-section'>
+                    <form>
+                        <h1>Acesse sua conta</h1>
+
+                        <h3>Midias Sociais</h3>
+
+                        <span className='btnGoogle'>
+                            <FaGoogle />
+                            <p>Entrar via Google</p>
+                        </span>
+                        <span className='btnFacebook'><FaFacebook /> <p>Entrar via Facebook</p></span>
+                        {/* <span className='btnApple'>Entrar via Apple</span> */}
+                        <span className='btnGithub'><FaGithub /><p>Entrar via Github</p></span>
+
+                        <h3>Ou</h3>
+
+                        <input type='email' placeholder='email' />
+                        <button className='btnLogin' type='button'>Login via email</button>
+                        <button className='btnCreateAccount' type='button'>Crie sua conta</button>
+                    </form>
+                </div>
+
+                <figure className='login-figure'>
+                    <Image src={LoginImg.src} alt="Login animal img" fill priority />
+                </figure>
+            </section>
+
+            <section id="createAccount"></section>
+        </main>
     )
 };
 

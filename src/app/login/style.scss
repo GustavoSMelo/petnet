@@ -2,3 +2,68 @@
 @tailwind utilities;
 @tailwind base;
 
+@mixin btnLogin() {
+    @apply px-4 py-3 my-3 cursor-pointer rounded-lg w-60 font-bold flex items-center;
+}
+
+#login {
+    @apply flex justify-center w-full h-screen bg-red-600;
+
+    .login-section {
+        @apply bg-white w-4/6 p-14 flex justify-center;
+
+        form {
+            @apply shadow-2xl w-4/5 rounded-xl flex items-center flex-col h-fit;
+
+            h1 {
+                @apply text-5xl text-petnetDarkblue font-bold mt-12;
+            }
+
+            h3 {
+                @apply text-lg mt-8 text-gray-400;
+            }
+
+            input {
+                @apply px-4 py-3 border-solid border-2 border-petnetDarkblue mt-3 rounded-md;
+            }
+
+            button {
+                @include btnLogin();
+                @apply text-white bg-petnetDarkblue flex items-center justify-center;
+            }
+
+            .btnCreateAccount {
+                @apply bg-white text-petnetDarkblue border-2 border-solid border-petnetDarkblue;
+            }
+        }
+    }
+
+    .login-figure {
+        @apply w-2/6 relative;
+    }
+}
+
+// Buttons
+
+.btnGoogle,
+.btnGithub,
+.btnFacebook,
+.btnApple {
+    @include btnLogin();
+
+    p {
+        @apply pl-4;
+    }
+}
+
+.btnGoogle {
+    @apply bg-UARed text-white;
+}
+
+.btnGithub {
+    @apply bg-black text-white;
+}
+
+.btnFacebook {
+    @apply bg-facebookBlue text-white;
+}

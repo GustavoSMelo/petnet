@@ -12,6 +12,8 @@ const config: Config = {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
                 petnetDarkblue: '#00046f',
+                UARed: '#d9473e',
+                facebookBlue: '#245298',
             },
         },
     },
