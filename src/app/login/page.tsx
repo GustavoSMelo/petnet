@@ -1,53 +1,59 @@
+'use client';
+
 import './style.scss';
 import Image from 'next/image';
-import LoginImg from '../assets/woman_cat.png';
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaCat, FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import LoginParty from '../assets/illustrations/login-party.png';
+import { useEffect, useState } from 'react';
 
 const Login = () => {
+
     return (
-        <main>
-            <section id="login">
-                <div className='login-section'>
-                    <h1>Acesse sua conta</h1>
-                    <form>
-                        <div className='container-social-media'>
+        <main className="loginPage">
+            <section id='login'>
+                <div className='formLogin'>
+                    <h1>Realizar login: </h1>
 
-                            <h3>Midias Sociais</h3>
+                    <button className='btnLoginGoogle' type='button'>
+                        <FaGoogle />
+                        <p>via Google</p>
+                    </button>
 
-                            <span className='container-buttons'>
-                                <span className='btnGoogle'>
-                                    <FaGoogle />
-                                    <p>Entrar via Google</p>
-                                </span>
-                                <span className='btnFacebook'>
-                                    <FaFacebook />
-                                    <p>Entrar via Facebook</p>
-                                </span>
-                                {/* <span className='btnApple'>Entrar via Apple</span> */}
-                                <span className='btnGithub'>
-                                    <FaGithub />
-                                    <p>Entrar via Github</p>
-                                </span>
-                            </span>
-                        </div>
+                    <button className='btnLoginFacebook' type='button'>
+                        <FaFacebook />
+                        <p>via Facebook</p>
+                    </button>
 
-                        <div className='container-account-login'>
-                            <h3>Conta</h3>
+                    <button className='btnLoginGithub' type='button'>
+                        <FaGithub />
+                        <p>via Github</p>
+                    </button>
 
-                            <input type='email' placeholder='email' />
-
-                            <button className='btnLogin' type='button'>Login via email</button>
-                            <button className='btnCreateAccount' type='button'>Crie sua conta</button>
-                        </div>
-                    </form>
+                    <button className='btnLoginPetnet' type='button'>
+                        <FaCat />
+                        <p>via Petnet</p>
+                    </button>
                 </div>
 
-                <figure className='login-figure'>
-                    <Image src={LoginImg.src} alt="Login animal img" fill priority />
+                <figure className='changeToRegister'>
+                    <figcaption>
+                        <h2>Nao possui conta ?</h2>
+                        <p>Nao se preocupe, nosso sistema eh 100% gratuito e de codigo aberto, alem de ser amigavel e facil de registrar, faca seu registro agora mesmo</p>
+
+                        <button type='button'>Realizar Cadastro</button>
+                    </figcaption>
+
+                    <Image
+                        className='loginPetImage'
+                        src={LoginParty.src}
+                        width={420}
+                        height={420}
+                        alt='login animal party'
+                        priority
+                    />
                 </figure>
             </section>
-
-            <section id="createAccount"></section>
+            <section id='register'></section>
         </main>
     )
 };

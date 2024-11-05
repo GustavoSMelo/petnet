@@ -1,112 +1,183 @@
 @tailwind base;
+@tailwind components;
 @tailwind utilities;
-@tailwind base;
 
-@mixin btnLogin() {
-    @apply px-4 py-3 my-3 cursor-pointer rounded-lg w-4/5 font-bold flex items-center;
+@keyframes btnLoginEnterFade {
+    0% {
+        opacity: 0;
+        transform: translateX(-65%);
+    } 50% {
+        opacity: 0.5;
+    } 100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-#login {
-    @apply flex justify-center w-full h-screen bg-red-600;
+@keyframes titleLoginEnterFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    } 50% {
+        opacity: 0.5;
+    } 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    .login-section {
-        @apply bg-white w-4/6 p-14 flex justify-center flex-col items-center;
+@keyframes loginContainerEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
 
-        h1 {
-            @apply text-5xl text-petnetDarkblue font-bold mt-12;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loginImageEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(200%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loginPage {
+    @apply p-20 bg-white h-screen;
+
+    #login {
+        @apply flex items-center justify-center h-full shadow-2xl shadow-black rounded-xl bg-white will-change-transform overflow-hidden;
+        animation: 1.6s loginContainerEnter forwards;
+
+        .formLogin,
+        .changeToRegister {
+            @apply w-1/2 flex items-center h-full;
         }
 
-        form {
-            @apply w-4/5 rounded-xl flex items-center h-fit justify-between;
+        .formLogin {
+            @apply flex flex-col justify-center;
 
-            div {
-                h3 {
-                    @apply text-lg mt-8 text-gray-400;
+            h1 {
+                @apply text-5xl font-bold text-sky-500 pb-10;
+                animation: 3s titleLoginEnterFade ease;
+            }
+
+            button {
+                @apply bg-slate-500 w-80 m-3 rounded-md flex items-center py-3 px-2 cursor-pointer font-bold border-2 transition;
+                animation: 1s btnLoginEnterFade ease-in-out;
+                p {
+                    @apply ml-2;
+                }
+            }
+
+            button.btnLoginGoogle {
+                @apply bg-UARed text-white;
+                animation: 1.2s btnLoginEnterFade ease-in-out;
+            }
+
+            button.btnLoginGoogle:hover {
+                @apply text-UARed bg-white border-2 border-UARed transition;
+            }
+
+            button.btnLoginFacebook {
+                @apply bg-facebookBlue text-white;
+                animation: 1.4s btnLoginEnterFade ease-in-out;
+            }
+
+            button.btnLoginFacebook:hover {
+                @apply text-facebookBlue bg-white border-facebookBlue transition;
+            }
+
+            button.btnLoginGithub {
+                @apply bg-black text-white;
+                animation: 1.6s btnLoginEnterFade ease-in-out;
+            }
+
+            button.btnLoginGithub:hover {
+                @apply text-black bg-white border-black transition;
+            }
+
+            button.btnLoginPetnet {
+                @apply bg-sky-500 text-white transition;
+                animation: 2s btnLoginEnterFade ease-in-out;
+            }
+
+            button.btnLoginPetnet:hover {
+                @apply bg-white border-sky-500 border-2 text-sky-500;
+            }
+        }
+
+        .changeToRegister {
+            @apply bg-gradient-to-b from-sky-500 to-sky-700 rounded-xl flex flex-col items-center justify-center text-white font-bold;
+
+            figcaption {
+                h2 {
+                    @apply text-5xl text-center pb-4;
+                    animation: 2.5s  titleLoginEnterFade ease-in-out;
                 }
 
-                input {
-                    @apply px-4 py-3 border-solid border-2 border-petnetDarkblue mt-3 rounded-md w-4/5;
+                p {
+                    @apply w-5/6 flex self-center m-auto;
+                    animation: 2.5s titleLoginEnterFade ease-in-out;
                 }
 
                 button {
-                    @include btnLogin();
-                    @apply text-white bg-petnetDarkblue flex items-center justify-center;
+                    @apply bg-white text-sky-500 px-7 py-3 rounded-md cursor-pointer m-auto flex mt-3 transition;
+                    animation: 2.5s titleLoginEnterFade ease-in-out;
                 }
 
-                .btnCreateAccount {
-                    @apply bg-white text-petnetDarkblue border-2 border-solid border-petnetDarkblue;
+                button:hover {
+                    @apply scale-110 transition;
                 }
             }
 
-            .container-social-media,
-            .container-account-login {
-                @apply w-3/6;
+            .loginPetImage {
+                animation: 2s loginImageEnter ease-in-out;
             }
         }
     }
-
-    .login-figure {
-        @apply w-2/6 relative;
-    }
 }
 
-// Buttons
 
-.btnGoogle,
-.btnGithub,
-.btnFacebook,
-.btnApple {
-    @include btnLogin();
-
-    p {
-        @apply pl-4;
-    }
-}
-
-.btnGoogle {
-    @apply bg-UARed text-white;
-}
-
-.btnGithub {
-    @apply bg-black text-white;
-}
-
-.btnFacebook {
-    @apply bg-facebookBlue text-white;
-}
-
-// Media queries
-
-@media screen and (max-width: 1200px) {
-    .login-section {
-        form {
-            @apply flex flex-col;
-
-            .container-account-login {
-                @apply w-full;
-
-                input {
-                    @apply w-4/5;
-                }
-            }
-
-            .container-buttons {
-                @apply flex flex-row;
-
-                .btnGoogle,
-                .btnFacebook,
-                .btnGithub {
-                    @apply w-12 mx-3;
+@media screen and (max-width: 1100px) {
+    .loginPage {
+        #login {
+            .changeToRegister {
+                figcaption {
+                    h2 {
+                        @apply text-4xl
+                    }
 
                     p {
-                        @apply hidden;
+                        @apply text-base;
                     }
                 }
             }
         }
     }
+}
 
-    .login-section, .login-figure {
-        @apply w-3/6;
+@media screen and (max-width: 880px) {
+    .loginPage {
+        @apply p-8;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+}
+
+@media screen and (max-height: 700px) {
+    .loginPetImage {
+        width: 280px !important;
+        height: 200px !important;
     }
 }

@@ -14,6 +14,7 @@ const config: Config = {
                 petnetDarkblue: '#00046F',
                 UARed: '#d9473e',
                 facebookBlue: '#245298',
+                petnetComplementar: '#C5AC42',
             },
         },
     },
