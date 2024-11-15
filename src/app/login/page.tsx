@@ -2,43 +2,64 @@
 
 import './style.scss';
 import Image from 'next/image';
-import { FaCat, FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaCat, FaFacebook, FaGithub, FaGoogle, FaLock, FaUserSecret } from 'react-icons/fa';
 import LoginParty from '../assets/illustrations/login-party.png';
 import { useEffect, useState } from 'react';
+import { MdAlternateEmail } from 'react-icons/md';
 
 const Login = () => {
 
     return (
         <main className="loginPage">
             <section id='login'>
-                <div className='formLogin'>
+                <div className='formLoginContainer'>
                     <h1>Realizar login: </h1>
 
-                    <button className='btnLoginGoogle' type='button'>
-                        <FaGoogle />
-                        <p>via Google</p>
-                    </button>
+                    <form className='formLogin'>
+                        <span>
+                            <label><MdAlternateEmail className='formLoginIcon' /> Email: </label>
+                            <input type='email' placeholder='example@mail.com' />
+                        </span>
+                        <span>
+                            <label><FaLock className='formLoginIcon' /> Senha: </label>
+                            <input type='password' placeholder='Senha' />
 
-                    <button className='btnLoginFacebook' type='button'>
-                        <FaFacebook />
-                        <p>via Facebook</p>
-                    </button>
+                            <button type='button'>Log in</button>
+                        </span>
+                    </form>
 
-                    <button className='btnLoginGithub' type='button'>
-                        <FaGithub />
-                        <p>via Github</p>
-                    </button>
+                    <span>
+                        <button className='btnLoginGoogle' type='button'>
+                            <FaGoogle />
+                            <p>via Google</p>
+                        </button>
 
-                    <button className='btnLoginPetnet' type='button'>
-                        <FaCat />
-                        <p>via Petnet</p>
-                    </button>
+                        <button className='btnLoginFacebook' type='button'>
+                            <FaFacebook />
+                            <p>via Facebook</p>
+                        </button>
+
+                        <button className='btnLoginGithub' type='button'>
+                            <FaGithub />
+                            <p>via Github</p>
+                        </button>
+
+                        <button className='btnLoginPetnet' type='button'>
+                            <FaCat />
+                            <p>via Petnet</p>
+                        </button>
+
+                        <button className='btnLoginGuest' type='button'>
+                            <FaUserSecret />
+                            <p>via Convidado (guest)</p>
+                        </button>
+                    </span>
                 </div>
 
                 <figure className='changeToRegister'>
                     <figcaption>
                         <h2>Nao possui conta ?</h2>
-                        <p>Nao se preocupe, nosso sistema eh 100% gratuito e de codigo aberto, alem de ser amigavel e facil de registrar, faca seu registro agora mesmo</p>
+                        <p className='registerText'>Nao se preocupe, nosso sistema eh 100% gratuito e de codigo aberto, alem de ser amigavel e facil de registrar, faca seu registro agora mesmo</p>
 
                         <button type='button'>Realizar Cadastro</button>
                     </figcaption>

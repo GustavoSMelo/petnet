@@ -6,9 +6,13 @@
     0% {
         opacity: 0;
         transform: translateX(-65%);
-    } 50% {
+    }
+
+    50% {
         opacity: 0.5;
-    } 100% {
+    }
+
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
@@ -18,9 +22,13 @@
     0% {
         opacity: 0;
         transform: translateY(-100%);
-    } 50% {
+    }
+
+    50% {
         opacity: 0.5;
-    } 100% {
+    }
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -57,12 +65,12 @@
         @apply flex items-center justify-center h-full shadow-2xl shadow-black rounded-xl bg-white will-change-transform overflow-hidden;
         animation: 1.6s loginContainerEnter forwards;
 
-        .formLogin,
+        .formLoginContainer,
         .changeToRegister {
             @apply w-1/2 flex items-center h-full;
         }
 
-        .formLogin {
+        .formLoginContainer {
             @apply flex flex-col justify-center;
 
             h1 {
@@ -70,9 +78,34 @@
                 animation: 3s titleLoginEnterFade ease;
             }
 
+            .formLogin {
+                @apply w-3/5 hidden;
+                span {
+                    @apply flex flex-col mb-4 items-center;
+
+                    label {
+                        @apply flex items-center text-sky-500 font-bold self-start;
+
+                        .formLoginIcon {
+                            @apply mr-2;
+                        }
+                    }
+
+                    input {
+                        @apply border border-sky-500 rounded-md p-2 w-full;
+                    }
+
+                    button {
+                        @apply w-full bg-sky-500 text-white;
+                    }
+                }
+            }
+
+
             button {
                 @apply bg-slate-500 w-80 m-3 rounded-md flex items-center py-3 px-2 cursor-pointer font-bold border-2 transition;
                 animation: 1s btnLoginEnterFade ease-in-out;
+
                 p {
                     @apply ml-2;
                 }
@@ -113,6 +146,15 @@
             button.btnLoginPetnet:hover {
                 @apply bg-white border-sky-500 border-2 text-sky-500;
             }
+
+            button.btnLoginGuest {
+                @apply bg-yellow-400 text-black border transition border-yellow-400;
+                animation: 2.3s btnLoginEnterFade ease-in-out;
+            }
+
+            button.btnLoginGuest:hover {
+                @apply bg-black text-yellow-400 border-black transition;
+            }
         }
 
         .changeToRegister {
@@ -121,7 +163,7 @@
             figcaption {
                 h2 {
                     @apply text-5xl text-center pb-4;
-                    animation: 2.5s  titleLoginEnterFade ease-in-out;
+                    animation: 2.5s titleLoginEnterFade ease-in-out;
                 }
 
                 p {
@@ -171,13 +213,100 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 780px) {
+    .loginPage {
+        #login {
+            @apply flex-col-reverse;
 
+
+            .changeToRegister {
+                @apply bg-gradient-to-b from-transparent to-transparent flex-row-reverse h-3/5 bg-gradient-to-b from-sky-500 to-sky-700 w-full;
+
+                .formLoginContainer,
+                .changeToRegister {
+                    @apply w-full flex items-center h-full;
+                }
+
+                figcaption {
+                    p.registerText {
+                        @apply hidden;
+                    }
+
+                    h2 {
+                        @apply text-xl
+                    }
+                }
+
+                .loginPetImage {
+                    @apply w-2/5;
+                }
+            }
+
+
+            .formLoginContainer {
+                @apply justify-normal flex w-full;
+
+                h1 {
+                    @apply p-5;
+                }
+
+                .formLogin {
+                    @apply block;
+                }
+
+                span {
+                    @apply flex;
+
+                    button {
+                        @apply w-14 items-center justify-center rounded-full;
+
+                        p {
+                            @apply hidden;
+                        }
+                    }
+
+                    button.btnLoginPetnet {
+                        @apply hidden;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-height: 700px) {
     .loginPetImage {
         width: 280px !important;
         height: 200px !important;
+    }
+}
+
+
+@media screen and (max-width: 440px) {
+    .loginPage {
+        @apply p-0;
+
+        #login {
+            .formLoginContainer {
+                h1 {
+                    @apply text-3xl;
+                }
+
+                span {
+                    button {
+                        @apply w-11;
+                    }
+                }
+            }
+
+            .changeToRegister {
+                @apply flex-col-reverse rounded-none p-2;
+            }
+        }
+    }
+
+    .loginPetImage {
+        width: 180px !important;
+        height: 140px !important;
     }
 }
