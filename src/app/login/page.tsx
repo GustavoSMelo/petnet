@@ -1,6 +1,6 @@
 'use client';
 
-import './style.scss';
+import './login.style.scss';
 import Image from 'next/image';
 import { FaCat, FaFacebook, FaGithub, FaGoogle, FaLock, FaUserSecret } from 'react-icons/fa';
 import LoginParty from '../assets/illustrations/login-party.png';
@@ -94,6 +94,7 @@ const Login = () => {
                     />
                 </figure>
             </section>
+
             <section id='register'></section>
         </main>
     )

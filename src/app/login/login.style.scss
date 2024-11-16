@@ -1,3 +1,4 @@
+@charset "utf-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -107,7 +108,6 @@
                     }
                 }
             }
-
 
             button {
                 @apply bg-slate-500 w-80 m-3 rounded-md flex items-center py-3 px-2 cursor-pointer font-bold border-2 transition;
