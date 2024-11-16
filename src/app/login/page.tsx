@@ -8,6 +8,20 @@ import { useEffect, useState } from 'react';
 import { MdAlternateEmail } from 'react-icons/md';
 
 const Login = () => {
+    const [showLoginForm, setShowLoginForm] = useState(false);
+    const [sizeX, setSizeX] = useState(window.screen.width);
+
+    useEffect(() => {
+        if (sizeX <= 780) {
+            setShowLoginForm(true);
+        }
+
+        window.addEventListener('resize', () => {
+            setSizeX(window.screen.width);
+            console.log(sizeX);
+            return sizeX <= 780 ? setShowLoginForm(true) : setShowLoginForm(false)
+        });
+    }, [sizeX]);
 
     return (
         <main className="loginPage">
@@ -15,7 +29,7 @@ const Login = () => {
                 <div className='formLoginContainer'>
                     <h1>Realizar login: </h1>
 
-                    <form className='formLogin'>
+                    <form className='formLogin' style={{ display: showLoginForm ? 'block' : 'none' }}>
                         <span>
                             <label><MdAlternateEmail className='formLoginIcon' /> Email: </label>
                             <input type='email' placeholder='example@mail.com' />
@@ -25,35 +39,41 @@ const Login = () => {
                             <input type='password' placeholder='Senha' />
 
                             <button type='button'>Log in</button>
+                            <button type='button' className='btnLoginSocialMedia' onClick={() => setShowLoginForm(false)}> Login via social media</button>
                         </span>
                     </form>
 
-                    <span>
-                        <button className='btnLoginGoogle' type='button'>
-                            <FaGoogle />
-                            <p>via Google</p>
-                        </button>
+                    {showLoginForm && window.screen.width > 780 ? <></> : (
+                        <span>
+                            <button className='btnLoginGoogle' type='button'>
+                                <FaGoogle />
+                                <p>via Google</p>
+                            </button>
 
-                        <button className='btnLoginFacebook' type='button'>
-                            <FaFacebook />
-                            <p>via Facebook</p>
-                        </button>
+                            <button className='btnLoginFacebook' type='button'>
+                                <FaFacebook />
+                                <p>via Facebook</p>
+                            </button>
 
-                        <button className='btnLoginGithub' type='button'>
-                            <FaGithub />
-                            <p>via Github</p>
-                        </button>
+                            <button className='btnLoginGithub' type='button'>
+                                <FaGithub />
+                                <p>via Github</p>
+                            </button>
 
-                        <button className='btnLoginPetnet' type='button'>
-                            <FaCat />
-                            <p>via Petnet</p>
-                        </button>
 
-                        <button className='btnLoginGuest' type='button'>
-                            <FaUserSecret />
-                            <p>via Convidado (guest)</p>
-                        </button>
-                    </span>
+                            {showLoginForm ? <></> : (
+                                <button className='btnLoginPetnet' type='button' onClick={() => setShowLoginForm(true)}>
+                                    <FaCat />
+                                    <p>via Petnet</p>
+                                </button>
+                            )}
+
+                            <button className='btnLoginGuest' type='button'>
+                                <FaUserSecret />
+                                <p>via Convidado (guest)</p>
+                            </button>
+                        </span>
+                    )}
                 </div>
 
                 <figure className='changeToRegister'>
