@@ -62,16 +62,17 @@
 .loginPage {
     @apply p-20 bg-white h-screen;
 
-    #login {
+    #login, #register {
         @apply flex items-center justify-center h-full shadow-2xl shadow-black rounded-xl bg-white will-change-transform overflow-hidden;
         animation: 1.6s loginContainerEnter forwards;
 
         .formLoginContainer,
-        .changeToRegister {
+        .formRegisterContainer,
+        .changeToRegisterToLogin {
             @apply w-1/2 flex items-center h-full;
         }
 
-        .formLoginContainer {
+        .formLoginContainer, .formRegisterContainer {
             @apply flex flex-col justify-center;
 
             h1 {
@@ -164,7 +165,7 @@
             }
         }
 
-        .changeToRegister {
+        .changeToRegisterToLogin {
             @apply bg-gradient-to-b from-sky-500 to-sky-700 rounded-xl flex flex-col items-center justify-center text-white font-bold;
 
             figcaption {
@@ -199,7 +200,7 @@
 @media screen and (max-width: 1100px) {
     .loginPage {
         #login {
-            .changeToRegister {
+            .changeToRegisterToLogin {
                 figcaption {
                     h2 {
                         @apply text-4xl
@@ -219,7 +220,7 @@
         @apply p-8;
 
         #login {
-            .formLoginContainer {
+            .formLoginContainer,.formRegisterContainer {
                 h1 {
                     @apply text-4xl;
                 }
@@ -234,11 +235,12 @@
             @apply flex-col-reverse;
 
 
-            .changeToRegister {
+            .changeToRegisterToLogin {
                 @apply bg-gradient-to-b from-transparent to-transparent flex-row-reverse h-3/5 bg-gradient-to-b from-sky-500 to-sky-700 w-full;
 
                 .formLoginContainer,
-                .changeToRegister {
+                .formRegisterContainer,
+                .changeToRegisterToLogin {
                     @apply w-full flex items-center h-full;
                 }
 
@@ -258,7 +260,7 @@
             }
 
 
-            .formLoginContainer {
+            .formLoginContainer, .formRegisterContainer {
                 @apply justify-normal flex w-full;
 
                 h1 {
@@ -299,10 +301,11 @@
 
 @media screen and (max-width: 440px) {
     .loginPage {
-        @apply p-0;
+        @apply p-0 h-auto;
 
         #login {
-            .formLoginContainer {
+            box-shadow: 0 0 0;
+            .formLoginContainer, .formRegisterContainer {
                 h1 {
                     @apply text-3xl;
                 }
@@ -314,7 +317,7 @@
                 }
             }
 
-            .changeToRegister {
+            .changeToRegisterToLogin {
                 @apply flex-col-reverse rounded-none p-2;
             }
         }
