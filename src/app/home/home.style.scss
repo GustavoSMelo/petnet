@@ -1,0 +1,53 @@
+@charset 'utf-8';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.homeContainer {
+    @apply mt-20 px-5 py-2 flex flex-col items-center;
+    min-height: 80vh;
+
+    .middleContainer {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .firstStep {
+        @apply w-4/5 shadow-gray-400 shadow-xl border-sky-500 rounded-lg flex items-center;
+
+        figure {
+            @apply w-1/3
+        }
+
+        div {
+            h1 {
+                @apply text-3xl mb-4;
+            }
+
+            button {
+                @apply bg-sky-500 px-6 py-2 uppercase font-bold text-white rounded-md mt-8 transition-all duration-300 ease-in scale-100;
+            }
+
+            button:hover {
+                @apply scale-105 transition-all duration-300 ease-in;
+            }
+        }
+    }
+
+    .quickActionsContainer {
+        @apply flex justify-between w-4/5;
+
+        .quickAction {
+            @apply flex flex-col w-3/5 m-3 justify-end items-center text-center shadow-gray-500 shadow-lg rounded-md px-8 pt-20 pb-6;
+
+            button {
+                @apply bg-white px-8 py-2 font-bold rounded-md;
+            }
+        }
+
+        .galleryQuickAction {
+            background-image: url('../assets/polaroid.jpg');
+            @apply bg-contain;
+        }
+    }
+}

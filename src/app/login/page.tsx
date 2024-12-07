@@ -14,11 +14,13 @@ import LoginParty from "../assets/illustrations/login-party.png";
 import { useEffect, useState } from "react";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
     const [isLoginForm, setIsLoginForm] = useState(true);
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [sizeX, setSizeX] = useState(window.screen.width);
+    const router = useRouter();
 
     useEffect(() => {
         if (sizeX <= 780) {
@@ -111,7 +113,7 @@ const Login = () => {
                                 </button>
                             )}
 
-                            <button className="btnLoginGuest" type="button">
+                            <button className="btnLoginGuest" type="button" onClick={() => router.push('/home')}>
                                 <FaUserSecret />
                                 <p>via Convidado (guest)</p>
                             </button>
@@ -121,36 +123,36 @@ const Login = () => {
 
                 <figure className="changeToRegisterToLogin">
                     {isLoginForm ? (
-                        <>
-                            <figcaption>
-                                <h2>Nao possui conta ?</h2>
-                                <p className="registerText">
-                                    Nao se preocupe, nosso sistema eh 100%
-                                    gratuito e de codigo aberto, alem de ser
-                                    amigavel e facil de registrar, faca seu
-                                    registro agora mesmo
-                                </p>
 
-                                <button
-                                    type="button"
-                                    onClick={() => setIsLoginForm(false)}
-                                >
-                                    Realizar Cadastro
-                                </button>
-                            </figcaption>
-                        </>
+                        <figcaption>
+                            <h2>Nao possui conta ?</h2>
+                            <p className="registerText">
+                                Nao se preocupe, nosso sistema eh 100%
+                                gratuito e de codigo aberto, alem de ser
+                                amigavel e facil de registrar, faca seu
+                                registro agora mesmo
+                            </p>
+
+                            <button
+                                type="button"
+                                onClick={() => setIsLoginForm(false)}
+                            >
+                                Realizar Cadastro
+                            </button>
+                        </figcaption>
+
                     ) : (
-                        <>
-                            <figcaption>
-                                <h2>Ja possui conta ?</h2>
-                                <button
-                                    type="button"
-                                    onClick={() => setIsLoginForm(true)}
-                                >
-                                    Realizar login
-                                </button>
-                            </figcaption>
-                        </>
+
+                        <figcaption>
+                            <h2>Ja possui conta ?</h2>
+                            <button
+                                type="button"
+                                onClick={() => setIsLoginForm(true)}
+                            >
+                                Realizar login
+                            </button>
+                        </figcaption>
+
                     )}
 
                     <Image
@@ -205,40 +207,6 @@ const Login = () => {
                             <button type="button">Registrar </button>
                         </span>
                     </form>
-
-                    {/* {showLoginForm && window.screen.width > 780 ? (
-                        <></>
-                    ) : (
-                        <span>
-                            <button className="btnLoginGoogle" type="button">
-                                <FaGoogle />
-                                <p>via Google</p>
-                            </button>
-
-                            <button className="btnLoginFacebook" type="button">
-                                <FaFacebook />
-                                <p>via Facebook</p>
-                            </button>
-
-                            <button className="btnLoginGithub" type="button">
-                                <FaGithub />
-                                <p>via Github</p>
-                            </button>
-
-                            {showLoginForm ? (
-                                <></>
-                            ) : (
-                                <button
-                                    className="btnLoginPetnet"
-                                    type="button"
-                                    onClick={() => setShowLoginForm(true)}
-                                >
-                                    <FaCat />
-                                    <p>via Petnet</p>
-                                </button>
-                            )}
-                        </span>
-                    )} */}
                 </div>
             </section>
         </main>

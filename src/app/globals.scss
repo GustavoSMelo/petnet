@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: local('./fonts/Roboto-Regular.ttf');
+    src: local('./assets/fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: local('./fonts/Roboto-Bold.ttf');
+    src: local('./assets/fonts/Roboto-Bold.ttf');
     font-style: bold;
 }
 
@@ -22,7 +22,8 @@
     font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
 
-html, body {
+html,
+body {
     max-width: 1920px;
     margin: auto;
     background-color: #fff;

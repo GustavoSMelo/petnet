@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbarContainer {
+    @apply flex items-center justify-between w-full fixed top-0 left-0 border-b-sky-800 border-b-2 p-3 bg-sky-500;
+
+    div {
+        @apply flex items-center text-xl;
+
+        * {
+            @apply m-2 cursor-pointer text-white font-bold;
+        }
+    }
+}
