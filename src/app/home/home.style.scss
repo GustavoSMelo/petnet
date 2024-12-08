@@ -34,20 +34,94 @@
         }
     }
 
-    .quickActionsContainer {
-        @apply flex justify-between w-4/5;
+    .selectedPetProfileCard {
+        @apply w-3/5 my-8 shadow-gray-500 shadow-lg px-6 py-6 rounded-lg border-4 border-black flex items-center;
 
-        .quickAction {
-            @apply flex flex-col w-3/5 m-3 justify-end items-center text-center shadow-gray-500 shadow-lg rounded-md px-8 pt-20 pb-6;
+        .petProfileCardFigure {
+            @apply w-36 border-4 border-black rounded-full mr-14;
 
-            button {
-                @apply bg-white px-8 py-2 font-bold rounded-md;
+            img {
+                @apply rounded-full h-32;
             }
         }
 
-        .galleryQuickAction {
-            background-image: url('../assets/polaroid.jpg');
-            @apply bg-contain;
+        .petProfileInfoCard {
+            div {
+                @apply font-bold text-xl w-full;
+            }
+
+            span {
+                @apply mt-3 flex border-t-2 border-gray-200 pt-4 w-full;
+
+                button {
+                    @apply font-bold mr-8 px-4 py-4 uppercase flex items-center justify-center flex-row transition-all duration-300 text-sm;
+
+                    .petProfileCardIcon {
+                        @apply mr-2
+                    }
+                }
+
+                .viewRPNI {
+                    @apply bg-lime-400 text-white border-4 border-lime-400 rounded-xl;
+                }
+
+                .viewRPNI:hover {
+                    @apply text-lime-400 bg-white border-4 border-lime-400;
+                }
+
+
+                .changePetProfile {
+                    @apply bg-sky-400 text-white border-4 border-sky-400 rounded-xl;
+                }
+
+                .changePetProfile:hover {
+                    @apply text-sky-400 bg-white border-4;
+                }
+
+                .editPetProfile {
+                    @apply bg-yellow-400 text-white border-4 border-yellow-400 rounded-xl;
+                }
+
+                .editPetProfile:hover {
+                    @apply text-yellow-400 bg-white border-4 border-yellow-400;
+                }
+            }
+        }
+    }
+
+    .quickActionsContainer {
+        @apply flex w-full flex-col;
+
+        h1 {
+            @apply font-bold text-4xl my-12;
+        }
+
+        .quickActions {
+            @apply flex w-full flex-wrap;
+
+            .quickAction {
+                @apply flex flex-col w-80 m-3 justify-end items-center text-center shadow-gray-500 shadow-lg rounded-md cursor-pointer transition-all duration-300 border-4 border-black;
+
+                img {
+                    @apply flex h-full rounded-tl-md rounded-tr-md;
+                }
+
+                figcaption {
+                    @apply w-full text-2xl font-bold py-6 border-t-4 border-black;
+                }
+            }
+
+            .quickAction:hover {
+                @apply scale-105 transition-all duration-300;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1612px) {
+    .homeContainer {
+        .selectedPetProfileCard {
+            @apply w-4/5;
         }
     }
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import './page.style.scss';
-import Box from "./assets/box2.png";
+import Box from "./assets/box.png";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -21,8 +21,17 @@ const Home = () => {
                     <p>Petnet eh uma rede social feita exclusivamente para seu pet, guarde seus melhores momentos com ele e divirta-se com uma variedade de tarefas para fazer dentro da plataforma, 100% gratuito e codigo aberto</p>
 
                     <span className='btnRow-container'>
-                        <button type='button' className='btnLogin' onClick={() => router.push('/login')}>Entrar na plataforma</button>
-                        <button type='button' className='btnMoreInfo'>Conheca a plataforma</button>
+                        <button
+                            type='button'
+                            className='btnLogin'
+                            onClick={() => router.push('/login')}
+                        >
+                            Entrar na plataforma
+                        </button>
+
+                        <button type='button' className='btnMoreInfo'>
+                            Conheca a plataforma
+                        </button>
                     </span>
                 </div>
                 <figure className='petbox-container'>
