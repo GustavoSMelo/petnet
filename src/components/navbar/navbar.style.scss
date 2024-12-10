@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .navbarContainer {
-    @apply flex items-center justify-between w-full fixed top-0 left-0 border-b-sky-800 border-b-2 p-3 bg-sky-500;
+    @apply flex items-center justify-between w-full fixed top-0 left-0 border-b-sky-800 border-b-2 p-3 bg-sky-500 z-10;
 
     div {
         @apply flex items-center text-xl;

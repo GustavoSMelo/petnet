@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    @apply flex my-32 justify-center h-fit min-h-full;
+
+    .asideContainer {
+        @apply border-4 border-black rounded-md p-5 mx-14 shadow-gray-500 shadow-lg;
+
+        div {
+            @apply flex;
+
+            .userIcon {
+                @apply size-20;
+            }
+
+            h1,
+            h2 {
+                @apply mx-4 my-1;
+            }
+
+            h1 {
+                @apply text-4xl;
+            }
+
+            h2 {
+                @apply text-base ml-5;
+            }
+        }
+
+        ul {
+            @apply mt-4 text-2xl ml-3 text-gray-400;
+
+            li {
+                @apply cursor-pointer;
+            }
+        }
+    }
+
+    .profileContainer {
+        .networkContainer {
+            @apply border-black border-4 p-4 mb-5 rounded-md;
+
+            h1 {
+                @apply mb-5 text-2xl font-bold;
+            }
+
+            .network {
+                @apply flex items-center text-xl my-5 justify-between;
+
+                .socialMediaIcon {
+                    @apply size-8;
+                }
+
+                .googleIcon {
+                    @apply text-red-500;
+                }
+
+                .facebookIcon {
+                    @apply text-facebookBlue;
+                }
+
+                .githubIcon {
+                    @apply text-black;
+                }
+
+                h2 {
+                    @apply mx-4 font-bold text-2xl;
+                }
+
+                .btnUnlink {
+                    @apply cursor-pointer text-red-500 text-2xl;
+                }
+            }
+        }
+
+        .petsContainer {
+            @apply border-black border-4 rounded-md p-5;
+
+            h1 {
+                @apply font-bold text-3xl mb-8;
+            }
+
+            div {
+                @apply flex items-center text-center;
+
+                figure {
+                    @apply text-center items-center font-bold ml-5;
+
+                    .registerIcon {
+                        @apply size-20 ml-8 cursor-pointer;
+                    }
+
+                    img {
+                        @apply w-20 h-20 border-4 border-black rounded-full cursor-pointer;
+                    }
+
+                    figcaption {
+                        @apply mt-4;
+                    }
+                }
+            }
+        }
+    }
+}

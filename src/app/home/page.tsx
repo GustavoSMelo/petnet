@@ -15,13 +15,16 @@ import PetGames from '@petnet/app/assets/petGames.jpg';
 import { HiIdentification } from 'react-icons/hi';
 import { FaArrowsRotate } from 'react-icons/fa6';
 import { FaPencilAlt } from 'react-icons/fa';
+import Footer from '@petnet/components/footer';
 
 const Home = () => {
     return (
-        <main>
-            <Navbar />
-            <section className="homeContainer">
-                {/* <span className='middleContainer'>
+        <>
+
+            <main>
+                <Navbar />
+                <section className="homeContainer">
+                    {/* <span className='middleContainer'>
                     <section className='firstStep'>
                         <figure>
                             <img src={CatIllustration.src} alt='Cat first step' />
@@ -37,98 +40,100 @@ const Home = () => {
                     </section>
                 </span> */}
 
-                <section className='selectedPetProfileCard'>
-                    <figure className='petProfileCardFigure'>
-                        <img src={CatFace.src} alt='logo pet' />
-                    </figure>
+                    <section className='selectedPetProfileCard'>
+                        <figure className='petProfileCardFigure'>
+                            <img src={CatFace.src} alt='logo pet' />
+                        </figure>
 
-                    <div className='petProfileInfoCard'>
-                        <div>
-                            <h1>Tigrinho</h1>
-                            <p>Sexo: M</p>
-                            <p>Idade: 10 (01/01/2014)</p>
-                            <p>Tipo do animal: Gato</p>
-                            <p>Raca: vira-lata</p>
+                        <div className='petProfileInfoCard'>
+                            <div>
+                                <h1>Tigrinho</h1>
+                                <p>Sexo: M</p>
+                                <p>Idade: 10 (01/01/2014)</p>
+                                <p>Tipo do animal: Gato</p>
+                                <p>Raca: vira-lata</p>
+                            </div>
+
+                            <span>
+                                <button className='viewRPNI' type='button'>
+                                    <HiIdentification className='petProfileCardIcon' /> Visualizar RPNI
+                                </button>
+                                <button className='changePetProfile' type='button'>
+                                    <FaArrowsRotate className='petProfileCardIcon' />Trocar de pet
+                                </button>
+                                <button className='editPetProfile' type='button'>
+                                    <FaPencilAlt className='petProfileCardIcon' /> Editar pet perfil
+                                </button>
+                            </span>
                         </div>
+                    </section>
 
-                        <span>
-                            <button className='viewRPNI' type='button'>
-                                <HiIdentification className='petProfileCardIcon' /> Visualizar RPNI
-                            </button>
-                            <button className='changePetProfile' type='button'>
-                                <FaArrowsRotate className='petProfileCardIcon' />Trocar de pet
-                            </button>
-                            <button className='editPetProfile' type='button'>
-                                <FaPencilAlt className='petProfileCardIcon' /> Editar pet perfil
-                            </button>
-                        </span>
-                    </div>
+                    <section className='quickActionsContainer'>
+                        <h1>Ações rapidas: </h1>
+                        <div className='quickActions'>
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={PolaroidGallery.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Acessar galeria
+                                </figcaption>
+                            </figure>
+
+                            <figure className='quickAction registerPetQuickAction'>
+                                <img src={RegisterPet.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Cadastrar pet
+                                </figcaption>
+                            </figure>
+
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={PetPixelart.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Gerar pixelart
+                                </figcaption>
+                            </figure>
+
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={Publish.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Publicar
+                                </figcaption>
+                            </figure>
+
+
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={ViewFeed.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Visualizar feed
+                                </figcaption>
+                            </figure>
+
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={PetGames.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Games
+                                </figcaption>
+                            </figure>
+
+
+                            <figure className='quickAction galleryQuickAction'>
+                                <img src={OtherActions.src} alt='Polaroid gallery' />
+
+                                <figcaption>
+                                    Outras acoes
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </section>
                 </section>
-
-                <section className='quickActionsContainer'>
-                    <h1>Ações rapidas: </h1>
-                    <div className='quickActions'>
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={PolaroidGallery.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Acessar galeria
-                            </figcaption>
-                        </figure>
-
-                        <figure className='quickAction registerPetQuickAction'>
-                            <img src={RegisterPet.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Cadastrar pet
-                            </figcaption>
-                        </figure>
-
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={PetPixelart.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Gerar pixelart
-                            </figcaption>
-                        </figure>
-
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={Publish.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Publicar
-                            </figcaption>
-                        </figure>
-
-
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={ViewFeed.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Visualizar feed
-                            </figcaption>
-                        </figure>
-
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={PetGames.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Games
-                            </figcaption>
-                        </figure>
-
-
-                        <figure className='quickAction galleryQuickAction'>
-                            <img src={OtherActions.src} alt='Polaroid gallery' />
-
-                            <figcaption>
-                                Outras acoes
-                            </figcaption>
-                        </figure>
-                    </div>
-                </section>
-            </section>
-        </main>
+            </main>
+            <Footer />
+        </>
     )
 };
 
