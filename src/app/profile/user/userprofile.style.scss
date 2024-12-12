@@ -5,12 +5,13 @@
 @tailwind utilities;
 
 @mixin containerDefaultConfig() {
-    @apply border-4 border-black rounded-md p-5 mx-14 shadow-gray-500 shadow-lg h-fit bg-white mt-6;
+    @apply border-4 border-black rounded-md p-5 mx-4 shadow-gray-500 shadow-lg h-fit bg-white mt-6;
 }
 
 .mainUserProfileContainer {
     @apply flex my-32 justify-center h-fit min-h-screen;
     background-image: url('../../assets/background.png');
+    background-size: contain;
 
     .asideContainer {
         @include containerDefaultConfig();
@@ -40,7 +41,7 @@
             @apply mt-6 text-2xl ml-3 text-gray-400;
 
             li {
-                @apply cursor-pointer flex items-center;
+                @apply cursor-pointer flex items-center mb-2;
 
                 p {
                     @apply ml-3;
@@ -85,7 +86,7 @@
                 }
 
                 .btnUnlink {
-                    @apply cursor-pointer text-red-500 text-2xl;
+                    @apply cursor-pointer text-red-500 text-3xl;
                 }
             }
         }
@@ -101,10 +102,10 @@
                 @apply flex items-center text-center flex-wrap justify-center;
 
                 figure {
-                    @apply text-center items-center font-bold ml-5;
+                    @apply  flex flex-col text-center items-center font-bold mx-5 justify-center;
 
                     .registerIcon {
-                        @apply size-20 ml-8 cursor-pointer;
+                        @apply size-20 flex items-center self-center cursor-pointer;
                     }
 
                     img {
@@ -154,5 +155,72 @@
             }
         }
     }
+}
 
+@media screen and (max-width: 980px) {
+    .mainUserProfileContainer {
+        @apply flex-col justify-start;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .mainUserProfileContainer {
+        .profileContainer {
+            .networkContainer {
+                .network {
+                    @apply scale-90;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mainUserProfileContainer {
+        .asideContainer {
+            div {
+                @apply flex-col items-center;
+
+                span {
+                    h1 {
+                        @apply text-2xl;
+                    }
+                }
+            }
+
+            ul {
+                li {
+                    @apply mb-3;
+
+                    p {
+                        @apply text-base;
+                    }
+                }
+            }
+        }
+
+        .profileContainer {
+            .networkContainer {
+                .network {
+                    @apply flex-col mb-5 border-b-2 pb-3;
+
+                    p {
+                        @apply text-2xl;
+                    }
+
+                    button {
+                        @apply pt-4;
+                    }
+                }
+            }
+
+            .petsContainer {
+                div {
+                    figure {
+                        @apply mt-4;
+                    }
+                }
+            }
+        }
+    }
 }

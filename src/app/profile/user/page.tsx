@@ -68,7 +68,7 @@ const UserProfile = () => {
                             <span className="network">
                                 <FaSquareGooglePlus className="socialMediaIcon googleIcon" />
                                 <h2>Google: </h2>
-                                <input type="text" value="email@gmail.com" />
+                                <p>email@gmail.com</p>
                                 <button type="button" className="btnUnlink">
                                     <VscDebugDisconnect />
                                 </button>
@@ -77,7 +77,7 @@ const UserProfile = () => {
                             <span className="network">
                                 <FaSquareFacebook className="socialMediaIcon facebookIcon" />
                                 <h2>Facebook: </h2>
-                                <input type="text" value="email@gmail.com" />
+                                <p>email@gmail.com</p>
                                 <button type="button" className="btnUnlink">
                                     <VscDebugDisconnect />
                                 </button>
@@ -86,7 +86,7 @@ const UserProfile = () => {
                             <span className="network">
                                 <FaGithubSquare className="socialMediaIcon githubIcon" />
                                 <h2>Github: </h2>
-                                <input type="text" value="email@gmail.com" />
+                                <p>email@gmail.com</p>
                                 <button type="button" className="btnUnlink">
                                     <VscDebugDisconnect />
                                 </button>
