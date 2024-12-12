@@ -12,7 +12,7 @@ const Navbar = () => {
     return <nav className='navbarContainer'>
         <div>
             <MdOutlineLogout />
-            <FaHome />
+            <FaHome onClick={() => router.push('/home')} />
         </div>
 
         <div>

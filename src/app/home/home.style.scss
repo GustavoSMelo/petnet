@@ -7,6 +7,7 @@
 .homeContainer {
     @apply mt-20 px-5 py-2 flex flex-col items-center;
     min-height: 80vh;
+    background-image: url('../assets/background.png');
 
     .middleContainer {
         @apply flex flex-col items-center justify-center;
@@ -107,7 +108,7 @@
                 }
 
                 figcaption {
-                    @apply w-full text-2xl font-bold py-6 border-t-4 border-black;
+                    @apply w-full text-2xl font-bold py-6 border-t-4 border-black bg-white;
                 }
             }
 
@@ -122,6 +123,44 @@
     .homeContainer {
         .selectedPetProfileCard {
             @apply w-4/5;
+        }
+    }
+}
+
+@media screen and (max-width: 1420px) {
+    .homeContainer {
+        .quickActionsContainer {
+            .quickActions {
+                @apply justify-center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .homeContainer {
+        .selectedPetProfileCard {
+            @apply flex-col items-center text-center justify-center;
+
+            .petProfileCardFigure {
+                @apply m-0 mb-5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .homeContainer {
+        .selectedPetProfileCard {
+            .petProfileInfoCard {
+                span {
+                    @apply flex-col items-center justify-center;
+
+                    button {
+                        @apply m-0 mb-4 w-52;
+                    }
+                }
+            }
         }
     }
 }
