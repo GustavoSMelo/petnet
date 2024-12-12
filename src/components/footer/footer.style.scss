@@ -10,4 +10,12 @@
     h2 {
         @apply px-10;
     }
+
+    @media screen and (max-width: 720px) {
+        @apply flex-col items-center text-center;
+
+        h2 {
+            @apply py-5
+        }
+    }
 }
