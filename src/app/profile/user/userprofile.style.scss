@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 
 @tailwind base;
 @tailwind components;
@@ -9,218 +9,41 @@
 }
 
 .mainUserProfileContainer {
-    @apply flex my-32 justify-center h-fit min-h-screen;
-    background-image: url('../../assets/background.png');
+    @apply flex my-32 h-fit min-h-screen flex-col items-center;
+    background-image: url("../../../assets/background.png");
     background-size: contain;
 
-    .asideContainer {
-        @include containerDefaultConfig();
+    .profileTabContainer {
+        @apply flex;
 
-        div {
-            @apply flex;
+        figure {
+            @apply border-2
+            border-solid
+            rounded-md
+            border-black
+            h-fit
+            mx-2
+            w-44
+            flex
+            items-center
+            justify-center
+            p-2
+            cursor-pointer
+            transition-all
+            font-bold;
 
-            .userIcon {
-                @apply size-20;
-            }
-
-            h1,
-            h2 {
-                @apply mx-4 my-1;
-            }
-
-            h1 {
-                @apply text-4xl font-bold;
-            }
-
-            h2 {
-                @apply text-base ml-5;
-            }
-        }
-
-        ul {
-            @apply mt-6 text-2xl ml-3 text-gray-400;
-
-            li {
-                @apply cursor-pointer flex items-center mb-2;
-
-                p {
-                    @apply ml-3;
-                }
-            }
-
-            .selectedOption {
-                @apply font-bold text-black;
-            }
-        }
-    }
-
-    .profileContainer {
-        .networkContainer {
-            @include containerDefaultConfig();
-
-            h1 {
-                @apply mb-5 text-2xl font-bold;
-            }
-
-            .network {
-                @apply flex items-center text-xl my-5 justify-between;
-
-                .socialMediaIcon {
-                    @apply size-8;
-                }
-
-                .googleIcon {
-                    @apply text-red-500;
-                }
-
-                .facebookIcon {
-                    @apply text-facebookBlue;
-                }
-
-                .githubIcon {
-                    @apply text-black;
-                }
-
-                h2 {
-                    @apply mx-4 font-bold text-2xl;
-                }
-
-                .btnUnlink {
-                    @apply cursor-pointer text-red-500 text-3xl;
-                }
+            .tabIcon {
+                @apply mx-1;
             }
         }
 
-        .petsContainer {
-            @include containerDefaultConfig();
-
-            h1 {
-                @apply font-bold text-3xl mb-8;
-            }
-
-            div {
-                @apply flex items-center text-center flex-wrap justify-center;
-
-                figure {
-                    @apply  flex flex-col text-center items-center font-bold mx-5 justify-center;
-
-                    .registerIcon {
-                        @apply size-20 flex items-center self-center cursor-pointer;
-                    }
-
-                    img {
-                        @apply w-20 h-20 border-4 border-black rounded-full cursor-pointer;
-                    }
-
-                    figcaption {
-                        @apply mt-4;
-                    }
-                }
-            }
-        }
-    }
-
-    .editProfileContainer {
-        @include containerDefaultConfig();
-
-        h1 {
-            @apply text-2xl font-bold mb-5;
+        figure.profileTabSelectedOption {
+            @apply bg-sky-500 text-white border-sky-500 transition-all;
         }
 
-        form {
-            @apply flex flex-col;
-
-            label {
-                @apply font-bold mt-5;
-            }
-
-            input {
-                @apply border-2 border-sky-500 p-2 rounded-md w-96;
-            }
-
-            span {
-                @apply flex items-center justify-center mt-6;
-
-                button {
-                    @apply p-4 mx-2 rounded font-bold;
-                }
-
-                .btnChangeProfile {
-                    @apply bg-sky-500 rounded-md text-white;
-                }
-
-                .btnDeleteProfile {
-                    @apply bg-red-500 rounded-md text-white;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 980px) {
-    .mainUserProfileContainer {
-        @apply flex-col justify-start;
-    }
-}
-
-@media screen and (max-width: 660px) {
-    .mainUserProfileContainer {
-        .profileContainer {
-            .networkContainer {
-                .network {
-                    @apply scale-90;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .mainUserProfileContainer {
-        .asideContainer {
-            div {
-                @apply flex-col items-center;
-
-                span {
-                    h1 {
-                        @apply text-2xl;
-                    }
-                }
-            }
-
-            ul {
-                li {
-                    @apply mb-3;
-
-                    p {
-                        @apply text-base;
-                    }
-                }
-            }
+        figure.profileTabSelectedOption:hover, figure:hover {
+            @apply bg-white text-sky-500 border-sky-500 transition-all;
         }
 
-        .profileContainer {
-            .networkContainer {
-                .network {
-                    @apply flex-col mb-5 border-b-2 pb-3;
-
-                    p {
-                        @apply text-2xl;
-                    }
-
-                    button {
-                        @apply pt-4;
-                    }
-                }
-            }
-
-            .petsContainer {
-                div {
-                    figure {
-                        @apply mt-4;
-                    }
-                }
-            }
-        }
     }
 }

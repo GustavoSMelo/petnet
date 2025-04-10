@@ -2,7 +2,7 @@
 
 import './not-found.style.scss';
 import Image from 'next/image';
-import Image404 from './assets/404.jpg';
+import Image404 from '@petnet/assets/404.jpg';
 
 const NotFound = () => {
     return (

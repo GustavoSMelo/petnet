@@ -10,7 +10,7 @@ import {
     FaLock,
     FaUserSecret,
 } from "react-icons/fa";
-import LoginParty from "../assets/illustrations/login-party.png";
+import LoginParty from "@petnet/assets/illustrations/login-party.png";
 import { useEffect, useState } from "react";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
@@ -19,10 +19,12 @@ import { useRouter } from "next/navigation";
 const Login = () => {
     const [isLoginForm, setIsLoginForm] = useState(true);
     const [showLoginForm, setShowLoginForm] = useState(false);
-    const [sizeX, setSizeX] = useState(window.screen.width);
+    const [sizeX, setSizeX] = useState(0);
     const router = useRouter();
 
     useEffect(() => {
+        setSizeX(window.screen.width);
+
         if (sizeX <= 780) {
             setShowLoginForm(true);
         }
@@ -30,7 +32,7 @@ const Login = () => {
         window.addEventListener("resize", () => {
             setSizeX(window.screen.width);
             console.log(sizeX);
-            return sizeX <= 780
+            return window.screen.width <= 780
                 ? setShowLoginForm(true)
                 : setShowLoginForm(false);
         });
@@ -81,7 +83,7 @@ const Login = () => {
                         </span>
                     </form>
 
-                    {showLoginForm && window.screen.width > 780 ? (
+                    {showLoginForm && sizeX > 780 ? (
                         <></>
                     ) : (
                         <span>
@@ -113,7 +115,11 @@ const Login = () => {
                                 </button>
                             )}
 
-                            <button className="btnLoginGuest" type="button" onClick={() => router.push('/home')}>
+                            <button
+                                className="btnLoginGuest"
+                                type="button"
+                                onClick={() => router.push("/home")}
+                            >
                                 <FaUserSecret />
                                 <p>via Convidado (guest)</p>
                             </button>
@@ -123,14 +129,12 @@ const Login = () => {
 
                 <figure className="changeToRegisterToLogin">
                     {isLoginForm ? (
-
                         <figcaption>
                             <h2>Nao possui conta ?</h2>
                             <p className="registerText">
-                                Nao se preocupe, nosso sistema eh 100%
-                                gratuito e de codigo aberto, alem de ser
-                                amigavel e facil de registrar, faca seu
-                                registro agora mesmo
+                                Nao se preocupe, nosso sistema eh 100% gratuito
+                                e de codigo aberto, alem de ser amigavel e facil
+                                de registrar, faca seu registro agora mesmo
                             </p>
 
                             <button
@@ -140,9 +144,7 @@ const Login = () => {
                                 Realizar Cadastro
                             </button>
                         </figcaption>
-
                     ) : (
-
                         <figcaption>
                             <h2>Ja possui conta ?</h2>
                             <button
@@ -152,7 +154,6 @@ const Login = () => {
                                 Realizar login
                             </button>
                         </figcaption>
-
                     )}
 
                     <Image
@@ -192,8 +193,7 @@ const Login = () => {
                         </span>
                         <span>
                             <label>
-                                <FaLock className="formLoginIcon" />{" "}
-                                Senha:{" "}
+                                <FaLock className="formLoginIcon" /> Senha:{" "}
                             </label>
                             <input type="password" placeholder="Senha" />
                         </span>

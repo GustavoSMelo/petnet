@@ -7,7 +7,7 @@
 .homeContainer {
     @apply mt-20 px-5 py-2 flex flex-col items-center;
     min-height: 80vh;
-    background-image: url('../assets/background.png');
+    background-image: url('../../assets/background.png');
 
     .middleContainer {
         @apply flex flex-col items-center justify-center;

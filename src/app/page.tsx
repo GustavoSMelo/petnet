@@ -1,7 +1,7 @@
 'use client';
 
 import './page.style.scss';
-import Box from "./assets/box.png";
+import Box from "@petnet/assets/box.png";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 

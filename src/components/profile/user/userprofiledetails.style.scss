@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.userProfileDetailsContainer {
+    @apply flex flex-col mt-5 border-2 rounded-md border-black p-6;
+
+    h1 {
+        @apply border-b-2 border-black mb-6 text-3xl font-bold;
+    }
+
+    span {
+        @apply flex;
+        aside {
+            @apply flex flex-col items-center;
+
+            .userProfilePicture {
+                @apply w-32 h-32;
+            }
+
+            button {
+                @apply p-2 border-2 border-solid border-black w-44 mt-4 rounded-md font-bold text-sm;
+            }
+        }
+    }
+}

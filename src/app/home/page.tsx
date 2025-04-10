@@ -3,14 +3,14 @@
 import './home.style.scss';
 import Navbar from "@petnet/components/navbar";
 
-import PolaroidGallery from '@petnet/app/assets/polaroid.jpg';
-import RegisterPet from '@petnet/app/assets/cadastrarPet.jpg';
-import PetPixelart from '@petnet/app/assets/pixelart.jpg';
-import CatFace from '@petnet/app/assets/catface.jpg';
-import Publish from '@petnet/app/assets/publish.jpg';
-import ViewFeed from '@petnet/app/assets/viewFeed.jpg';
-import OtherActions from '@petnet/app/assets/otherActions.jpg';
-import PetGames from '@petnet/app/assets/petGames.jpg';
+import PolaroidGallery from '@petnet/assets/polaroid.jpg';
+import RegisterPet from '@petnet/assets/cadastrarPet.jpg';
+import PetPixelart from '@petnet/assets/pixelart.jpg';
+import CatFace from '@petnet/assets/catface.jpg';
+import Publish from '@petnet/assets/publish.jpg';
+import ViewFeed from '@petnet/assets/viewFeed.jpg';
+import OtherActions from '@petnet/assets/otherActions.jpg';
+import PetGames from '@petnet/assets/petGames.jpg';
 
 import { HiIdentification } from 'react-icons/hi';
 import { FaArrowsRotate } from 'react-icons/fa6';
