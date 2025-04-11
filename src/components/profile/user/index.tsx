@@ -10,17 +10,26 @@ const UserProfileDetails = () => {
             <span>
                 <aside>
                     <figure>
-                        <FaUserCircle className="userProfilePicture"/>
+                        <FaUserCircle className="userProfilePicture" />
                     </figure>
 
-                    <button type="button">Editar imagem</button>
-                    <button type="button">Editar perfil</button>
-                    <button type="button">Salvar modificacoes</button>
+                    <button className="btnEditImage" type="button">
+                        Editar imagem
+                    </button>
+                    <button className="btnSaveModification" type="button">
+                        Salvar modificacoes
+                    </button>
+                    <button className="btnEditProfile" type="button">
+                        Editar perfil
+                    </button>
+                    <button className="btnDeleteProfile" type="button">
+                        Deletar perfil
+                    </button>
                 </aside>
 
                 <form>
                     <label>
-                        <FaUser />
+                        <FaUser className="labelIcons" />
                         Nome Completo:{" "}
                     </label>
                     <input
@@ -28,32 +37,35 @@ const UserProfileDetails = () => {
                         name="name"
                         placeholder="John Doe"
                         value={"John Doe"}
+                        onChange={() => {}}
                     />
 
                     <label>
-                        <FaAt />
+                        <FaAt className="labelIcons" />
                         Email:{" "}
                     </label>
                     <input
                         type="email"
                         name="email"
                         placeholder="john@mail.com"
-                        value={"John Doe"}
+                        value={"john@mail.com"}
+                        onChange={() => {}}
                     />
 
                     <label>
-                        <FaPhone />
+                        <FaPhone className="labelIcons" />
                         Celular:{" "}
                     </label>
                     <input
                         type="text"
                         name="celular"
                         placeholder="(11) 99999-9999"
-                        value={"John Doe"}
+                        value={"(11) 99999-9999"}
+                        onChange={() => {}}
                     />
 
                     <label>
-                        <FaLock />
+                        <FaLock className="labelIcons" />
                         Senha:{" "}
                     </label>
                     <input
@@ -61,10 +73,11 @@ const UserProfileDetails = () => {
                         name="senha"
                         placeholder="Password"
                         value={"John Doe"}
+                        onChange={() => {}}
                     />
 
                     <label>
-                        <FaLock />
+                        <FaLock className="labelIcons" />
                         Confirmar senha:{" "}
                     </label>
                     <input
@@ -72,6 +85,7 @@ const UserProfileDetails = () => {
                         name="confirmar_senha"
                         placeholder="Password confirm"
                         value={"John Doe"}
+                        onChange={() => {}}
                     />
                 </form>
             </span>

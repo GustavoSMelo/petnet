@@ -7,7 +7,8 @@ import Navbar from "@petnet/components/navbar";
 import { FaUserCircle, FaCat } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 
-import UserProfileDetails from "@petnet/components/profile/user";
+// import UserProfileDetails from "@petnet/components/profile/user";
+import UserProfilePets from "@petnet/components/profile/pets";
 
 const UserProfile = () => {
     return (
@@ -35,7 +36,8 @@ const UserProfile = () => {
                     </figure>
                 </section>
                 <section className="tabContent">
-                    <UserProfileDetails />
+                    {/* <UserProfileDetails /> */}
+                    <UserProfilePets />
                 </section>
             </main>
             <Footer />

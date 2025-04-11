@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div.userProfilePetContainer {
+    h1 {
+        @apply pl-2 pb-2 mt-2 text-3xl font-bold border-b-2 border-black border-solid;
+    }
+
+    ul.petList {
+        @apply mt-6 border-solid border-2 border-black p-4 bg-white rounded-md shadow-lg shadow-gray-600;
+        span {
+            @apply flex mt-4 justify-center;
+
+            li {
+                @apply w-32 mx-4;
+
+                figure {
+                    @apply flex flex-col items-center;
+
+                    img {
+                        @apply border-solid border-2 border-black rounded-full w-24 h-24 cursor-pointer;
+                    }
+
+                    figcaption {
+                        @apply text-center font-bold text-xl;
+                    }
+
+                    .petAddIcon {
+                        @apply w-24 h-20 text-sky-500;
+                    }
+                }
+            }
+        }
+    }
+
+    div.userProfilePetInformation {
+        @apply flex flex-col border-solid border-2 border-black p-4 mt-14 bg-white rounded-md shadow-lg shadow-gray-600;
+
+        p.petNotFoundContainer {
+            @apply flex text-center items-center justify-center mt-20 mb-16 text-3xl mx-12;
+        }
+
+        .infoIcon {
+            @apply text-sky-500
+        }
+    }
+}

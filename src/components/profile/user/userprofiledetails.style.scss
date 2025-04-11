@@ -5,23 +5,79 @@
 @tailwind utilities;
 
 .userProfileDetailsContainer {
-    @apply flex flex-col mt-5 border-2 rounded-md border-black p-6;
+    @apply flex flex-col mt-5 border-2 rounded-md border-black p-6 bg-white shadow-xl shadow-gray-500;
 
     h1 {
-        @apply border-b-2 border-black mb-6 text-3xl font-bold;
+        @apply border-b-2 border-black mb-6 text-3xl font-bold pb-2;
     }
 
     span {
         @apply flex;
         aside {
-            @apply flex flex-col items-center;
+            @apply flex flex-col items-center mr-16;
 
             .userProfilePicture {
                 @apply w-32 h-32;
             }
 
             button {
-                @apply p-2 border-2 border-solid border-black w-44 mt-4 rounded-md font-bold text-sm;
+                @apply p-2
+                border-2
+                border-solid
+                border-black
+                w-52
+                mt-4
+                rounded-md
+                font-bold
+                text-sm;
+            }
+
+            button.btnEditImage {
+                @apply bg-sky-400 transition-all;
+            }
+
+            button.btnEditImage:hover {
+                @apply bg-sky-600 text-white transition-all;
+            }
+
+            button.btnEditProfile {
+                @apply bg-yellow-600 transition-all;
+            }
+
+            button.btnEditProfile:hover {
+                @apply bg-yellow-800 transition-all text-white;
+            }
+
+            button.btnDeleteProfile {
+                @apply bg-red-600 text-white transition-all;
+            }
+
+            button.btnDeleteProfile:hover {
+                @apply bg-red-900 transition-all;
+            }
+
+            button.btnSaveModification {
+                @apply bg-lime-600 transition-all;
+            }
+
+            button.btnSaveModification:hover {
+                @apply bg-lime-700 text-white transition-all;
+            }
+        }
+
+        form {
+            @apply ml-4;
+
+            label {
+                @apply flex items-center mt-2;
+
+                .labelIcons {
+                    @apply mr-2;
+                }
+            }
+
+            input {
+                @apply border-2 border-solid border-black w-96 p-2 mt-1 rounded-md;
             }
         }
     }
