@@ -1,4 +1,4 @@
-import {  FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import "./userprofilepets.style.scss";
 
 import Catface from "@petnet/assets/catface.jpg";
@@ -50,14 +50,25 @@ const UserProfilePets = () => {
                     <figure>
                         <img src={Catface.src} alt="petFormLogo" />
 
-                        <button type="button">Trocar foto</button>
-                        <button type="button">Editar Perfil</button>
-                        <button type="button">Excluir perfil</button>
+                        <button className="btnEditImage" type="button">
+                            Trocar foto
+                        </button>
+                        <button className="btnEditProfile" type="button">
+                            Editar Perfil
+                        </button>
+                        <button className="btnDeleteProfile" type="button">
+                            Excluir perfil
+                        </button>
                     </figure>
 
                     <form className="formPetInformation">
                         <label>Nome do pet: </label>
-                        <input type="text" value={''} placeholder="Manteguinha..." name="nomedopet" />
+                        <input
+                            type="text"
+                            value={""}
+                            placeholder="Manteguinha..."
+                            name="nomedopet"
+                        />
 
                         <label>Sexo: </label>
                         <select>
@@ -65,6 +76,36 @@ const UserProfilePets = () => {
                             <option>♂ Macho</option>
                             <option>♀ Femea </option>
                         </select>
+
+                        <label>Tipo do animal: </label>
+                        <select>
+                            <option></option>
+                            <option>Cachorro</option>
+                            <option>Gato</option>
+                            <option>Coelho</option>
+                            <option>Tartaruga</option>
+                            <option>Cobra</option>
+                            <option>Aranha</option>
+                            <option>Porquinho da india</option>
+                            <option>Passarinho</option>
+                            <option>Lhama</option>
+                            <option>Ramster</option>
+                            <option>Peixe</option>
+                            <option>Outros</option>
+                        </select>
+
+                        <label>Raca</label>
+                        <input
+                            type="text"
+                            value={"Raca do cachorro"}
+                            placeholder="Raca"
+                            name="Raca"
+                        />
+
+                        <label>Data de nascimento: (10 anos)</label>
+                        <input type="date" value={''} name="data_nascimento"/>
+
+                        <button className="btnSaveModification" type="button">Salvar modificacoes</button>
                     </form>
                 </span>
             </div>

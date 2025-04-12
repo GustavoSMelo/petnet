@@ -16,9 +16,6 @@ const UserProfileDetails = () => {
                     <button className="btnEditImage" type="button">
                         Editar imagem
                     </button>
-                    <button className="btnSaveModification" type="button">
-                        Salvar modificacoes
-                    </button>
                     <button className="btnEditProfile" type="button">
                         Editar perfil
                     </button>
@@ -87,6 +84,10 @@ const UserProfileDetails = () => {
                         value={"John Doe"}
                         onChange={() => {}}
                     />
+
+                    <button className="btnSaveModification" type="button">
+                        Salvar modificacoes
+                    </button>
                 </form>
             </span>
         </div>
