@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.asidePanelContainer {
+    @apply bg-sky-500 text-white flex flex-col min-h-screen w-fit p-3;
+
+    button {
+        @apply flex text-nowrap font-bold text-xl p-2 rounded-sm;
+        .btnIcons {
+            @apply w-8 h-8 mr-2;
+        }
+    }
+
+    .selectedButton {
+        @apply border-solid border-2 border-white bg-white text-sky-500;
+    }
+}

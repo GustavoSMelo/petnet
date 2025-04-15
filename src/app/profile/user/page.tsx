@@ -4,6 +4,7 @@ import "./userprofile.style.scss";
 
 import Footer from "@petnet/components/footer";
 import Navbar from "@petnet/components/navbar";
+import UserProfileSocialMedias from "@petnet/components/profile/socialMedias";
 import UserProfileDetails from "@petnet/components/profile/user";
 // import UserProfilePets from "@petnet/components/profile/pets";
 
@@ -36,8 +37,9 @@ const UserProfile = () => {
                     </figure>
                 </section>
                 <section className="tabContent">
-                    <UserProfileDetails />
+                    {/* <UserProfileDetails /> */}
                     {/* <UserProfilePets /> */}
+                    <UserProfileSocialMedias />
                 </section>
             </main>
             <Footer />

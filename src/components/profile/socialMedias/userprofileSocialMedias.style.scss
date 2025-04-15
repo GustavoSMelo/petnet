@@ -1,1 +1,33 @@
 @charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.userProfileSocialMediasContainer {
+    @apply flex border-solid border-2 border-black flex-col p-4 mt-6 bg-white rounded-md;
+
+    h1 {
+        @apply border-b-2 border-black mb-6 text-3xl font-bold pb-2;
+    }
+
+    section {
+        @apply border-2 border-solid border-black rounded my-2 flex items-center justify-center p-3;
+
+        span {
+            @apply flex items-center;
+
+            .socialMediaIcons {
+                @apply size-6;
+            }
+
+            p {
+                @apply ml-2;
+            }
+        }
+
+        button {
+            @apply ml-4 border-2 p-2 rounded-md;
+        }
+    }
+}
