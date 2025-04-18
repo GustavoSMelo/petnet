@@ -18,28 +18,45 @@
             @apply w-28 h-28 mt-6;
         }
 
-        .picturePetInput {
-            @apply hidden;
-        }
-
-        .picturePetInputLabel, .btnGenerateDocument {
-            @apply cursor-pointer border-solid border-2 border-black mt-10 px-4 py-6 rounded-md flex items-center bg-sky-200 shadow-md shadow-gray-500 transition-all;
-
-            .uploadLabelIcon {
-                @apply mr-2;
+        .btnRowContainer {
+            @apply flex gap-4;
+            .picturePetInput {
+                @apply hidden;
             }
-        }
 
-        .btnGenerateDocument {
-            @apply bg-lime-400
-        }
+            .picturePetInputLabel,
+            .btnGenerateDocument,
+            .btnGenerateDocumentBlocked {
+                @apply cursor-pointer border-solid border-2 border-black mt-10 px-4 py-6 rounded-md flex items-center justify-center bg-sky-200 shadow-md shadow-gray-500 transition-all w-72;
 
-        .picturePetInputLabel:hover {
-            @apply bg-sky-300 transition-all;
-        }
+                .btnGenerateDocumentIcon {
+                    @apply mr-2 size-5;
+                }
 
-        .btnGenerateDocument:hover {
-            @apply bg-lime-500 transition-all;
+                .uploadLabelIcon {
+                    @apply mr-2;
+                }
+            }
+
+            .btnGenerateDocumentBlocked {
+                @apply cursor-not-allowed bg-gray-400;
+            }
+
+            .btnGenerateDocument {
+                @apply bg-lime-400;
+            }
+
+            .picturePetInputLabel:hover {
+                @apply bg-sky-300 transition-all;
+            }
+
+            .btnGenerateDocument:hover {
+                @apply bg-lime-500 transition-all;
+            }
+
+            .btnGenerateDocumentBlocked:hover {
+                @apply bg-gray-500 text-white;
+            }
         }
     }
 }

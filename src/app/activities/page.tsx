@@ -1,6 +1,6 @@
 "use client";
 
-import { FaUpload } from "react-icons/fa";
+import { FaRegAddressCard, FaUpload } from "react-icons/fa";
 import "./activities.style.scss";
 
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
@@ -9,6 +9,8 @@ import { ChangeEvent, useState } from "react";
 const Activities = () => {
     const [file, setFile] = useState<File | null>(null);
     const [generateDocument, setGenerateDocument] = useState(false);
+
+    const handleGenerateDocumentClick = () => {};
 
     const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
@@ -51,30 +53,30 @@ const Activities = () => {
                     <></>
                 )}
 
-                {file ? (
-                    <button type="button" className="btnGenerateDocument">
-                        Gerar Documento
+                <div className="btnRowContainer">
+                    <button type="button" className={file ? 'btnGenerateDocument' : 'btnGenerateDocumentBlocked'}>
+                        <FaRegAddressCard className="btnGenerateDocumentIcon" /> Gerar documento
                     </button>
-                ) : (
-                    <></>
-                )}
 
-                <input
-                    type="file"
-                    className="picturePetInput"
-                    id="picturePetInput"
-                    accept=".png,.jpg,.jpeg,.webp"
-                    onChange={(event) => handleFileUpload(event)}
-                />
-                <label
-                    className="picturePetInputLabel"
-                    htmlFor="picturePetInput"
-                >
-                    <FaUpload className="uploadLabelIcon" />{" "}
-                    {!file
-                        ? "Clique aqui e faca o upload"
-                        : "Clique para alterar a imagem"}
-                </label>
+                    <span>
+                        <input
+                            type="file"
+                            className="picturePetInput"
+                            id="picturePetInput"
+                            accept=".png,.jpg,.jpeg,.webp"
+                            onChange={(event) => handleFileUpload(event)}
+                        />
+                        <label
+                            className="picturePetInputLabel"
+                            htmlFor="picturePetInput"
+                        >
+                            <FaUpload className="uploadLabelIcon" />{" "}
+                            {!file
+                                ? "Clique aqui e faca o upload"
+                                : "Clique para alterar a imagem"}
+                        </label>
+                    </span>
+                </div>
             </div>
         </div>
     );
