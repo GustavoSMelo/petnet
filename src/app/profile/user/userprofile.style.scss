@@ -1,8 +1,5 @@
 @charset "UTF-8";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use "tailwindcss";
 
 @mixin containerDefaultConfig() {
     @apply border-4 border-black rounded-md p-5 mx-4 shadow-gray-500 shadow-lg h-fit bg-white mt-6;

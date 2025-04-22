@@ -1,6 +1,6 @@
 'use client';
 
-import './not-found.style.scss';
+import '../styles/not-found.style.scss';
 import Image from 'next/image';
 import Image404 from '@petnet/assets/404.jpg';
 
