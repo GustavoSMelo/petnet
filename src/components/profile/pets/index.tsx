@@ -1,5 +1,5 @@
 import { FaPlusCircle } from "react-icons/fa";
-import "./userprofilepets.style.scss";
+import "./userprofilepets.style.css";
 
 import Catface from "@petnet/assets/catface.jpg";
 

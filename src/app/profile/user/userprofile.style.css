@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "tailwindcss";
+@import "tailwindcss";
 
 @mixin containerDefaultConfig() {
     @apply border-4 border-black rounded-md p-5 mx-4 shadow-gray-500 shadow-lg h-fit bg-white mt-6;
@@ -7,7 +7,7 @@
 
 .mainUserProfileContainer {
     @apply flex mt-32 h-fit min-h-screen flex-col items-center;
-    background-image: url("../../../assets/background.png");
+    background-image: url("/assets/background.png");
     background-size: contain;
 
     .profileTabContainer {

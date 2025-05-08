@@ -1,16 +1,16 @@
 'use client';
 
-import './home.style.scss';
+import './home.style.css';
 import Navbar from "@petnet/components/navbar";
 
-import PolaroidGallery from '@petnet/assets/polaroid.jpg';
-import RegisterPet from '@petnet/assets/cadastrarPet.jpg';
-import PetPixelart from '@petnet/assets/pixelart.jpg';
-import CatFace from '@petnet/assets/catface.jpg';
-import Publish from '@petnet/assets/publish.jpg';
-import ViewFeed from '@petnet/assets/viewFeed.jpg';
-import OtherActions from '@petnet/assets/otherActions.jpg';
-import PetGames from '@petnet/assets/petGames.jpg';
+import PolaroidGallery from '@petnetPublic/assets/polaroid.jpg';
+import RegisterPet from '@petnetPublic/assets/cadastrarPet.jpg';
+import PetPixelart from '@petnetPublic/assets/pixelart.jpg';
+import CatFace from '@petnetPublic/assets/catface.jpg';
+import Publish from '@petnetPublic/assets/publish.jpg';
+import ViewFeed from '@petnetPublic/assets/viewFeed.jpg';
+import OtherActions from '@petnetPublic/assets/otherActions.jpg';
+import PetGames from '@petnetPublic/assets/petGames.jpg';
 
 import { HiIdentification } from 'react-icons/hi';
 import { FaArrowsRotate } from 'react-icons/fa6';

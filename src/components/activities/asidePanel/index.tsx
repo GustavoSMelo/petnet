@@ -1,4 +1,4 @@
-import "./asidePanel.style.scss";
+import "./asidePanel.style.css";
 
 import { FaRegAddressCard } from "react-icons/fa6";
 import { LuSwords } from "react-icons/lu";

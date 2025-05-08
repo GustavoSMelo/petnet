@@ -1,4 +1,4 @@
-import "./userprofiledetails.style.scss";
+import "./userprofiledetails.style.css";
 
 import { FaAt, FaLock, FaPhone, FaUser, FaUserCircle } from "react-icons/fa";
 

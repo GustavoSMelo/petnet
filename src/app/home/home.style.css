@@ -1,10 +1,10 @@
-@charset 'utf-8';
-@use "tailwindcss";
+@charset "utf-8";
+@import "tailwindcss";
 
 .homeContainer {
     @apply mt-20 px-5 py-2 flex flex-col items-center;
     min-height: 80vh;
-    background-image: url('../../assets/background.png');
+    background-image: url('/assets/background.png');
 
     .middleContainer {
         @apply flex flex-col items-center justify-center;
@@ -172,7 +172,7 @@
 
             .quickActions {
                 @apply flex-nowrap justify-start overflow-scroll pl-3;
-                scrollbar-width: none; //tailwind does not exists this property
+                scrollbar-width: none; /* tailwind does not exists this property */
 
                 .quickAction {
                     @apply flex-grow flex-shrink-0 w-64;

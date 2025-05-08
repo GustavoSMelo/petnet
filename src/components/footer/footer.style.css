@@ -1,5 +1,5 @@
 @charset "utf-8";
-@use "tailwindcss";
+@import "tailwindcss";
 
 .footerContainer {
     @apply w-full bg-sky-500 flex items-center justify-center text-white font-bold py-7 mt-5 absolute left-0;

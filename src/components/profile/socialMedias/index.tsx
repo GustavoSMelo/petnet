@@ -1,4 +1,4 @@
-import "./userprofileSocialMedias.style.scss";
+import "./userprofileSocialMedias.style.css";
 
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 

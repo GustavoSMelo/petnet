@@ -1,14 +1,17 @@
 "use client";
 
 import { FaRegAddressCard, FaUpload } from "react-icons/fa";
-import "./activities.style.scss";
+import "./activities.style.css";
 
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
 import { ChangeEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";
 
 const Activities = () => {
     const [file, setFile] = useState<File | null>(null);
     const [generateDocument, setGenerateDocument] = useState(false);
+    const router = useRouter();
 
     const handleGenerateDocumentClick = () => {};
 
@@ -37,6 +40,8 @@ const Activities = () => {
         <div className="activitiesContainer">
             <ActivityAsidePanel />
 
+            <CanvasPetDocument />
+
             <div className="activityContentDocument">
                 <h1>Gerador do documento geral da petnet: </h1>
                 <h3>
@@ -54,8 +59,17 @@ const Activities = () => {
                 )}
 
                 <div className="btnRowContainer">
-                    <button type="button" className={file ? 'btnGenerateDocument' : 'btnGenerateDocumentBlocked'}>
-                        <FaRegAddressCard className="btnGenerateDocumentIcon" /> Gerar documento
+                    <button
+                        type="button"
+                        className={
+                            file
+                                ? "btnGenerateDocument"
+                                : "btnGenerateDocumentBlocked"
+                        }
+                        onClick={() => router.push("/activities/gendocument")}
+                    >
+                        <FaRegAddressCard className="btnGenerateDocumentIcon" />{" "}
+                        Gerar documento
                     </button>
 
                     <span>

@@ -1,6 +1,6 @@
 "use client";
 
-import "./userprofile.style.scss";
+import "./userprofile.style.css";
 
 import Footer from "@petnet/components/footer";
 import Navbar from "@petnet/components/navbar";

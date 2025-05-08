@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "tailwindcss";
+@import "tailwindcss";
 
 @theme {
     --color-petnetDarkblue: oklch(24.92% 0.167 264.16);

@@ -1,6 +1,6 @@
 "use client";
 
-import "./login.style.scss";
+import "./login.style.css";
 import Image from "next/image";
 import {
     FaCat,
@@ -10,7 +10,7 @@ import {
     FaLock,
     FaUserSecret,
 } from "react-icons/fa";
-import LoginParty from "@petnet/assets/illustrations/login-party.png";
+import LoginParty from "@petnetPublic/assets/illustrations/cartoon/login-party.png";
 import { useEffect, useState } from "react";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "tailwindcss";
+@import "tailwindcss";
 
 .userProfileSocialMediasContainer {
     @apply flex border-solid border-2 border-black flex-col p-4 mt-6 bg-white rounded-md;

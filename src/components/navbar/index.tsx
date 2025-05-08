@@ -1,6 +1,6 @@
 'use client';
 
-import './navbar.style.scss';
+import './navbar.style.css';
 import { MdOutlineLogout } from "react-icons/md";
 import { FaHome, FaCat, FaImage } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";

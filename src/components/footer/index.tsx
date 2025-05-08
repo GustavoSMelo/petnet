@@ -1,4 +1,4 @@
-import './footer.style.scss';
+import './footer.style.css';
 import { FaCat } from "react-icons/fa";
 
 const Footer = () => {
