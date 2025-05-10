@@ -4,13 +4,56 @@ import { FaRegAddressCard, FaUpload } from "react-icons/fa";
 import "./activities.style.css";
 
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useReducer, useState } from "react";
 import { useRouter } from "next/navigation";
 import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";
+import PetFace from "@petnetPublic/assets/catface.jpg";
+import { ICanvasPetDocumentForm } from "@petnet/types/canvasPetDocument.interface";
+import { TReducerActionCanvasPetDocument } from "@petnet/types/reducerActionCanvasPetDocument.type";
 
 const Activities = () => {
+    const formReducer = (
+        state: ICanvasPetDocumentForm,
+        action: TReducerActionCanvasPetDocument
+    ) => {
+        switch (action.type) {
+            case "changeAnimalType":
+                return {
+                    ...state,
+                    animalType: action.payload,
+                } as ICanvasPetDocumentForm;
+            case "changeBirthDate":
+                return {
+                    ...state,
+                    birthDate: action.payload,
+                } as ICanvasPetDocumentForm;
+            case "petName":
+                return {
+                    ...state,
+                    petName: action.payload,
+                } as ICanvasPetDocumentForm;
+            case "petSex":
+                return {
+                    ...state,
+                    petSex: action.payload,
+                } as ICanvasPetDocumentForm;
+            case "race":
+                return {
+                    ...state,
+                    race: action.payload,
+                } as ICanvasPetDocumentForm;
+        }
+    };
+
     const [file, setFile] = useState<File | null>(null);
     const [generateDocument, setGenerateDocument] = useState(false);
+    const [formInformation, setFormInformation] = useReducer(formReducer, {
+        animalType: "Outros",
+        birthDate: "",
+        petName: "",
+        petSex: "male",
+        race: "",
+    });
     const router = useRouter();
 
     const handleGenerateDocumentClick = () => {};
@@ -40,7 +83,49 @@ const Activities = () => {
         <div className="activitiesContainer">
             <ActivityAsidePanel />
 
-            <CanvasPetDocument />
+            <div className="containerFormPetInformation">
+                <form className="formPetInformation">
+                    <label>Informe o nome do pet: </label>
+                    <input type="text" placeholder="Brutus..." />
+
+                    <label>Informe o sexo do pet: </label>
+                    <select>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+
+                    <label>Informe o tipo do pet: </label>
+                    <select>
+                        <option value="Cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Tartaruga">Tartaruga</option>
+                        <option value="Coelho">Coelho</option>
+                        <option value="Passaro">Passaro</option>
+                        <option value="Hamster">Hamster</option>
+                        <option value="Peixe">Peixe</option>
+                        <option value="Aranha">Aranha</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+
+                    <label>Informe o tipo do pet: </label>
+                    <input type="text" placeholder="Ciames..." />
+
+                    <label>Informe a data de nascimento do pet: </label>
+                    <input type="date" />
+
+                    <button type="button">Gerar documento</button>
+                </form>
+            </div>
+
+            {/* <CanvasPetDocument
+                ageDate="10/10/2010"
+                animalType="Cachorro"
+                petImage={PetFace.src}
+                documentType="Pink"
+                race="Nao sei"
+                petSex="female"
+                petName="jjujuba"
+            /> */}
 
             <div className="activityContentDocument">
                 <h1>Gerador do documento geral da petnet: </h1>

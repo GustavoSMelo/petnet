@@ -1,49 +1,76 @@
 import { useEffect, useRef } from "react";
-import './canvasPetDocument.style.css';
+import "./canvasPetDocument.style.css";
+import { ICanvasPetDocument } from "@petnet/types/canvasPetDocument.interface";
+import {
+    MdOutlineKeyboardArrowLeft,
+    MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
+import { IoMdDownload } from "react-icons/io";
 
-const CanvasPetDocument = () => {
+const CanvasPetDocument = ({
+    ageDate,
+    animalType,
+    petName,
+    petSex,
+    race,
+    documentType = "Blue",
+    petImage,
+}: ICanvasPetDocument) => {
     const canvasRef = useRef(null);
 
-        useEffect(() => {
-            const canvas = canvasRef.current;
+    useEffect(() => {
+        const canvas = canvasRef.current;
 
-            const documentImage = new Image();
-            const dogImage = new Image(200, 300);
+        const documentImage = new Image();
+        const canvasPetImage = new Image(200, 300);
 
-            documentImage.src = "/assets/Ids/Identidade_Green.png";
-            dogImage.src = "/assets/catface.jpg";
+        documentImage.src = `/assets/Ids/Identidade_${documentType}.png`;
+        canvasPetImage.src = petImage;
 
-            documentImage.style.zIndex = '1';
-            dogImage.style.zIndex = '2';
+        documentImage.style.zIndex = "1";
+        canvasPetImage.style.zIndex = "2";
 
-            dogImage.style.borderRadius = "30px";
+        canvasPetImage.style.borderRadius = "30px";
 
-            documentImage.addEventListener("load", () => {
-                canvas.width = documentImage.width;
-                canvas.height = documentImage.height;
-                const canvasContext = canvas.getContext('2d');
-                canvasContext.drawImage(documentImage, 0, 0);
+        documentImage.addEventListener("load", () => {
+            canvas.width = documentImage.width;
+            canvas.height = documentImage.height;
+            const canvasContext = canvas.getContext("2d");
+            canvasContext.drawImage(documentImage, 0, 0);
+            canvasContext.save();
+
+            canvasPetImage.addEventListener("load", () => {
+                console.log(canvasPetImage);
+                canvasContext.drawImage(canvasPetImage, 162, 160, 320, 280);
+
+                canvasContext.font = "32px Verdana";
+
+                if (documentType === "Brown") {
+                    canvasContext.fillStyle = "white";
+                }
+
+                canvasContext.fillText(petName, 665, 180);
+                canvasContext.fillText(petSex, 660, 236);
+                canvasContext.fillText(race, 660, 295);
+                canvasContext.fillText(animalType, 710, 350);
+                canvasContext.fillText(ageDate, 670, 400);
+
                 canvasContext.save();
+            });
+        });
+    }, []);
 
-                dogImage.addEventListener("load", () => {
+    const handleDownloadDocument = () => {
+        const a = window.document.createElement("a");
 
-                  console.log(dogImage);
-                  canvasContext.drawImage(dogImage, 162, 160, 320, 280);
-
-                  canvasContext.font = '47px Fredoka';
-
-                  canvasContext.fillText("jao", 685, 165);
-                  canvasContext.fillText("PetSex", 920, 465);
-                  canvasContext.fillText("PetRace", 920, 565);
-                  canvasContext.fillText("PetType", 1035, 660);
-                  canvasContext.fillText("DD/MM/YYYY (20)", 940, 755);
-                  canvasContext.fillText("Documento gerado pela plataforma petnet", 300, 835);
-
-                  canvasContext.save();
-                });
-              });
-
-        }, []);
+        if (canvasRef.current) {
+            a.href = canvasRef.current.toDataURL();
+            a.download = "petnetDocumento";
+            window.document.body.appendChild(a);
+            a.click();
+            window.document.body.removeChild(a);
+        }
+    };
 
     return (
         <div className="canvasPetDocumentContainer">
@@ -52,9 +79,21 @@ const CanvasPetDocument = () => {
                 className="documentGeneration"
                 ref={canvasRef}
             ></canvas>
-            <button type="button" className="btnDownloadDocument">
-                Baixar document
-            </button>
+            <span className="btnContainer">
+                <button type="button" className="btnPreviousNextCard">
+                    <MdOutlineKeyboardArrowLeft />
+                </button>
+                <button
+                    onClick={() => handleDownloadDocument()}
+                    type="button"
+                    className="btnDownloadDocument"
+                >
+                    <IoMdDownload className="downloadIcon" /> Download
+                </button>
+                <button type="button" className="btnPreviousNextCard">
+                    <MdOutlineKeyboardArrowRight />
+                </button>
+            </span>
         </div>
     );
 };

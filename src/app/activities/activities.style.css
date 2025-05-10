@@ -4,6 +4,27 @@
 .activitiesContainer {
     @apply flex;
 
+    .containerFormPetInformation {
+        @apply absolute w-full h-full;
+        background-color: #60606090;
+
+        .formPetInformation {
+            @apply flex flex-col bg-white w-fit rounded-lg shadow-gray-500 shadow-md relative top-2/8 left-3/7 p-8;
+
+            input, select {
+                @apply border-b-1 p-1.5 mb-3 transition-all;
+            }
+
+            input:focus, select:focus {
+                @apply border-sky-600 border-1 rounded-md transition-normal;
+            }
+
+            button {
+                @apply bg-sky-500 p-2.5 rounded-md font-bold border-2;
+            }
+        }
+    }
+
     .activityContentDocument {
         @apply flex flex-col items-center w-full justify-center;
 

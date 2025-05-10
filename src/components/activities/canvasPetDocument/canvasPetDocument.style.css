@@ -2,5 +2,32 @@
 @import "tailwindcss";
 
 .canvasPetDocumentContainer {
-    @apply absolute;
+    @apply absolute left-2/4 top-2/4 w-full h-full flex flex-col;
+    transform: translate(-50%, -50%);
+    background-color: #60606090;
+
+    .documentGeneration {
+        @apply relative left-3/7 top-2/6 scale-75 w-2/3;
+        transform: translate(-50%, -50%);
+    }
+
+    .btnContainer {
+        @apply relative flex justify-center;
+
+        button {
+            @apply bg-sky-500 flex items-center text-white border-sky-800 border-2 rounded-md px-10 py-3 font-bold cursor-pointer mx-2 transition-all;
+        }
+
+        button:hover {
+            @apply bg-sky-600 transition-all;
+        }
+
+        button.btnPreviousNextCard {
+            @apply bg-gray-300 border-black border-2 px-3 text-3xl rounded-full text-black transition-all;
+        }
+
+        button.btnPreviousNextCard:hover {
+            @apply transition-all bg-gray-400;
+        }
+    }
 }
