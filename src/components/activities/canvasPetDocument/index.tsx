@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import "./canvasPetDocument.style.css";
-import { ICanvasPetDocument } from "@petnet/types/canvasPetDocument.interface";
+import {
+    ICanvasPetDocumentComponent,
+} from "@petnet/types/canvasPetDocument.interface";
 import {
     MdOutlineKeyboardArrowLeft,
     MdOutlineKeyboardArrowRight,
@@ -15,50 +17,57 @@ const CanvasPetDocument = ({
     race,
     documentType = "Blue",
     petImage,
-}: ICanvasPetDocument) => {
+    handleChangeDocumentColor,
+}: ICanvasPetDocumentComponent) => {
     const canvasRef = useRef(null);
 
-    useEffect(() => {
+    const loadCanvas = async () => {
+        if (!petImage) return; // <-- early return if petImage not ready
+
         const canvas = canvasRef.current;
+        if (!canvas) return;
 
         const documentImage = new Image();
         const canvasPetImage = new Image(200, 300);
 
         documentImage.src = `/assets/Ids/Identidade_${documentType}.png`;
-        canvasPetImage.src = petImage;
+        canvasPetImage.src = URL.createObjectURL(petImage);
 
-        documentImage.style.zIndex = "1";
-        canvasPetImage.style.zIndex = "2";
-
-        canvasPetImage.style.borderRadius = "30px";
-
-        documentImage.addEventListener("load", () => {
-            canvas.width = documentImage.width;
-            canvas.height = documentImage.height;
-            const canvasContext = canvas.getContext("2d");
-            canvasContext.drawImage(documentImage, 0, 0);
-            canvasContext.save();
-
-            canvasPetImage.addEventListener("load", () => {
-                console.log(canvasPetImage);
-                canvasContext.drawImage(canvasPetImage, 162, 160, 320, 280);
+        const mainPromise = new Promise(() => {
+            documentImage.addEventListener("load", () => {
+                canvas.width = documentImage.width;
+                canvas.height = documentImage.height;
+                const canvasContext = canvas.getContext("2d");
+                canvasContext.drawImage(documentImage, 0, 0);
 
                 canvasContext.font = "32px Verdana";
-
-                if (documentType === "Brown") {
-                    canvasContext.fillStyle = "white";
-                }
+                canvasContext.fillStyle =
+                    documentType === "Brown" ? "white" : "black";
 
                 canvasContext.fillText(petName, 665, 180);
                 canvasContext.fillText(petSex, 660, 236);
                 canvasContext.fillText(race, 660, 295);
                 canvasContext.fillText(animalType, 710, 350);
                 canvasContext.fillText(ageDate, 670, 400);
-
                 canvasContext.save();
+
+                canvasContext.drawImage(canvasPetImage, 162, 160, 320, 280);
+                canvasContext.save();
+
+                canvasPetImage.addEventListener("load", () => {
+                    canvasContext.drawImage(canvasPetImage, 162, 160, 320, 280);
+
+                    canvasContext.save();
+                });
             });
         });
-    }, []);
+
+        await Promise.all([mainPromise]);
+    };
+
+    useEffect(() => {
+        loadCanvas();
+    }, [documentType]);
 
     const handleDownloadDocument = () => {
         const a = window.document.createElement("a");
@@ -80,7 +89,11 @@ const CanvasPetDocument = ({
                 ref={canvasRef}
             ></canvas>
             <span className="btnContainer">
-                <button type="button" className="btnPreviousNextCard">
+                <button
+                    type="button"
+                    className="btnPreviousNextCard"
+                    onClick={() => handleChangeDocumentColor("previous")}
+                >
                     <MdOutlineKeyboardArrowLeft />
                 </button>
                 <button
@@ -90,7 +103,11 @@ const CanvasPetDocument = ({
                 >
                     <IoMdDownload className="downloadIcon" /> Download
                 </button>
-                <button type="button" className="btnPreviousNextCard">
+                <button
+                    type="button"
+                    className="btnPreviousNextCard"
+                    onClick={() => handleChangeDocumentColor("next")}
+                >
                     <MdOutlineKeyboardArrowRight />
                 </button>
             </span>

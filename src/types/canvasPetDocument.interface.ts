@@ -13,8 +13,12 @@ interface ICanvasPetDocument {
         | "Outros";
     race: string;
     ageDate: string;
-    documentType: "Blue" | "Pink" | "Brown" | "Green";
-    petImage: string;
+    documentType: "Blue" | "Pink" | "Brown" | "Green" | "Purple";
+    petImage: File;
+}
+
+interface ICanvasPetDocumentComponent extends ICanvasPetDocument {
+    handleChangeDocumentColor: (isPreviousOrNextColor: 'previous' | 'next') => void;
 }
 
 interface ICanvasPetDocumentForm {
@@ -23,6 +27,11 @@ interface ICanvasPetDocumentForm {
     animalType: ICanvasPetDocument["animalType"];
     race: string;
     birthDate: string;
+    birthDateFormatted: string;
 }
 
-export { type ICanvasPetDocument, type ICanvasPetDocumentForm };
+export {
+    type ICanvasPetDocument,
+    type ICanvasPetDocumentForm,
+    type ICanvasPetDocumentComponent,
+};

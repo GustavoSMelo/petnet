@@ -7,13 +7,16 @@ type TReducerActionCanvasPetDocument = {
     type: 'changeBirthDate',
     payload: string,
 } | {
-    type: 'petName',
+    type: 'changePetName',
     payload: string,
 } | {
-    type: 'petSex',
+    type: 'changePetSex',
     payload: ICanvasPetDocument['petSex']
 } | {
-    type: 'race',
+    type: 'changeRace',
+    payload: string
+} | {
+    type: 'changeDateFormatted',
     payload: string
 }
 

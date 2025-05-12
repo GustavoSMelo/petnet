@@ -5,10 +5,10 @@ import "./activities.style.css";
 
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
 import { ChangeEvent, useReducer, useState } from "react";
-import { useRouter } from "next/navigation";
-import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";
-import PetFace from "@petnetPublic/assets/catface.jpg";
-import { ICanvasPetDocumentForm } from "@petnet/types/canvasPetDocument.interface";
+import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";import {
+    ICanvasPetDocument,
+    ICanvasPetDocumentForm,
+} from "@petnet/types/canvasPetDocument.interface";
 import { TReducerActionCanvasPetDocument } from "@petnet/types/reducerActionCanvasPetDocument.type";
 
 const Activities = () => {
@@ -27,36 +27,71 @@ const Activities = () => {
                     ...state,
                     birthDate: action.payload,
                 } as ICanvasPetDocumentForm;
-            case "petName":
+            case "changePetName":
                 return {
                     ...state,
                     petName: action.payload,
                 } as ICanvasPetDocumentForm;
-            case "petSex":
+            case "changePetSex":
                 return {
                     ...state,
                     petSex: action.payload,
                 } as ICanvasPetDocumentForm;
-            case "race":
+            case "changeRace":
                 return {
                     ...state,
                     race: action.payload,
                 } as ICanvasPetDocumentForm;
+            case "changeDateFormatted":
+                return {
+                    ...state,
+                    birthDateFormatted: action.payload,
+                } as ICanvasPetDocumentForm;
+            default: {
+                return { ...state };
+            }
         }
     };
 
     const [file, setFile] = useState<File | null>(null);
-    const [generateDocument, setGenerateDocument] = useState(false);
-    const [formInformation, setFormInformation] = useReducer(formReducer, {
+    const [showForm, setShowForm] = useState(false);
+    const [showGenerationDocument, setShowGenerationDocument] = useState(false);
+    const [formInformation, dispatchFormInformation] = useReducer(formReducer, {
         animalType: "Outros",
         birthDate: "",
         petName: "",
         petSex: "male",
         race: "",
+        birthDateFormatted: "",
     });
-    const router = useRouter();
+    const [documentColor, setDocumentColor] =
+        useState<ICanvasPetDocument["documentType"]>("Blue");
 
-    const handleGenerateDocumentClick = () => {};
+    const handleOpenForm = () => {
+        if (!file) {
+            return;
+        }
+        setShowForm(true);
+    };
+
+    const handleGenerateDocument = () => {
+        if (
+            !formInformation.birthDate ||
+            !formInformation.petName ||
+            !formInformation.race
+        ) {
+            return;
+        }
+
+        const [year, month, day] = formInformation.birthDate.split("-");
+        dispatchFormInformation({
+            type: "changeDateFormatted",
+            payload: `${day}/${month}/${year}`,
+        });
+
+        setShowForm(false);
+        setShowGenerationDocument(true);
+    };
 
     const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
@@ -79,53 +114,147 @@ const Activities = () => {
         }
     };
 
+    const handleChangeDocumentColor = (
+        isPreviousOrNextColor: "previous" | "next"
+    ) => {
+        const colors = ["Blue", "Brown", "Green", "Pink", "Purple"];
+        const colorIndex =
+            colors.findIndex((color) => documentColor === color) ?? 0;
+        let selectedColor = "";
+
+        if (isPreviousOrNextColor === "previous") {
+            if (colorIndex - 1 < 0) {
+                selectedColor = colors[colors.length - 1];
+            } else {
+                selectedColor = colors[colorIndex - 1];
+            }
+        } else {
+            if (colorIndex + 1 >= colors.length) {
+                selectedColor = colors[0];
+            } else {
+                selectedColor = colors[colorIndex + 1];
+            }
+        }
+
+        console.log("testando click arrow");
+
+        setDocumentColor(selectedColor as ICanvasPetDocument["documentType"]);
+    };
+
     return (
         <div className="activitiesContainer">
             <ActivityAsidePanel />
 
-            <div className="containerFormPetInformation">
-                <form className="formPetInformation">
-                    <label>Informe o nome do pet: </label>
-                    <input type="text" placeholder="Brutus..." />
+            {showForm ? (
+                <div
+                    className="containerFormPetInformation"
+                    onClick={() => setShowForm(false)}
+                >
+                    <form
+                        className="formPetInformation"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <label>Informe o nome do pet: </label>
+                        <input
+                            type="text"
+                            placeholder="Brutus..."
+                            value={formInformation.petName}
+                            onChange={(event) =>
+                                dispatchFormInformation({
+                                    type: "changePetName",
+                                    payload: event.target.value,
+                                })
+                            }
+                        />
 
-                    <label>Informe o sexo do pet: </label>
-                    <select>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select>
+                        <label>Informe o sexo do pet: </label>
+                        <select
+                            value={formInformation.petSex}
+                            onChange={(event) =>
+                                dispatchFormInformation({
+                                    type: "changePetSex",
+                                    payload: event.target
+                                        .value as ICanvasPetDocumentForm["petSex"],
+                                })
+                            }
+                        >
+                            <option value="male">Macho</option>
+                            <option value="female">Femea</option>
+                        </select>
 
-                    <label>Informe o tipo do pet: </label>
-                    <select>
-                        <option value="Cachorro">Cachorro</option>
-                        <option value="Gato">Gato</option>
-                        <option value="Tartaruga">Tartaruga</option>
-                        <option value="Coelho">Coelho</option>
-                        <option value="Passaro">Passaro</option>
-                        <option value="Hamster">Hamster</option>
-                        <option value="Peixe">Peixe</option>
-                        <option value="Aranha">Aranha</option>
-                        <option value="Outros">Outros</option>
-                    </select>
+                        <label>Informe o tipo do pet: </label>
+                        <select
+                            value={formInformation.animalType}
+                            onChange={(event) =>
+                                dispatchFormInformation({
+                                    type: "changeAnimalType",
+                                    payload: event.target
+                                        .value as ICanvasPetDocument["animalType"],
+                                })
+                            }
+                        >
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Tartaruga">Tartaruga</option>
+                            <option value="Coelho">Coelho</option>
+                            <option value="Passaro">Passaro</option>
+                            <option value="Hamster">Hamster</option>
+                            <option value="Peixe">Peixe</option>
+                            <option value="Aranha">Aranha</option>
+                            <option value="Outros">Outros</option>
+                        </select>
 
-                    <label>Informe o tipo do pet: </label>
-                    <input type="text" placeholder="Ciames..." />
+                        <label>Informe a raca do pet: </label>
+                        <input
+                            type="text"
+                            placeholder="Ciames..."
+                            value={formInformation.race}
+                            onChange={(event) =>
+                                dispatchFormInformation({
+                                    type: "changeRace",
+                                    payload: event.target.value,
+                                })
+                            }
+                        />
 
-                    <label>Informe a data de nascimento do pet: </label>
-                    <input type="date" />
+                        <label>Informe a data de nascimento do pet: </label>
+                        <input
+                            type="date"
+                            value={formInformation.birthDate}
+                            onChange={(event) =>
+                                dispatchFormInformation({
+                                    type: "changeBirthDate",
+                                    payload: event.target.value,
+                                })
+                            }
+                        />
 
-                    <button type="button">Gerar documento</button>
-                </form>
-            </div>
+                        <button
+                            onClick={() => handleGenerateDocument()}
+                            type="button"
+                        >
+                            Gerar documento
+                        </button>
+                    </form>
+                </div>
+            ) : (
+                <></>
+            )}
 
-            {/* <CanvasPetDocument
-                ageDate="10/10/2010"
-                animalType="Cachorro"
-                petImage={PetFace.src}
-                documentType="Pink"
-                race="Nao sei"
-                petSex="female"
-                petName="jjujuba"
-            /> */}
+            {showGenerationDocument ? (
+                <CanvasPetDocument
+                    ageDate={formInformation.birthDateFormatted}
+                    animalType={formInformation.animalType}
+                    petImage={file}
+                    documentType={documentColor}
+                    race={formInformation.race}
+                    petSex={formInformation.petSex}
+                    petName={formInformation.petName}
+                    handleChangeDocumentColor={handleChangeDocumentColor}
+                />
+            ) : (
+                <></>
+            )}
 
             <div className="activityContentDocument">
                 <h1>Gerador do documento geral da petnet: </h1>
@@ -151,7 +280,7 @@ const Activities = () => {
                                 ? "btnGenerateDocument"
                                 : "btnGenerateDocumentBlocked"
                         }
-                        onClick={() => router.push("/activities/gendocument")}
+                        onClick={() => handleOpenForm()}
                     >
                         <FaRegAddressCard className="btnGenerateDocumentIcon" />{" "}
                         Gerar documento
