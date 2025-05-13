@@ -7,7 +7,7 @@ import { TbPlayCardStarFilled } from "react-icons/tb";
 const ActivityAsidePanel = () => {
     return (
         <aside className="asidePanelContainer">
-            <button type="button">
+            <button type="button" className="selectedButton">
                 <FaRegAddressCard className="btnIcons" /> Pet Docs
             </button>
             <button type="button">

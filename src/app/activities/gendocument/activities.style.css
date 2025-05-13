@@ -1,0 +1,82 @@
+@charset "UTF-8";
+@import "tailwindcss";
+
+.activitiesContainer {
+    @apply flex;
+
+    .containerFormPetInformation {
+        @apply absolute w-full h-full;
+        background-color: #60606090;
+
+        .formPetInformation {
+            @apply flex flex-col bg-white w-fit rounded-lg shadow-gray-500 shadow-md relative top-2/8 left-3/7 p-8 z-20;
+
+            input,
+            select {
+                @apply border-b-1 p-1.5 mb-3 transition-all;
+            }
+
+            input:focus,
+            select:focus {
+                @apply border-sky-600 border-1 rounded-md transition-normal;
+            }
+
+            button {
+                @apply bg-sky-500 p-2.5 rounded-md font-bold border-2 cursor-pointer;
+            }
+        }
+    }
+
+    .activityContentDocument {
+        @apply flex flex-col items-center w-full justify-center;
+
+        h1 {
+            @apply text-4xl text-blue-950 font-bold;
+        }
+
+        .imgPreview {
+            @apply w-28 h-28 mt-6;
+        }
+
+        .btnRowContainer {
+            @apply flex gap-4;
+            .picturePetInput {
+                @apply hidden;
+            }
+
+            .picturePetInputLabel,
+            .btnGenerateDocument,
+            .btnGenerateDocumentBlocked {
+                @apply border-solid border-2 border-black mt-10 px-4 py-6 rounded-md flex items-center justify-center bg-sky-200 shadow-md shadow-gray-500 transition-all w-72 cursor-pointer;
+
+                .btnGenerateDocumentIcon {
+                    @apply mr-2 size-5;
+                }
+
+                .uploadLabelIcon {
+                    @apply mr-2;
+                }
+            }
+
+            .btnGenerateDocumentBlocked {
+                @apply cursor-not-allowed bg-gray-400;
+            }
+
+            .btnGenerateDocument {
+                @apply bg-lime-400;
+            }
+
+            .picturePetInputLabel:hover {
+                @apply bg-sky-300 transition-all;
+            }
+
+            .btnGenerateDocument:hover {
+                @apply bg-lime-500 transition-all;
+            }
+
+            .btnGenerateDocumentBlocked:hover {
+                @apply bg-gray-500 text-white;
+            }
+        }
+    }
+}

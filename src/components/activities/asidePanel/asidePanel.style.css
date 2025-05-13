@@ -3,10 +3,10 @@
 
 
 .asidePanelContainer {
-    @apply bg-sky-500 text-white flex flex-col min-h-screen w-fit p-3;
+    @apply bg-sky-500 text-white flex flex-col min-h-screen w-fit pl-3 pt-3;
 
     button {
-        @apply flex text-nowrap font-bold text-xl p-2 rounded-sm;
+        @apply flex text-nowrap font-bold text-xl py-3 px-10 mb-2.5 cursor-pointer border-2 border-white rounded-l-lg;
         .btnIcons {
             @apply w-8 h-8 mr-2;
         }
