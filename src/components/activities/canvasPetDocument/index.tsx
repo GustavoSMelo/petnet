@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./canvasPetDocument.style.css";
-import {
-    ICanvasPetDocumentComponent,
-} from "@petnet/types/canvasPetDocument.interface";
+import { ICanvasPetDocumentComponent } from "@petnet/types/canvasPetDocument.interface";
 import {
     MdOutlineKeyboardArrowLeft,
     MdOutlineKeyboardArrowRight,
@@ -18,6 +16,7 @@ const CanvasPetDocument = ({
     documentType = "Blue",
     petImage,
     handleChangeDocumentColor,
+    handleCloseDocument,
 }: ICanvasPetDocumentComponent) => {
     const canvasRef = useRef(null);
 
@@ -82,13 +81,19 @@ const CanvasPetDocument = ({
     };
 
     return (
-        <div className="canvasPetDocumentContainer">
+        <div
+            className="canvasPetDocumentContainer"
+            onClick={() => handleCloseDocument()}
+        >
             <canvas
                 id="documentGeneration"
                 className="documentGeneration"
                 ref={canvasRef}
             ></canvas>
-            <span className="btnContainer">
+            <span
+                className="btnContainer"
+                onClick={(event) => event.stopPropagation()}
+            >
                 <button
                     type="button"
                     className="btnPreviousNextCard"

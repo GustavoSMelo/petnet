@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@import "tailwindcss";
+
+.TCGeneratorContainer {
+    @apply flex;
+    background-image: url("/assets/background.png");
+
+    .generationContainer {
+        @apply flex items-center justify-center w-full;
+
+        form {
+            @apply flex flex-col shadow-gray-400 shadow-lg rounded-md p-4 w-90 bg-white;
+
+            label {
+                @apply mt-4;
+            }
+
+            input,
+            select {
+                @apply border-2 border-sky-500 rounded-md px-3 py-2;
+            }
+
+            .fileContainer {
+                input {
+                    @apply hidden;
+                }
+
+                label.petPictureLabel {
+                    @apply bg-sky-500 flex p-4 rounded-md cursor-pointer items-center justify-center border-2;
+
+                    .uploadLabelIcon {
+                        @apply mr-1.5;
+                    }
+                }
+            }
+
+            .btnGenerateCard {
+                @apply bg-sky-500 flex p-2.5 mt-3.5 rounded-md cursor-pointer items-center justify-center border-2;
+            }
+        }
+    }
+}

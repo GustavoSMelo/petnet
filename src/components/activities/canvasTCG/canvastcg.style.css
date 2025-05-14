@@ -1,0 +1,6 @@
+@charset "UTF-8";
+@import "tailwindcss";
+
+.canvasTCGContainer {
+    @apply absolute z-20 top-2/4 left-2/4;
+}

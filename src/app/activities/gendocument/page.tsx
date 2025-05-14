@@ -5,7 +5,8 @@ import "./activities.style.css";
 
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
 import { ChangeEvent, useReducer, useState } from "react";
-import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";import {
+import CanvasPetDocument from "@petnet/components/activities/canvasPetDocument";
+import {
     ICanvasPetDocument,
     ICanvasPetDocumentForm,
 } from "@petnet/types/canvasPetDocument.interface";
@@ -91,6 +92,10 @@ const Activities = () => {
 
         setShowForm(false);
         setShowGenerationDocument(true);
+    };
+
+    const handleCloseDocument = () => {
+        setShowGenerationDocument(false);
     };
 
     const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
@@ -251,6 +256,7 @@ const Activities = () => {
                     petSex={formInformation.petSex}
                     petName={formInformation.petName}
                     handleChangeDocumentColor={handleChangeDocumentColor}
+                    handleCloseDocument={handleCloseDocument}
                 />
             ) : (
                 <></>

@@ -3,6 +3,7 @@
 
 .activitiesContainer {
     @apply flex;
+    background-image: url('/assets/background.png');
 
     .containerFormPetInformation {
         @apply absolute w-full h-full;

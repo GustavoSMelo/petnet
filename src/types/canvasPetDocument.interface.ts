@@ -19,6 +19,7 @@ interface ICanvasPetDocument {
 
 interface ICanvasPetDocumentComponent extends ICanvasPetDocument {
     handleChangeDocumentColor: (isPreviousOrNextColor: 'previous' | 'next') => void;
+    handleCloseDocument: () => void
 }
 
 interface ICanvasPetDocumentForm {
