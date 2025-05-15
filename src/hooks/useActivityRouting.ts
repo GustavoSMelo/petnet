@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type TActivityRouting = {
     currentActivityRoute: "Initial" | "GenDoc" | "RPGGen" | "TCG";
@@ -18,6 +18,7 @@ const useActivityRouting = create<TActivityRouting>()(
         }),
         {
             name: "activity-routing-store",
+            storage: createJSONStorage(() => sessionStorage),
         }
     )
 );

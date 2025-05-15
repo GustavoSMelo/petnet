@@ -3,16 +3,17 @@
 
 .hubActivityPages {
     @apply flex;
+    background-image: url('/assets/background.png');
 
     span {
         @apply flex items-center justify-center flex-col w-full h-screen;
 
         img {
-            @apply w-72;
+            @apply w-72 bg-white;
         }
 
         h1 {
-            @apply text-4xl text-blue-950 font-bold;
+            @apply text-4xl text-blue-950 font-bold bg-white;
         }
     }
 }

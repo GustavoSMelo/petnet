@@ -18,11 +18,9 @@ const CanvasPetDocument = ({
     handleChangeDocumentColor,
     handleCloseDocument,
 }: ICanvasPetDocumentComponent) => {
-    const canvasRef = useRef(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     const loadCanvas = async () => {
-        if (!petImage) return; // <-- early return if petImage not ready
-
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -37,6 +35,9 @@ const CanvasPetDocument = ({
                 canvas.width = documentImage.width;
                 canvas.height = documentImage.height;
                 const canvasContext = canvas.getContext("2d");
+
+                if(!canvasContext) return;
+
                 canvasContext.drawImage(documentImage, 0, 0);
 
                 canvasContext.font = "32px Verdana";

@@ -1,12 +1,113 @@
 @charset "UTF-8";
 @import "tailwindcss";
 
+@keyframes firstCardAnimation {
+    0% {
+        transform: translateY(0deg);
+    }
+
+    25% {
+        transform: translateY(-30px) rotate3d(0, 1, 0, 180deg);
+    }
+
+    50% {
+        transform: translateY(-60px) rotate3d(0, 1, 0, 250deg);
+    }
+
+    75% {
+        transform: translateY(-30px) rotate3d(0, 1, 0, 360deg);
+    }
+
+    100% {
+        transform: translateY(0deg);
+    }
+}
+
+@keyframes secondCardAnimation {
+    0% {
+        transform: translateY(0deg);
+    }
+
+    25% {
+        transform: translateY(-45px) rotate3d(0, 1, 0, 180deg);
+    }
+
+    50% {
+        transform: translateY(-75px) rotate3d(0, 1, 0, 250deg);
+    }
+
+    75% {
+        transform: translateY(-45px) rotate3d(0, 1, 0, 360deg);
+    }
+
+    100% {
+        transform: translateY(0deg);
+    }
+}
+
+@keyframes centerCardAnimation {
+    0% {
+        transform: translateY(0deg);
+    }
+
+    25% {
+        transform: translateY(-60px) rotate3d(0, 1, 0, 180deg);
+    }
+
+    50% {
+        transform: translateY(-90px) rotate3d(0, 1, 0, 250deg);
+    }
+
+    75% {
+        transform: translateY(-60px) rotate3d(0, 1, 0, 360deg);
+    }
+
+    100% {
+        transform: translateY(0deg);
+    }
+}
+
 .TCGeneratorContainer {
     @apply flex;
     background-image: url("/assets/background.png");
 
+    .introContainer {
+        @apply flex items-center justify-center flex-col w-full;
+        .cardListContainer {
+            @apply flex;
+
+            .cardIcon {
+                @apply size-18 text-sky-500;
+            }
+
+            .firstLeftCard, .firstRightCard {
+                animation: firstCardAnimation 4s infinite;
+            }
+
+            .secondLeftCard, .secondRightCard {
+                animation: secondCardAnimation 4s infinite;
+            }
+
+            .centerCard {
+                animation: centerCardAnimation 4s infinite;
+            }
+        }
+
+        h1 {
+            @apply text-4xl text-blue-950 font-bold bg-white;
+        }
+
+        h3 {
+            @apply text-2xl text-gray-600 bg-white;
+        }
+    }
+
     .generationContainer {
         @apply flex items-center justify-center w-full;
+
+        .petImage {
+            @apply size-32 flex self-center;
+        }
 
         form {
             @apply flex flex-col shadow-gray-400 shadow-lg rounded-md p-4 w-90 bg-white;

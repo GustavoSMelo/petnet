@@ -2,5 +2,11 @@
 @import "tailwindcss";
 
 .canvasTCGContainer {
-    @apply absolute z-20 top-2/4 left-2/4;
+    @apply absolute z-20 w-full h-full;
+    background-color: #60606090;
+
+    .canvasTCG {
+        @apply left-2/4 top-2/4 relative;
+        transform: translate(-50%, -50%);
+    }
 }

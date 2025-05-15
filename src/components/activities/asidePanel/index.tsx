@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import "./asidePanel.style.css";
 import useActivityRouting from "@petnet/hooks/useActivityRouting";
 import { FaRegAddressCard } from "react-icons/fa6";
@@ -6,6 +7,8 @@ import { TbPlayCardStarFilled } from "react-icons/tb";
 
 const ActivityAsidePanel = () => {
     const { changeActivityRoute, currentActivityRoute } = useActivityRouting();
+    const router = useRouter();
+
     return (
         <aside className="asidePanelContainer">
             <button
@@ -15,7 +18,10 @@ const ActivityAsidePanel = () => {
                         ? "selectedButton"
                         : "default"
                 }
-                onClick={() => changeActivityRoute("GenDoc")}
+                onClick={() => {
+                    changeActivityRoute("GenDoc");
+                    router.push("/activities/gendocument");
+                }}
             >
                 <FaRegAddressCard className="btnIcons" /> Pet Docs
             </button>
@@ -26,7 +32,9 @@ const ActivityAsidePanel = () => {
                         ? "selectedButton"
                         : "default"
                 }
-                onClick={() => changeActivityRoute("RPGGen")}
+                onClick={() => {
+                    changeActivityRoute("RPGGen");
+                }}
             >
                 <LuSwords className="btnIcons" /> RPG Gen
             </button>
@@ -37,7 +45,10 @@ const ActivityAsidePanel = () => {
                         ? "selectedButton"
                         : "default"
                 }
-                onClick={() => changeActivityRoute("TCG")}
+                onClick={() => {
+                    changeActivityRoute("TCG");
+                    router.push("/activities/gentcg");
+                }}
             >
                 <TbPlayCardStarFilled className="btnIcons" /> P-TCG
             </button>

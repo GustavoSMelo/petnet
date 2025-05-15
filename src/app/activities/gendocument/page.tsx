@@ -265,8 +265,8 @@ const Activities = () => {
             <div className="activityContentDocument">
                 <h1>Gerador do documento geral da petnet: </h1>
                 <h3>
-                    Insira a imagem do seu pet para gerar uma imagem de
-                    documento fofinha para seu melhor amigo(a)
+                    Insira a imagem do seu pet para gerar uma imagem
+                    <br /> de documento fofinha para seu melhor amigo(a)
                 </h3>
 
                 {file ? (
