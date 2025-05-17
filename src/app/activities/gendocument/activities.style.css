@@ -1,9 +1,74 @@
 @charset "UTF-8";
 @import "tailwindcss";
 
+@keyframes documentAnimation {
+    0% {
+        transform: translateY(-1000%);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateY(0%);
+    }
+
+    50% {
+        transform: translateY(0%);
+    }
+
+    60% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateX(-1300%);
+        opacity: 0;
+    }
+}
+
+@keyframes cameraAnimation {
+    0%,
+    10%,
+    20%,
+    30%,
+    40%,
+    41%,
+    42%,
+    43%,
+    45% {
+        color: #052f4a;
+        transition: 0s;
+    }
+    45% {
+        color: #fcc800;
+        transition: 0s;
+    }
+
+    50% {
+        color: #efb100;
+        transition: 0s;
+    }
+
+    65% {
+        color: #d08700;
+    }
+
+    100% {
+        color: #052f4a;
+    }
+}
+
 .activitiesContainer {
     @apply flex;
-    background-image: url('/assets/background.png');
+    background-image: url("/assets/background.png");
 
     .containerFormPetInformation {
         @apply absolute w-full h-full;
@@ -30,6 +95,20 @@
 
     .activityContentDocument {
         @apply flex flex-col items-center w-full justify-center;
+
+        .documentIntroAnimation {
+            @apply flex mb-3;
+
+            .documentIconIntro {
+                @apply size-17 text-sky-500 pb-6;
+                animation: documentAnimation 4s infinite;
+            }
+
+            .cameraIconIntro {
+                @apply size-17 ml-4 text-blue-950;
+                animation: cameraAnimation 4s infinite;
+            }
+        }
 
         h1 {
             @apply text-4xl text-blue-950 font-bold mb-2;

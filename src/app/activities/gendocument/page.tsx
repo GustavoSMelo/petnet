@@ -11,6 +11,7 @@ import {
     ICanvasPetDocumentForm,
 } from "@petnet/types/canvasPetDocument.interface";
 import { TReducerActionCanvasPetDocument } from "@petnet/types/reducerActionCanvasPetDocument.type";
+import { FaCameraRetro } from "react-icons/fa6";
 
 const Activities = () => {
     const formReducer = (
@@ -263,6 +264,10 @@ const Activities = () => {
             )}
 
             <div className="activityContentDocument">
+                <span className="documentIntroAnimation">
+                    <FaRegAddressCard className="documentIconIntro"/>
+                    <FaCameraRetro className="cameraIconIntro" />
+                </span>
                 <h1>Gerador do documento geral da petnet: </h1>
                 <h3>
                     Insira a imagem do seu pet para gerar uma imagem
