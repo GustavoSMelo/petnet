@@ -70,6 +70,52 @@
     @apply flex;
     background-image: url("/assets/background.png");
 
+    .imagePrevieWrapper {
+        @apply flex absolute w-screen h-screen z-40 items-center justify-center;
+        background-color: #60606090;
+
+        .imagePreviewContainer {
+            @apply bg-white p-8 rounded-xl shadow-lg shadow-gray-600 flex flex-col items-center;
+
+            h1 {
+                @apply text-3xl text-center;
+            }
+
+            img {
+                @apply size-46 my-4 flex self-center;
+            }
+
+            .rowButtonImagePreview {
+                @apply flex;
+
+                .imagePreviewInput {
+                    @apply hidden;
+                }
+
+                button,
+                label {
+                    @apply border-solid border-2 border-black mt-10 px-4 py-6 rounded-md flex items-center justify-center bg-sky-200 shadow-md shadow-gray-500 transition-all w-72 cursor-pointer mx-2;
+
+                    .imagePreviewIcon {
+                        @apply mr-2;
+                    }
+                }
+
+                button {
+                    @apply bg-lime-400;
+                }
+
+                button:hover {
+                    @apply transition-all bg-lime-500;
+                }
+
+                label:hover {
+                    @apply transition-all bg-sky-300;
+                }
+            }
+        }
+    }
+
     .containerFormPetInformation {
         @apply absolute w-full h-full;
         background-color: #60606090;
@@ -111,7 +157,7 @@
         }
 
         h1 {
-            @apply text-4xl text-blue-950 font-bold mb-2;
+            @apply text-4xl text-blue-950 font-bold mb-2 bg-white;
         }
 
         h3 {
@@ -152,10 +198,6 @@
 
             .picturePetInputLabel:hover {
                 @apply bg-sky-300 transition-all;
-            }
-
-            .btnGenerateDocument:hover {
-                @apply bg-lime-500 transition-all;
             }
 
             .btnGenerateDocumentBlocked:hover {

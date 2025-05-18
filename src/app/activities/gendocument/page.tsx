@@ -68,11 +68,14 @@ const Activities = () => {
     });
     const [documentColor, setDocumentColor] =
         useState<ICanvasPetDocument["documentType"]>("Blue");
+    const [showImagePreview, setShowImagePreview] = useState(false);
 
     const handleOpenForm = () => {
         if (!file) {
             return;
         }
+
+        setShowImagePreview(false);
         setShowForm(true);
     };
 
@@ -117,6 +120,7 @@ const Activities = () => {
 
             console.log(tmpFile);
             setFile(tmpFile);
+            setShowImagePreview(true);
         }
     };
 
@@ -150,6 +154,51 @@ const Activities = () => {
     return (
         <div className="activitiesContainer">
             <ActivityAsidePanel />
+
+            {showImagePreview ? (
+                <div
+                    className="imagePrevieWrapper"
+                    onClick={() => setShowImagePreview(false)}
+                >
+                    <div
+                        className="imagePreviewContainer"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <h1>Preview de imagem: </h1>
+
+                        <img
+                            src={URL.createObjectURL(file!)}
+                            alt="imagePreview"
+                        />
+                        <div className="rowButtonImagePreview">
+                            <button
+                                type="button"
+                                onClick={() => handleOpenForm()}
+                            >
+                                <FaRegAddressCard className="imagePreviewIcon" />{" "}
+                                Gerar documento
+                            </button>
+
+                            <input
+                                type="file"
+                                className="imagePreviewInput"
+                                id="imagePreviewInput"
+                                accept=".png,.jpg,.jpeg,.webp"
+                                onChange={(event) => handleFileUpload(event)}
+                            />
+                            <label
+                                className="imagePreviewInputLabel"
+                                htmlFor="imagePreviewInput"
+                            >
+                                <FaUpload className="imagePreviewIcon" />
+                                Atualizar imagem
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <></>
+            )}
 
             {showForm ? (
                 <div
@@ -251,7 +300,7 @@ const Activities = () => {
                 <CanvasPetDocument
                     ageDate={formInformation.birthDateFormatted}
                     animalType={formInformation.animalType}
-                    petImage={file}
+                    petImage={file!}
                     documentType={documentColor}
                     race={formInformation.race}
                     petSex={formInformation.petSex}
@@ -265,7 +314,7 @@ const Activities = () => {
 
             <div className="activityContentDocument">
                 <span className="documentIntroAnimation">
-                    <FaRegAddressCard className="documentIconIntro"/>
+                    <FaRegAddressCard className="documentIconIntro" />
                     <FaCameraRetro className="cameraIconIntro" />
                 </span>
                 <h1>Gerador do documento geral da petnet: </h1>
@@ -273,30 +322,7 @@ const Activities = () => {
                     Insira a imagem do seu pet para gerar uma imagem
                     <br /> de documento fofinha para seu melhor amigo(a)
                 </h3>
-
-                {file ? (
-                    <img
-                        className="imgPreview"
-                        src={URL.createObjectURL(file)}
-                    />
-                ) : (
-                    <></>
-                )}
-
                 <div className="btnRowContainer">
-                    <button
-                        type="button"
-                        className={
-                            file
-                                ? "btnGenerateDocument"
-                                : "btnGenerateDocumentBlocked"
-                        }
-                        onClick={() => handleOpenForm()}
-                    >
-                        <FaRegAddressCard className="btnGenerateDocumentIcon" />{" "}
-                        Gerar documento
-                    </button>
-
                     <span>
                         <input
                             type="file"
