@@ -6,7 +6,7 @@
     @apply bg-sky-500 text-white flex flex-col min-h-screen w-fit pl-3 pt-3;
 
     button {
-        @apply flex text-nowrap font-bold text-xl py-3 px-10 mb-2.5 cursor-pointer border-2 border-white rounded-l-lg;
+        @apply flex text-nowrap font-bold text-xl py-6 px-10 mb-2.5 cursor-pointer border-2 border-white rounded-l-lg;
         .btnIcons {
             @apply w-8 h-8 mr-2;
         }
@@ -14,5 +14,31 @@
 
     .selectedButton {
         @apply border-solid border-2 border-white bg-white text-sky-500;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .asidePanelContainer {
+        button {
+            p {
+                @apply hidden;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .asidePanelContainer {
+        @apply min-h-auto flex-row m-0 w-full p-0 items-center justify-center fixed bottom-0 py-2;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        button {
+            @apply border-b-0 rounded-none rounded-t-lg mb-0 mt-4 mx-1 px-6 overflow-x-scroll;
+        }
+    }
+
+    .asidePanelContainer::-webkit-scrollbar {
+        @apply hidden;
     }
 }

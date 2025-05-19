@@ -209,7 +209,9 @@ const Activities = () => {
                         className="formPetInformation"
                         onClick={(event) => event.stopPropagation()}
                     >
-                        <label>Informe o nome do pet: </label>
+                        <h1>Informacoes do pet: </h1>
+
+                        <label>Nome: </label>
                         <input
                             type="text"
                             placeholder="Brutus..."
@@ -222,7 +224,7 @@ const Activities = () => {
                             }
                         />
 
-                        <label>Informe o sexo do pet: </label>
+                        <label>Sexo: </label>
                         <select
                             value={formInformation.petSex}
                             onChange={(event) =>
@@ -237,7 +239,7 @@ const Activities = () => {
                             <option value="female">Femea</option>
                         </select>
 
-                        <label>Informe o tipo do pet: </label>
+                        <label>Tipo: </label>
                         <select
                             value={formInformation.animalType}
                             onChange={(event) =>
@@ -259,7 +261,7 @@ const Activities = () => {
                             <option value="Outros">Outros</option>
                         </select>
 
-                        <label>Informe a raca do pet: </label>
+                        <label>Raca: </label>
                         <input
                             type="text"
                             placeholder="Ciames..."
@@ -272,7 +274,7 @@ const Activities = () => {
                             }
                         />
 
-                        <label>Informe a data de nascimento do pet: </label>
+                        <label>Data de nascimento: </label>
                         <input
                             type="date"
                             value={formInformation.birthDate}

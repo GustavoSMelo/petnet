@@ -23,7 +23,7 @@ const ActivityAsidePanel = () => {
                     router.push("/activities/gendocument");
                 }}
             >
-                <FaRegAddressCard className="btnIcons" /> Pet Docs
+                <FaRegAddressCard className="btnIcons" /> <p>Pet Docs</p>
             </button>
             <button
                 type="button"
@@ -36,7 +36,7 @@ const ActivityAsidePanel = () => {
                     changeActivityRoute("RPGGen");
                 }}
             >
-                <LuSwords className="btnIcons" /> RPG Gen
+                <LuSwords className="btnIcons" /> <p>RPG Gen</p>
             </button>
             <button
                 type="button"
@@ -50,7 +50,7 @@ const ActivityAsidePanel = () => {
                     router.push("/activities/gentcg");
                 }}
             >
-                <TbPlayCardStarFilled className="btnIcons" /> P-TCG
+                <TbPlayCardStarFilled className="btnIcons" /> <p>P-TCG</p>
             </button>
         </aside>
     );

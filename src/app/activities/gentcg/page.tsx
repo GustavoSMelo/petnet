@@ -98,6 +98,8 @@ const GenTCG = () => {
                     Colecione cartas do seu pet e divirta-se enfrentando outros
                     players{" "}
                 </h3>
+
+                <button type="button">Gerar carta</button>
             </div>
             {/*
             <div className="generationContainer">
