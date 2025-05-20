@@ -80,11 +80,13 @@
                 @apply size-18 text-sky-500;
             }
 
-            .firstLeftCard, .firstRightCard {
+            .firstLeftCard,
+            .firstRightCard {
                 animation: firstCardAnimation 4s infinite;
             }
 
-            .secondLeftCard, .secondRightCard {
+            .secondLeftCard,
+            .secondRightCard {
                 animation: secondCardAnimation 4s infinite;
             }
 
@@ -99,6 +101,33 @@
 
         h3 {
             @apply text-2xl text-gray-600 bg-white text-center;
+        }
+
+        button {
+            @apply border-solid
+            border-2
+            border-black m
+            t-10
+            px-4
+            py-6
+            rounded-md
+            flex
+            items-center
+            justify-center
+            bg-sky-200
+            shadow-md
+            shadow-gray-500
+            transition-all
+            w-72
+            cursor-pointer
+            mx-2 font-bold text-xl;
+
+            .btnIcon {
+                @apply mr-2.5;
+            }
+        }
+
+        button {
         }
     }
 

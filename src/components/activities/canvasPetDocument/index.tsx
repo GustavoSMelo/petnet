@@ -90,6 +90,7 @@ const CanvasPetDocument = ({
                 id="documentGeneration"
                 className="documentGeneration"
                 ref={canvasRef}
+                onClick={event => event.stopPropagation()}
             ></canvas>
             <span
                 className="btnContainer"

@@ -118,7 +118,7 @@
     }
 
     .containerFormPetInformation {
-        @apply absolute w-full h-full;
+        @apply absolute w-full h-full flex items-center justify-center;
         background-color: #60606090;
 
         h1 {
@@ -126,7 +126,7 @@
         }
 
         .formPetInformation {
-            @apply flex flex-col bg-white w-92 rounded-lg shadow-gray-500 shadow-md relative top-2/10 left-3/7 p-8 z-20;
+            @apply flex flex-col bg-white w-92 rounded-lg shadow-gray-500 shadow-md relative p-8 z-20;
 
             input,
             select {
@@ -203,6 +203,52 @@
 
             .btnGenerateDocumentBlocked:hover {
                 @apply bg-gray-500 text-white;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .activitiesContainer {
+        @apply bg-contain;
+        .activityContentDocument {
+            @apply h-screen;
+
+            h1 {
+                @apply text-2xl;
+            }
+
+            h3 {
+                @apply text-lg text-center;
+            }
+        }
+
+        .imagePrevieWrapper {
+            .imagePreviewContainer {
+                @apply w-4/5;
+
+                .rowButtonImagePreview {
+                    @apply flex-col;
+
+                    .imagePreviewInputLabel {
+                        @apply mt-1.5;
+                    }
+
+                    button,
+                    label {
+                        @apply w-full;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .activitiesContainer {
+        .activityContentDocument {
+            h3 {
+                @apply text-lg;
             }
         }
     }

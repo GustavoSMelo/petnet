@@ -1,13 +1,12 @@
 "use client";
 
-import { FaUpload } from "react-icons/fa6";
 import "./gentcg.style.css";
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
 import { ChangeEvent, useReducer, useState } from "react";
-import CanvasTCG from "@petnet/components/activities/canvasTCG";
 import TReducerActionCanvasTCG from "@petnet/types/reducerActionCanvasTCG.type";
 import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
 import { TbPlayCardStarFilled } from "react-icons/tb";
+import { RiLoopRightLine } from "react-icons/ri";
 
 const GenTCG = () => {
     const reducer = (
@@ -99,7 +98,9 @@ const GenTCG = () => {
                     players{" "}
                 </h3>
 
-                <button type="button">Gerar carta</button>
+                <button type="button">
+                    <RiLoopRightLine className="btnIcon" /> Gerar carta
+                </button>
             </div>
             {/*
             <div className="generationContainer">
