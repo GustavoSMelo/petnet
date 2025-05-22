@@ -7,12 +7,13 @@ import TReducerActionCanvasTCG from "@petnet/types/reducerActionCanvasTCG.type";
 import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
 import { TbPlayCardStarFilled } from "react-icons/tb";
 import { RiLoopRightLine } from "react-icons/ri";
+import { FaUpload } from "react-icons/fa6";
 
 const GenTCG = () => {
     const reducer = (
         state: ICanvasTCGForm,
         action: TReducerActionCanvasTCG
-    ) => {
+    ): ICanvasTCGForm => {
         switch (action.type) {
             case "changePetName":
                 return {
@@ -49,7 +50,6 @@ const GenTCG = () => {
         }
     };
 
-    const [file, setFile] = useState<File>();
     const [formInformations, dispatchFormInformations] = useReducer(reducer, {
         atk: 0,
         def: 0,
@@ -59,7 +59,12 @@ const GenTCG = () => {
         cardType: "Water",
     } as ICanvasTCGForm);
 
-    const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const [file, setFile] = useState<File>();
+    const [showUploadPopup, setShowUploadPopup] = useState(false);
+    const [showAditionalDetails, setShowAditionalDetails] = useState(false);
+    const [showCardPopup, setShowCardPopup] = useState(false);
+
+    const handleFileUpload = (event: ChangeEvent<HTMLInputElement>): void => {
         const files = event.target.files;
         if (!files || !files.length) return;
 
@@ -78,6 +83,12 @@ const GenTCG = () => {
             console.log(tmpFile);
             setFile(tmpFile);
         }
+    };
+
+    const handleClosePopups = (): void => {
+        setShowAditionalDetails(false);
+        setShowCardPopup(false);
+        setShowUploadPopup(false);
     };
 
     return (
@@ -102,89 +113,69 @@ const GenTCG = () => {
                     <RiLoopRightLine className="btnIcon" /> Gerar carta
                 </button>
             </div>
-            {/*
-            <div className="generationContainer">
-                <form>
-                    <label>Pet image: </label>
-                    {!file ? (
-                        <></>
+            {/* <div className="uploadProfileWrapper">
+                <div className="uploadProfileContainer">
+                    <h1>Upload de imagem</h1>
+
+                    {file ? (
+                        <img src={URL.createObjectURL(file)} alt="petImage" />
                     ) : (
-                        <img
-                            src={URL.createObjectURL(file)}
-                            alt="imageProfile"
-                            className="petImage"
-                        />
+                        <></>
                     )}
-                    <span className="fileContainer">
+
+                    <span className="btnRow">
+                        <button
+                            type="button"
+                            className={file ? "selected" : "unselected"}
+                        >
+                            <TbPlayCardStarFilled />
+                            Ir para detalhes
+                        </button>
                         <input
                             type="file"
-                            className="petPictureLabel"
-                            id="petPictureLabel"
-                            accept=".png,.jpg,.jpeg,.webp"
+                            accept="image/*"
+                            name="petCardImage"
+                            id="petCardImage"
                             onChange={(event) => handleFileUpload(event)}
                         />
                         <label
-                            className="petPictureLabel"
-                            htmlFor="petPictureLabel"
+                            className="petCardImageLabel"
+                            htmlFor="petCardImage"
                         >
-                            <FaUpload className="uploadLabelIcon" />
-                            Clique para fazer o upload
+                            <FaUpload />
+                            Enviar imagem
                         </label>
                     </span>
+                </div>
+            </div> */}
 
-                    <label>Pet name: </label>
+            <div className="nameInputWrapper">
+                <div className="nameInputContainer">
+                    <h1>Informacoes adicionais: </h1>
+                    <label>Nome do pet: </label>
                     <input
+                        type="text"
+                        placeholder="Brutus..."
                         name="petName"
-                        placeholder="Brutus... "
                         value={formInformations.petName}
                         onChange={(event) =>
                             dispatchFormInformations({
-                                type: "changePetName",
                                 payload: event.target.value,
+                                type: "changePetName",
                             })
                         }
                     />
+                    <span className="btnRow">
+                        <button type="button" className="btnBack">
+                            Voltar
+                        </button>
 
-                    <label>Card type: </label>
-                    <select
-                        className="cardType"
-                        onChange={(event) =>
-                            dispatchFormInformations({
-                                type: "changeCardType",
-                                payload: event.target
-                                    .value as ICanvasTCGForm["cardType"],
-                            })
-                        }
-                    >
-                        <option value="Water">💧 Agua</option>
-                        <option value="Fire">🔥 Fogo</option>
-                        <option value="Plant">🍂 Planta</option>
-                        <option value="Ice">❄️ Gelo</option>
-                        <option value="Shock">⚡ Shock</option>
-                        <option value="Ghost">🎃 Fantasma</option>
-                        <option value="Fairy">🧁 Fada</option>
-                    </select>
-
-                    <label>Ultimate: </label>
-                    <select
-                        className="ultimateOptions"
-                        onChange={(event) =>
-                            dispatchFormInformations({
-                                type: "changeUltimate",
-                                payload: event.target.value,
-                            })
-                        }
-                    >
-                        <option>Bola de fogo</option>
-                        <option>Bola de fogo</option>
-                        <option>Bola de fogo</option>
-                    </select>
-
-                    <button type="button" className="btnGenerateCard">
-                        Gerar card
-                    </button>
-                </form>
-            </div> */}
+                        <button type="button" className="selected">
+                            Gerar
+                        </button>
+                    </span>
+                </div>
+            </div>
         </div>
     );
 };

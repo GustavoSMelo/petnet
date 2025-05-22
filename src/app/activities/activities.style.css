@@ -15,5 +15,9 @@
         h1 {
             @apply text-4xl text-blue-950 font-bold bg-white;
         }
+
+        p {
+            @apply text-center;
+        }
     }
 }
