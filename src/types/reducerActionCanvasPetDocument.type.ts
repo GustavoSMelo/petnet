@@ -1,5 +1,4 @@
 import { ICanvasPetDocument } from "./canvasPetDocument.interface";
-import { ICanvasTCGForm } from "./canvasTCG.interface";
 
 type TReducerActionCanvasPetDocument =
     | {

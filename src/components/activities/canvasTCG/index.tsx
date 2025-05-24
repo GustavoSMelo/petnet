@@ -1,7 +1,17 @@
+import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
 import "./canvastcg.style.css";
 import { useEffect, useRef } from "react";
 
-const CanvasTCG = () => {
+const CanvasTCG = ({
+    atk,
+    cardType,
+    def,
+    magic,
+    petName,
+    ultimate,
+    ultimateDescription,
+    imagePath,
+}: ICanvasTCGForm) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     const loadCanvas = async () => {
@@ -11,7 +21,7 @@ const CanvasTCG = () => {
         const cardStyle = new Image();
         const canvasPetImage = new Image();
 
-        cardStyle.src = "/assets/cards/cardIce.png";
+        cardStyle.src = `/assets/cards/card${cardType}.png`;
         canvasPetImage.src = "/assets/catface.jpg";
 
         const mainPromise = new Promise(() => {
@@ -24,33 +34,36 @@ const CanvasTCG = () => {
 
                 canvasContext.drawImage(cardStyle, 0, 0);
 
-
                 canvasContext.font = "32px Verdana";
 
                 console.log("teste de canvas");
 
-                canvasContext.fillText("teste", 40, 53);
-                canvasContext.fillText("Blizzard", 160, 385);
+                canvasContext.fillText(petName, 40, 53);
+                canvasContext.fillText(ultimate, 160, 385);
 
                 canvasContext.font = "16px Verdana";
-                canvasContext.fillText(
-                    `Grande ataque de gelo onde o pet  \n
-                    `,
-                    160,
-                    420
+
+                console.log(
+                    atk,
+                    cardType,
+                    def,
+                    magic,
+                    petName,
+                    ultimate,
+                    ultimateDescription
                 );
-                canvasContext.fillText(`nao deixa fazer carinho,`, 160, 440);
-                canvasContext.fillText(
-                    `causando um dano imenso de gelo`,
-                    160,
-                    460
-                );
+
+                const splittedText = ultimateDescription.split("\n");
+
+                canvasContext.fillText(splittedText[0].toString(), 160, 420);
+                canvasContext.fillText(splittedText[1].toString(), 160, 440);
+                canvasContext.fillText(splittedText[2].toString(), 160, 460);
 
                 canvasContext.font = "46px Verdana";
 
-                canvasContext.fillText("20", 57, 560);
-                canvasContext.fillText("12", 205, 560);
-                canvasContext.fillText("05", 350, 560);
+                canvasContext.fillText(atk.toString(), 57, 560);
+                canvasContext.fillText(def.toString(), 205, 560);
+                canvasContext.fillText(magic.toString(), 350, 560);
                 canvasContext.save();
 
                 canvasContext.drawImage(canvasPetImage, 32, 75, 400, 260);

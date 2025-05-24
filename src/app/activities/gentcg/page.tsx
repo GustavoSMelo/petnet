@@ -4,11 +4,19 @@ import "./gentcg.style.css";
 import ActivityAsidePanel from "@petnet/components/activities/asidePanel";
 import { ChangeEvent, useReducer, useState } from "react";
 import TReducerActionCanvasTCG from "@petnet/types/reducerActionCanvasTCG.type";
-import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
+import {
+    EUltimatesFairy,
+    ICanvasTCGForm,
+} from "@petnet/types/canvasTCG.interface";
 import { TbPlayCardStarFilled } from "react-icons/tb";
 import { RiLoopRightLine } from "react-icons/ri";
 import { FaUpload } from "react-icons/fa6";
 import CanvasTCG from "@petnet/components/activities/canvasTCG";
+import {
+    generateTCGType,
+    generateUltimate,
+    generateUltimateDescription,
+} from "@petnet/helpers/generateTcg";
 
 const GenTCG = () => {
     const reducer = (
@@ -17,10 +25,14 @@ const GenTCG = () => {
     ): ICanvasTCGForm => {
         switch (action.type) {
             case "changePetName":
-                return {
-                    ...state,
-                    petName: action.payload,
-                } as ICanvasTCGForm;
+                if (action.payload.length <= 20) {
+                    return {
+                        ...state,
+                        petName: action.payload,
+                    } as ICanvasTCGForm;
+                }
+
+                return { ...state } as ICanvasTCGForm;
             case "changeUltimate":
                 return {
                     ...state,
@@ -46,6 +58,11 @@ const GenTCG = () => {
                     ...state,
                     cardType: action.payload,
                 } as ICanvasTCGForm;
+            case "changeUltimateDescription":
+                return {
+                    ...state,
+                    ultimateDescription: action.payload,
+                } as ICanvasTCGForm;
             default:
                 return { ...state };
         }
@@ -56,8 +73,9 @@ const GenTCG = () => {
         def: 0,
         magic: 0,
         petName: "",
-        ultimate: "",
+        ultimate: EUltimatesFairy.Heal,
         cardType: "Water",
+        ultimateDescription: "",
     } as ICanvasTCGForm);
 
     const [file, setFile] = useState<File>();
@@ -92,10 +110,61 @@ const GenTCG = () => {
         setShowUploadPopup(false);
     };
 
+    const handleGenerateTCG = () => {
+        if (formInformations.petName.length) {
+            const atkGenerated = Math.floor(Math.random() * 21) + 1;
+            const defGenerated = Math.floor(Math.random() * 21) + 1;
+            const magicGenerated = Math.floor(Math.random() * 21) + 1;
+
+            const cardType = generateTCGType();
+
+            dispatchFormInformations({
+                type: "changeAtk",
+                payload: atkGenerated,
+            });
+            dispatchFormInformations({
+                type: "changeDef",
+                payload: defGenerated,
+            });
+            dispatchFormInformations({
+                type: "changeMagic",
+                payload: magicGenerated,
+            });
+            dispatchFormInformations({
+                type: "changeCardType",
+                payload: cardType,
+            });
+            dispatchFormInformations({
+                type: "changeUltimate",
+                payload: generateUltimate(cardType),
+            });
+            dispatchFormInformations({
+                type: "changeUltimateDescription",
+                payload: generateUltimateDescription(cardType),
+            });
+
+            setShowAditionalDetails(false);
+            setShowCardPopup(true);
+        }
+    };
+
     return (
         <div className="TCGeneratorContainer">
             <ActivityAsidePanel />
-            {showCardPopup ? <CanvasTCG /> : <></>}
+            {showCardPopup ? (
+                <CanvasTCG
+                    atk={formInformations.atk}
+                    def={formInformations.def}
+                    magic={formInformations.magic}
+                    petName={formInformations.petName}
+                    cardType={formInformations.cardType}
+                    ultimate={formInformations.ultimate}
+                    ultimateDescription={formInformations.ultimateDescription}
+                    imagePath={formInformations.imagePath}
+                />
+            ) : (
+                <></>
+            )}
 
             <div className="introContainer">
                 <span className="cardListContainer">
@@ -132,7 +201,9 @@ const GenTCG = () => {
                                 alt="petImage"
                             />
                         ) : (
-                            <></>
+                            <h2 className="uploadSupportText">
+                                Queremos ver a melhor imagem do seu pet 😍
+                            </h2>
                         )}
 
                         <span className="btnRow">
@@ -201,12 +272,7 @@ const GenTCG = () => {
                             <button
                                 type="button"
                                 className="selected"
-                                onClick={() => {
-                                    if (formInformations.petName) {
-                                        setShowAditionalDetails(false);
-                                        setShowCardPopup(true);
-                                    }
-                                }}
+                                onClick={() => handleGenerateTCG()}
                             >
                                 Gerar
                             </button>

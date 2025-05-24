@@ -179,6 +179,10 @@
                 @apply text-2xl text-center mb-6 font-bold;
             }
 
+            h2.uploadSupportText {
+                @apply my-3 text-lg;
+            }
+
             input {
                 @apply hidden;
             }

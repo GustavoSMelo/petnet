@@ -13,7 +13,8 @@
     }
 
     .selectedButton {
-        @apply border-solid border-2 border-white bg-white text-sky-500;
+        @apply border-solid border-2 border-white bg-white text-sky-500 shadow-gray-500;
+        box-shadow: 0px 3.4px 0px #707070;
     }
 }
 
