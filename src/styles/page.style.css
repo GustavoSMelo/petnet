@@ -73,11 +73,11 @@
     }
 
     .btnLogin {
-        @apply bg-sky-500 text-white px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5;
+        @apply bg-sky-500 text-white px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5 border-2 border-sky-500;
     }
 
     .btnMoreInfo {
-        @apply bg-white text-sky-500 px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5 border border-sky-500;
+        @apply bg-white text-sky-500 px-7 py-2 uppercase cursor-pointer font-semibold rounded-lg mt-5 border border-sky-500 border-2;
     }
 
     .btnMoreInfo,

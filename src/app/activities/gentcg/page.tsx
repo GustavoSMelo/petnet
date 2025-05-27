@@ -160,7 +160,7 @@ const GenTCG = () => {
                     cardType={formInformations.cardType}
                     ultimate={formInformations.ultimate}
                     ultimateDescription={formInformations.ultimateDescription}
-                    imagePath={formInformations.imagePath}
+                    imagePath={URL.createObjectURL(file!)}
                 />
             ) : (
                 <></>
@@ -217,7 +217,7 @@ const GenTCG = () => {
                                     }
                                 }}
                             >
-                                <TbPlayCardStarFilled />
+                                <TbPlayCardStarFilled className="btnClickable" />
                                 Ir para detalhes
                             </button>
                             <input
@@ -231,7 +231,7 @@ const GenTCG = () => {
                                 className="petCardImageLabel"
                                 htmlFor="petCardImage"
                             >
-                                <FaUpload />
+                                <FaUpload className="btnClickable" />
                                 Enviar imagem
                             </label>
                         </span>

@@ -30,12 +30,24 @@
 
 @media screen and (max-width: 700px) {
     .asidePanelContainer {
-        @apply min-h-auto flex-row m-0 w-full p-0 items-center justify-center fixed bottom-0 py-2;
+        @apply min-h-auto
+        flex-row
+        m-0
+        w-full
+        items-center
+        justify-center
+        fixed
+        bottom-0
+        p-2;
         -ms-overflow-style: none;
         scrollbar-width: none;
 
         button {
-            @apply border-b-0 rounded-none rounded-t-lg mb-0 mt-4 mx-1 px-6 overflow-x-scroll;
+            @apply rounded-lg mb-0 mt-4 mx-1 overflow-x-scroll size-16 text-5xl p-0 items-center justify-center w-20;
+
+            .btnIcons {
+                @apply mr-0;
+            }
         }
     }
 

@@ -66,6 +66,8 @@ const generateUltimate = (
             return Object.values(EUltimatesShock)[randomNumber];
         case "Water":
             return Object.values(EUltimatesWater)[randomNumber];
+        default:
+            return EUltimatesFairy["Heal"];
     }
 };
 
@@ -96,6 +98,8 @@ const generateUltimateDescription = (
             return Object.values(EUltimatesShockDescription)[randomNumber];
         case "Water":
             return Object.values(EUltimatesWaterDescription)[randomNumber];
+        default:
+            return EUltimatesFairyDescription['Heal'];
     }
 };
 

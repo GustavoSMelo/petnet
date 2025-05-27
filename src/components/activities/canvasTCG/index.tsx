@@ -1,6 +1,7 @@
-import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
 import "./canvastcg.style.css";
 import { useEffect, useRef } from "react";
+import { FiDownload } from "react-icons/fi";
+import { ICanvasTCGForm } from "@petnet/types/canvasTCG.interface";
 
 const CanvasTCG = ({
     atk,
@@ -22,7 +23,7 @@ const CanvasTCG = ({
         const canvasPetImage = new Image();
 
         cardStyle.src = `/assets/cards/card${cardType}.png`;
-        canvasPetImage.src = "/assets/catface.jpg";
+        canvasPetImage.src = imagePath;
 
         const mainPromise = new Promise(() => {
             cardStyle.addEventListener("load", () => {
@@ -61,9 +62,23 @@ const CanvasTCG = ({
 
                 canvasContext.font = "46px Verdana";
 
-                canvasContext.fillText(atk.toString(), 57, 560);
-                canvasContext.fillText(def.toString(), 205, 560);
-                canvasContext.fillText(magic.toString(), 350, 560);
+                canvasContext.fillText(
+                    atk.toString().length === 1 ? `0${atk}` : atk.toString(),
+                    57,
+                    560
+                );
+                canvasContext.fillText(
+                    def.toString().length === 1 ? `0${def}` : def.toString(),
+                    205,
+                    560
+                );
+                canvasContext.fillText(
+                    magic.toString().length === 1
+                        ? `0${magic}`
+                        : magic.toString(),
+                    350,
+                    560
+                );
                 canvasContext.save();
 
                 canvasContext.drawImage(canvasPetImage, 32, 75, 400, 260);
@@ -80,6 +95,19 @@ const CanvasTCG = ({
         await Promise.all([mainPromise]);
     };
 
+    const handleDownloadTCG = () => {
+        const anchor = window.document.createElement("a");
+
+        if (canvasRef.current) {
+            anchor.href = canvasRef.current.toDataURL();
+            anchor.download = "petTCG";
+
+            window.document.appendChild(anchor);
+            anchor.click();
+            window.document.removeChild(anchor);
+        }
+    };
+
     useEffect(() => {
         loadCanvas();
     }, []);
@@ -87,6 +115,9 @@ const CanvasTCG = ({
     return (
         <div className="canvasTCGContainer">
             <canvas className="canvasTCG" ref={canvasRef}></canvas>
+            <button type="button" onClick={() => handleDownloadTCG()}>
+                <FiDownload className="btnIcon" /> Download
+            </button>
         </div>
     );
 };

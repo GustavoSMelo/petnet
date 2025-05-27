@@ -26,6 +26,8 @@ body {
     max-width: 1920px;
     margin: auto;
     background-color: #fff;
+    background-image: url('/assets/background.png');
+    background-repeat: repeat;
 }
 
 input:focus {

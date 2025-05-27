@@ -2,11 +2,38 @@
 @import "tailwindcss";
 
 .canvasTCGContainer {
-    @apply absolute z-20 w-full h-full;
+    @apply absolute z-20 w-full h-full flex items-center justify-center flex-col;
     background-color: #60606090;
 
     .canvasTCG {
-        @apply left-2/4 top-2/4 relative;
-        transform: translate(-50%, -50%);
+        @apply scale-90;
+    }
+
+    button {
+        @apply bg-sky-500
+        text-white
+        flex
+        px-14
+        py-5
+        rounded-lg
+        font-bold
+        items-center
+        justify-center
+        shadow-gray-600
+        shadow-md
+        border-black
+        border-2
+        text-xl
+        cursor-pointer;
+
+        .btnIcon {
+            @apply mr-3;
+        }
+    }
+
+    @media screen and (max-width: 780px) {
+        .canvasTCG {
+            @apply scale-60 left-auto right-auto;
+        }
     }
 }
