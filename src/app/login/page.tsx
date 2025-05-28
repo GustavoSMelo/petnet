@@ -40,7 +40,12 @@ const Login = () => {
 
     return (
         <main className="loginPage">
-            <section id="login">
+            <section
+                id="login"
+                style={{
+                    flexDirection: isLoginForm ? "column-reverse" : "column",
+                }}
+            >
                 <div
                     className="formLoginContainer"
                     style={{ display: isLoginForm ? "flex" : "none" }}

@@ -16,11 +16,12 @@ import { HiIdentification } from 'react-icons/hi';
 import { FaArrowsRotate } from 'react-icons/fa6';
 import { FaPencilAlt } from 'react-icons/fa';
 import Footer from '@petnet/components/footer';
+import { useRouter } from 'next/navigation';
 
 const Home = () => {
+    const router = useRouter();
     return (
         <>
-
             <main>
                 <Navbar />
                 <section className="homeContainer">
@@ -71,7 +72,7 @@ const Home = () => {
                     <section className='quickActionsContainer'>
                         <h1>Ações rapidas: </h1>
                         <div className='quickActions'>
-                            <figure className='quickAction galleryQuickAction'>
+                            <figure className='quickAction galleryQuickAction' onClick={() => router.push('/gallery')}>
                                 <img src={PolaroidGallery.src} alt='Polaroid gallery' />
 
                                 <figcaption>

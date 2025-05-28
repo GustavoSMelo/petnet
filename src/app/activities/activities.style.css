@@ -1,23 +1,64 @@
 @charset "UTF-8";
 @import "tailwindcss";
 
+@keyframes animalPartyAnimation {
+    0% {
+        transform: translateY(-1000px);
+        opacity: 0;
+        background: #ffffff00;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+        background: #ffffffff;
+    }
+}
+
+@keyframes textAnimation {
+    0% {
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
 .hubActivityPages {
     @apply flex;
-    background-image: url('/assets/background.png');
+    background-image: url("/assets/background.png");
 
     span {
         @apply flex items-center justify-center flex-col w-full h-screen;
 
         img {
             @apply w-72 bg-white;
+            animation: animalPartyAnimation 1s;
         }
 
         h1 {
-            @apply text-4xl text-blue-950 font-bold bg-white;
+            @apply text-4xl text-blue-950 font-bold bg-white text-center;
+            animation: textAnimation 1s;
         }
 
         p {
             @apply text-center;
+            animation: textAnimation 1.8s;
         }
+    }
+
+    @media screen and (max-width: 780px) {
+        @apply bg-contain;
     }
 }

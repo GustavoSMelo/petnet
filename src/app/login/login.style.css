@@ -235,11 +235,10 @@
 
 
             .changeToRegisterToLogin {
-                @apply bg-gradient-to-b from-transparent to-transparent flex-row-reverse h-3/5 bg-gradient-to-b from-sky-500 to-sky-700 w-full;
+                @apply flex-row-reverse h-3/5 bg-gradient-to-b from-sky-500 to-sky-700 w-full;
 
                 .formLoginContainer,
-                .formRegisterContainer,
-                .changeToRegisterToLogin {
+                .formRegisterContainer {
                     @apply w-full flex items-center h-full;
                 }
 
