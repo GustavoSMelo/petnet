@@ -1,19 +1,46 @@
 @charset "UTF-8";
 @import "tailwindcss";
 
-
 .asidePanelContainer {
-    @apply bg-sky-500 text-white flex flex-col min-h-screen w-fit pl-3 pt-3;
+    @apply bg-sky-500
+    text-white
+    flex
+    flex-col
+    min-h-screen
+    w-fit
+    pl-3
+    pt-3;
+
+    button:nth-child(1) {
+        @apply mt-24;
+    }
 
     button {
-        @apply flex text-nowrap font-bold text-xl py-6 px-10 mb-2.5 cursor-pointer border-2 border-white rounded-l-lg;
+        @apply flex
+        text-nowrap
+        font-bold
+        text-xl
+        py-6
+        px-10
+        mb-2.5
+        cursor-pointer
+        border-2
+        border-white
+        rounded-l-lg;
+
         .btnIcons {
             @apply w-8 h-8 mr-2;
         }
     }
 
     .selectedButton {
-        @apply border-solid border-2 border-white bg-white text-sky-500 shadow-gray-500;
+        @apply border-solid
+        border-2
+        border-white
+        bg-white
+        text-sky-500
+        shadow-gray-500;
+
         box-shadow: 0px 3.4px 0px #707070;
     }
 }
@@ -42,8 +69,22 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
 
+        button:nth-child(1) {
+            @apply mt-4;
+        }
+
         button {
-            @apply rounded-lg mb-0 mt-4 mx-1 overflow-x-scroll size-16 text-5xl p-0 items-center justify-center w-20;
+            @apply rounded-lg
+            mb-0
+            mt-4
+            mx-1
+            overflow-x-scroll
+            size-16
+            text-5xl
+            p-0
+            items-center
+            justify-center
+            w-20;
 
             .btnIcons {
                 @apply mr-0;

@@ -17,13 +17,20 @@ import { FaArrowsRotate } from 'react-icons/fa6';
 import { FaPencilAlt } from 'react-icons/fa';
 import Footer from '@petnet/components/footer';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import useNavbar from '@petnet/hooks/useNavbar';
 
 const Home = () => {
     const router = useRouter();
+    const { changeNavbarShow } = useNavbar();
+
+    useEffect(() => {
+        changeNavbarShow(true);
+    }, []);
+
     return (
         <>
             <main>
-                <Navbar />
                 <section className="homeContainer">
                     {/* <span className='middleContainer'>
                     <section className='firstStep'>

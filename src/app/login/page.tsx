@@ -43,7 +43,12 @@ const Login = () => {
             <section
                 id="login"
                 style={{
-                    flexDirection: isLoginForm ? "column-reverse" : "column",
+                    flexDirection:
+                        window.screen.width <= 780
+                            ? isLoginForm
+                                ? "column-reverse"
+                                : "column"
+                            : "row",
                 }}
             >
                 <div
