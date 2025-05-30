@@ -33,3 +33,9 @@ body {
 input:focus {
     outline: none;
 }
+
+@media screen and (max-width: 880px) {
+    body {
+        background-size: contain;
+    }
+}

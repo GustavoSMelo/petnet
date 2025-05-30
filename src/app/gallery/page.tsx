@@ -6,8 +6,10 @@ import { FaPlus, FaStar, FaTrash } from "react-icons/fa";
 import { HiPencilSquare } from "react-icons/hi2";
 import { IoClose, IoHome } from "react-icons/io5";
 import { TfiReload } from "react-icons/tfi";
-import { LuDog } from "react-icons/lu";
+import { LuClockArrowUp, LuDog } from "react-icons/lu";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { FaArrowUpWideShort, FaArrowUpZA } from "react-icons/fa6";
+import { MdArchive } from "react-icons/md";
 
 const Gallery = () => {
     const [filesUploaded, setFilesUploaded] = useState<Array<File>>([]);
@@ -42,7 +44,7 @@ const Gallery = () => {
 
     return (
         <main className="galleryContainer">
-            {width! < 920 && filtersMobile ? (
+            {width! < 1040 && filtersMobile ? (
                 <div className="filtersContainer">
                     <span>
                         <h3>Opções: </h3>
@@ -60,6 +62,9 @@ const Gallery = () => {
                             </li>
                             <li>
                                 <FaTrash className="filterIcon" /> Trashcan
+                            </li>
+                            <li>
+                                <MdArchive className="filterIcon" /> Archiveds
                             </li>
                         </ul>
 
@@ -81,7 +86,7 @@ const Gallery = () => {
                 <></>
             )}
 
-            {width! > 920 ? (
+            {width! > 1040 ? (
                 <div className="filtersContainer">
                     <span>
                         <h3>Opções: </h3>
@@ -99,6 +104,9 @@ const Gallery = () => {
                             </li>
                             <li>
                                 <FaTrash className="filterIcon" /> Trashcan
+                            </li>
+                            <li>
+                                <MdArchive className="filterIcon" /> Archiveds
                             </li>
                         </ul>
 
@@ -120,14 +128,18 @@ const Gallery = () => {
                 <></>
             )}
 
-            <div
-                className="filtersFloatMobileButton"
-                onClick={() => setFiltersMobile(!filtersMobile)}
-            >
-                <figure>
-                    {filtersMobile ? <IoClose /> : <HiPencilSquare />}
-                </figure>
-            </div>
+            {width! < 1040 ? (
+                <div
+                    className="filtersFloatMobileButton"
+                    onClick={() => setFiltersMobile(!filtersMobile)}
+                >
+                    <figure>
+                        {filtersMobile ? <IoClose /> : <HiPencilSquare />}
+                    </figure>
+                </div>
+            ) : (
+                <></>
+            )}
 
             <div className="contentContainer">
                 <h1>Galeria (Home): </h1>
@@ -157,32 +169,169 @@ const Gallery = () => {
                     </span>
                 </div>
 
+                <div className="orderTools">
+                    <h3>
+                        Ordernar por:{" "}
+                        {width! < 720 && (
+                            <FaArrowUpZA className="iconOrderFilter" />
+                        )}
+                    </h3>
+
+                    {width! > 720 ? (
+                        <span>
+                            <ul>
+                                <li className="selected">
+                                    <FaArrowUpZA className="orderToolsIcon" />{" "}
+                                    Nome
+                                </li>
+                                <li>
+                                    <LuClockArrowUp className="orderToolsIcon" />{" "}
+                                    Data de upload
+                                </li>
+                                <li>
+                                    <FaArrowUpWideShort className="orderToolsIcon" />{" "}
+                                    Tamanho
+                                </li>
+                            </ul>
+                        </span>
+                    ) : (
+                        <select>
+                            <option>Nome</option>
+                            <option>Nome decrescente</option>
+                            <option>Data de upload</option>
+                            <option>Data de upload desc.</option>
+                            <option>Tamanho</option>
+                            <option>Tamanho decrescente</option>
+                        </select>
+                    )}
+                </div>
+
                 <section className="imageGalleryContainer">
                     <figure>
                         <img src="/assets/catface.jpg" alt="image" />
 
-                        <figcaption>Catface</figcaption>
+                        <figcaption>
+                            <div>
+                                <h4>Name: </h4> Catface
+                            </div>
+                            <div>
+                                <h4>Tamaho: </h4> 200KB
+                            </div>
+                            <div>
+                                <h4>Upload: </h4> 10/10/2010
+                            </div>
+
+                            <span className="btnContainer">
+                                <button className="btnArchive" type="button">
+                                    <MdArchive className="btnIcon" /> Arquivar
+                                </button>
+                                <button className="btnDelete" type="button">
+                                    <FaTrash className="btnIcon" /> Deletar
+                                </button>
+                            </span>
+                        </figcaption>
                     </figure>
                     <figure>
                         <img src="/assets/catface.jpg" alt="image" />
 
-                        <figcaption>Catface</figcaption>
+                        <figcaption>
+                            {" "}
+                            <div>
+                                <h4>Name: </h4> Catface
+                            </div>
+                            <div>
+                                <h4>Tamaho: </h4> 200KB
+                            </div>
+                            <div>
+                                <h4>Upload: </h4> 10/10/2010
+                            </div>
+
+
+                            <span className="btnContainer">
+                                <button className="btnArchive" type="button">
+                                    <MdArchive className="btnIcon" /> Arquivar
+                                </button>
+                                <button className="btnDelete" type="button">
+                                    <FaTrash className="btnIcon" /> Deletar
+                                </button>
+                            </span>
+                        </figcaption>
                     </figure>
                     <figure>
                         <img src="/assets/catface.jpg" alt="image" />
 
-                        <figcaption>Catface</figcaption>
+                        <figcaption>
+                            {" "}
+                            <div>
+                                <h4>Name: </h4> Catface
+                            </div>
+                            <div>
+                                <h4>Tamaho: </h4> 200KB
+                            </div>
+                            <div>
+                                <h4>Upload: </h4> 10/10/2010
+                            </div>
+
+                            <span className="btnContainer">
+                                <button className="btnArchive" type="button">
+                                    <MdArchive className="btnIcon" /> Arquivar
+                                </button>
+                                <button className="btnDelete" type="button">
+                                    <FaTrash className="btnIcon" /> Deletar
+                                </button>
+                            </span>
+                        </figcaption>
                     </figure>
                     <figure>
                         <img src="/assets/catface.jpg" alt="image" />
 
-                        <figcaption>Catface</figcaption>
+                        <figcaption>
+                            {" "}
+                            <div>
+                                <h4>Name: </h4> Catface
+                            </div>
+                            <div>
+                                <h4>Tamaho: </h4> 200KB
+                            </div>
+                            <div>
+                                <h4>Upload: </h4> 10/10/2010
+                            </div>
+
+                            <span className="btnContainer">
+                                <button className="btnArchive" type="button">
+                                    <MdArchive className="btnIcon" /> Arquivar
+                                </button>
+                                <button className="btnDelete" type="button">
+                                    <FaTrash className="btnIcon" /> Deletar
+                                </button>
+                            </span>
+                        </figcaption>
                     </figure>
 
                     <figure>
                         <img src="/assets/catface.jpg" alt="image" />
 
-                        <figcaption>Catface</figcaption>
+                        <figcaption>
+                            {" "}
+                            <div>
+                                <h4>Name: </h4> Catface
+                            </div>
+                            <div>
+                                <h4>Tamaho: </h4> 200KB
+                            </div>
+                            <div>
+                                <h4>Upload: </h4> 10/10/2010
+                            </div>
+
+                            <span className="btnContainer">
+                                <button className="btnArchive" type="button">
+                                    <MdArchive className="btnIcon" /> Arquivar
+                                </button>
+                                <button className="btnDelete" type="button">
+                                    <FaTrash className="btnIcon" /> Deletar
+                                </button>
+                            </span>
+                        </figcaption>
                     </figure>
                 </section>
             </div>

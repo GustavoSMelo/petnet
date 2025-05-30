@@ -112,6 +112,7 @@
 
 @media screen and (max-width: 880px) {
     .main-container {
+        background-size: cover;
         .wrapper {
             @apply flex-col-reverse;
 

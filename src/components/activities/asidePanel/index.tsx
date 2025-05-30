@@ -14,6 +14,19 @@ const ActivityAsidePanel = () => {
             <button
                 type="button"
                 className={
+                    currentActivityRoute === "RPGGen"
+                        ? "selectedButton"
+                        : "default"
+                }
+                onClick={() => {
+                    changeActivityRoute("RPGGen");
+                }}
+            >
+                <LuSwords className="btnIcons" /> <p>Petmon</p>
+            </button>
+            <button
+                type="button"
+                className={
                     currentActivityRoute === "GenDoc"
                         ? "selectedButton"
                         : "default"
@@ -28,19 +41,6 @@ const ActivityAsidePanel = () => {
             <button
                 type="button"
                 className={
-                    currentActivityRoute === "RPGGen"
-                        ? "selectedButton"
-                        : "default"
-                }
-                onClick={() => {
-                    changeActivityRoute("RPGGen");
-                }}
-            >
-                <LuSwords className="btnIcons" /> <p>RPG Gen</p>
-            </button>
-            <button
-                type="button"
-                className={
                     currentActivityRoute === "TCG"
                         ? "selectedButton"
                         : "default"
@@ -50,7 +50,7 @@ const ActivityAsidePanel = () => {
                     router.push("/activities/gentcg");
                 }}
             >
-                <TbPlayCardStarFilled className="btnIcons" /> <p>P-TCG</p>
+                <TbPlayCardStarFilled className="btnIcons" /> <p>PetTCG</p>
             </button>
         </aside>
     );
