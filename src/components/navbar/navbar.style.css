@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "tailwindcss";
+@import "../../styles/customs.css";
 
 .navbarContainer {
     @apply flex
@@ -12,8 +13,8 @@
     p-3
     bg-sky-500
     z-10
-    shadow-lg
-    shadow-gray-300;
+    shadow-gray-600
+    shadow-md;
 
     div {
         @apply flex items-center text-xl;

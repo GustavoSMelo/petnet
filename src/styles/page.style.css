@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "tailwindcss";
+@import "./customs.css";
 
 @keyframes bg-animation {
     0% {
@@ -55,7 +56,14 @@
     animation: bg-animation 30s linear infinite;
 
     .wrapper {
-        @apply flex items-center justify-center bg-white w-4/5 px-3 py-6 rounded-xl shadow-2xl;
+        @apply flex
+        items-center
+        justify-center
+        bg-white
+        w-4/5
+        px-3 py-6
+        rounded-xl
+        shadow-minimalistWithShadow;
     }
 }
 

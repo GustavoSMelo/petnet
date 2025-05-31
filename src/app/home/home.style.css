@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "tailwindcss";
+@import "../../styles/customs.css";
 
 .homeContainer {
     @apply mt-20 px-5 py-2 flex flex-col items-center;
@@ -33,7 +34,16 @@
     }
 
     .selectedPetProfileCard {
-        @apply w-3/5 my-8 shadow-gray-500 shadow-lg px-6 py-6 rounded-lg border-4 border-black flex items-center bg-white;
+        @apply w-3/5
+        my-8
+        px-6
+        py-6
+        rounded-lg
+        shadow-gray-300
+        shadow-minimalistWithShadowAlt
+        flex
+        items-center
+        bg-white;
 
         .petProfileCardFigure {
             @apply w-36 border-4 border-black rounded-full mr-14;
@@ -98,14 +108,28 @@
             @apply flex w-full flex-wrap;
 
             .quickAction {
-                @apply flex flex-col w-80 m-3 justify-end items-center text-center shadow-gray-500 shadow-lg rounded-md cursor-pointer transition-all duration-300 border-4 border-black;
+                @apply flex
+                flex-col
+                w-80
+                m-3
+                justify-end
+                items-center
+                text-center
+                shadow-gray-300
+                shadow-minimalistWithShadowAlt
+                rounded-md
+                cursor-pointer
+                transition-all
+                duration-300;
+                /* border-4
+                border-black; */
 
                 img {
                     @apply flex h-full rounded-tl-md rounded-tr-md;
                 }
 
                 figcaption {
-                    @apply w-full text-2xl font-bold py-6 border-t-4 border-black bg-white;
+                    @apply w-full text-2xl font-bold py-6 border-t-2 border-gray-300 bg-white rounded-b-full;
                 }
 
                 &:hover {

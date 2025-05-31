@@ -1,14 +1,15 @@
 @charset "UTF-8";
 @import "tailwindcss";
+@import "../../styles/customs.css";
 
 .galleryContainer {
-    @apply flex mt-30 justify-center;
+    @apply flex mt-30 justify-center overflow-x-hidden;
 
     .filtersContainer {
-        @apply flex flex-col rounded-lg p-4 px-14 flex-1/8;
+        @apply flex flex-col rounded-lg px-14 flex-1/8 mt-1.5;
 
         span {
-            @apply shadow-lg shadow-gray-400 p-4 rounded-lg bg-white;
+            @apply shadow-gray-300 shadow-minimalistWithShadowAlt p-4 rounded-lg bg-white;
         }
 
         h3 {
@@ -43,7 +44,7 @@
     }
 
     .contentContainer {
-        @apply flex-2/3 pr-28;
+        @apply flex-2/3 pr-28 mb-8.5;
 
         h1 {
             @apply text-4xl font-bold;
@@ -77,41 +78,102 @@
             }
         }
 
-        .orderTools {
-            @apply flex w-full bg-white justify-between mt-6 py-6 px-4 border-2 border-sky-500 rounded-lg;
+        .orderContainer {
+            @apply flex justify-between;
 
-            h3 {
-                @apply text-2xl font-semibold flex items-center;
+            .orderTools {
+                @apply flex
+                w-7/8
+                bg-white
+                justify-between
+                mt-6
+                py-6
+                px-4
+                border-2
+                border-sky-500
+                rounded-lg;
 
-                .iconOrderFilter {
-                    @apply ml-1;
+                h3 {
+                    @apply text-2xl font-semibold flex items-center;
+
+                    .iconOrderFilter {
+                        @apply ml-1;
+                    }
+                }
+
+                span {
+                    ul {
+                        @apply flex;
+
+                        li {
+                            @apply mx-3 text-xl cursor-pointer flex items-center;
+
+                            .orderToolsIcon {
+                                @apply mr-1.5;
+                            }
+
+                            &:hover {
+                                @apply font-semibold;
+                            }
+                        }
+
+                        li.selected {
+                            @apply text-sky-500 font-black;
+                        }
+                    }
+                }
+
+                select {
+                    @apply border-2 border-sky-500 text-xl cursor-pointer rounded-lg;
                 }
             }
 
-            span {
-                ul {
-                    @apply flex;
-
-                    li {
-                        @apply mx-3 text-xl cursor-pointer flex items-center;
-
-                        .orderToolsIcon {
-                            @apply mr-1.5;
-                        }
-
-                        &:hover {
-                            @apply font-semibold;
-                        }
-                    }
-
-                    li.selected {
-                        @apply text-sky-500 font-black;
-                    }
-                }
+            .orderSwitchViewMobile {
+                @apply border-2
+                mt-6
+                py-6
+                px-4
+                rounded-lg
+                ml-2
+                border-sky-500
+                items-center
+                justify-between
+                bg-white
+                hidden;
             }
 
-            select {
-                @apply border-2 border-sky-500 text-xl cursor-pointer rounded-lg;
+            .orderSwitchView {
+                @apply border-2
+                mt-6
+                py-6
+                px-4
+                rounded-lg
+                ml-2
+                flex
+                border-sky-500
+                items-center
+                justify-between
+                bg-white;
+
+                .icon {
+                    @apply size-6;
+                }
+
+                button {
+                    @apply border-2
+                    w-15
+                    h-8
+                    mx-6
+                    bg-sky-400
+                    rounded-full
+                    flex
+                    items-center
+                    cursor-pointer;
+
+                    div {
+                        @apply bg-white w-6 border-2 rounded-full h-6 mx-0.5;
+                    }
+                }
             }
         }
 
@@ -119,9 +181,8 @@
             @apply w-full flex flex-wrap gap-10 items-center;
 
             figure {
-                @apply shadow-xl
-                bg-white
-                shadow-gray-400
+                @apply bg-white
+                shadow-gray-300
                 rounded-lg
                 text-center
                 flex
@@ -130,7 +191,8 @@
                 w-fit
                 p-4
                 mt-6
-                cursor-pointer;
+                cursor-pointer
+                shadow-minimalistWithShadowAlt;
 
                 img {
                     @apply w-60;
@@ -170,6 +232,69 @@
 
                         button.btnDelete {
                             @apply bg-red-800 text-white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .imageGalleryContainerList {
+            table {
+                @apply mt-5
+                shadow-gray-300
+                shadow-minimalistWithShadow
+                rounded-md
+                w-full
+                bg-white;
+                thead {
+                    @apply border-b-2
+                    border-gray-300;
+                    tr {
+                        th {
+                            @apply text-sky-500
+                            font-black
+                            p-3
+                            text-left
+                            border-r-1
+                            border-gray-300;
+                        }
+
+                        th:last-child {
+                            @apply border-0;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        @apply border-b-1 border-gray-400;
+                        td {
+                            @apply p-3 text-2xl;
+                        }
+
+                        td.tableFigureData {
+                            @apply flex items-center;
+                            img {
+                                @apply size-18;
+                            }
+
+                            h3 {
+                                @apply ml-3;
+                            }
+                        }
+
+                        td.tableActionData {
+                            @apply w-1/12;
+                            button {
+                                @apply ml-3 text-2xl cursor-pointer transition-all;
+                            }
+
+                            button:nth-child(1):hover {
+                                @apply text-amber-600 transition-all;
+                            }
+                            button:nth-child(2):hover {
+                                @apply text-red-800 transition-all;
+                            }
                         }
                     }
                 }
@@ -273,9 +398,23 @@
                 @apply flex items-center flex-col;
             }
 
-            .orderTools {
-                select {
-                    @apply text-lg;
+            .orderContainer {
+                .orderTools {
+                    h3 {
+                        @apply text-lg;
+                    }
+
+                    select {
+                        @apply text-lg py-2 px-1;
+                    }
+                }
+
+                .orderSwitchView {
+                    @apply hidden;
+                }
+
+                .orderSwitchViewMobile {
+                    @apply flex;
                 }
             }
         }
