@@ -2,8 +2,18 @@
 @import "tailwindcss";
 @import "../../styles/customs.css";
 
+@keyframes imageDetailsMobileAnimation {
+    0% {
+        transform: translateY(1000px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 .galleryContainer {
-    @apply flex mt-30 justify-center overflow-x-hidden;
+    @apply flex pt-30 justify-center overflow-x-hidden;
 
     .filtersContainer {
         @apply flex flex-col rounded-lg px-14 flex-1/8 mt-1.5;
@@ -75,6 +85,52 @@
                         @apply text-2xl;
                     }
                 }
+            }
+        }
+
+        .uploadedImagesInMem {
+            @apply border-2
+            border-dotted
+            p-4
+            rounded-xl
+            my-2
+            bg-white
+            flex
+            items-center
+            flex-col;
+
+            span {
+                @apply flex flex-wrap;
+
+                img {
+                    @apply size-40;
+                }
+            }
+
+            button {
+                @apply bg-sky-400
+                text-white
+                font-black
+                flex
+                items-center
+                justify-center
+                mt-4.5
+                px-22
+                py-3
+                text-xl
+                rounded-md
+                border-2
+                border-black
+                cursor-pointer
+                transition-all;
+
+                .btnIcon {
+                    @apply mr-1.5;
+                }
+            }
+
+            button:hover {
+                @apply bg-sky-500 transition-all;
             }
         }
 
@@ -174,6 +230,14 @@
                         @apply bg-white w-6 border-2 rounded-full h-6 mx-0.5;
                     }
                 }
+
+                button.gridSelected {
+                    @apply justify-start;
+                }
+
+                button.listSelected {
+                    @apply justify-end;
+                }
             }
         }
 
@@ -192,7 +256,8 @@
                 p-4
                 mt-6
                 cursor-pointer
-                shadow-minimalistWithShadowAlt;
+                shadow-minimalistWithShadowAlt
+                transition-all;
 
                 img {
                     @apply w-60;
@@ -204,7 +269,7 @@
                     w-full
                     pt-3
                     text-lg
-                    border-t-black
+                    border-t-gray-300
                     border-t-2
                     flex-col;
 
@@ -219,7 +284,14 @@
                     .btnContainer {
                         @apply mt-3 flex;
                         button {
-                            @apply border-2 py-2 px-3.5 mx-1.5 rounded-md flex items-center;
+                            @apply border-2
+                            py-2
+                            px-3.5
+                            mx-1.5
+                            rounded-md
+                            flex
+                            items-center
+                            cursor-pointer;
 
                             .btnIcon {
                                 @apply mr-1.5;
@@ -235,6 +307,10 @@
                         }
                     }
                 }
+            }
+
+            figure:hover {
+                @apply shadow-gray-400 scale-105 transition-all;
             }
         }
 
@@ -290,13 +366,92 @@
                             }
 
                             button:nth-child(1):hover {
-                                @apply text-amber-600 transition-all;
+                                @apply text-yellow-400 transition-all;
                             }
                             button:nth-child(2):hover {
+                                @apply text-amber-600 transition-all;
+                            }
+                            button:nth-child(3):hover {
                                 @apply text-red-800 transition-all;
                             }
                         }
                     }
+                }
+            }
+        }
+
+        .notFoundDog {
+            @apply items-center justify-center w-full flex flex-col bg-white;
+            img {
+                @apply w-96;
+            }
+
+            figcaption {
+                @apply text-center text-2xl;
+            }
+        }
+    }
+
+    .imageDetailsMobile {
+        @apply absolute
+        w-full
+        h-full
+        z-40
+        top-0
+        flex
+        justify-end
+        flex-col;
+        background-color: #60606090;
+
+        div {
+            @apply bg-white
+            fixed
+            bottom-0
+            w-full
+            rounded-t-4xl
+            p-5
+            shadow-minimalist
+            shadow-gray-300
+            text-lg;
+
+            animation: imageDetailsMobileAnimation 0.6s;
+
+            h3 {
+                @apply font-black
+                text-sky-400
+                text-2xl
+                border-b-1
+                border-gray-400
+                pb-3
+                mb-6;
+            }
+
+            ul {
+                li.btnFav,
+                li.btnDelete,
+                li.btnArchive {
+                    @apply bg-yellow-400
+                    font-bold
+                    text-xl
+                    shadow-minimalist
+                    shadow-gray-300
+                    rounded-md
+                    py-2
+                    text-center
+                    cursor-pointer
+                    my-3
+                    flex items-center justify-center;
+                }
+
+                li.btnDelete {
+                    @apply bg-red-800 text-white;
+                }
+                li.btnArchive {
+                    @apply bg-amber-700;
+                }
+
+                li.infoText {
+                    @apply text-2xl my-1.5;
                 }
             }
         }
@@ -330,7 +485,15 @@
 @media screen and (max-width: 1040px) {
     .galleryContainer {
         .filtersContainer {
-            @apply fixed w-screen h-screen bg-white flex items-center justify-center top-0;
+            @apply fixed
+            w-screen
+            h-screen
+            bg-white
+            flex
+            items-center
+            justify-center
+            top-0
+            z-30;
 
             span {
                 @apply bg-transparent shadow-none;
@@ -361,7 +524,8 @@
             rounded-full
             cursor-pointer
             bottom-7
-            right-7;
+            right-7
+            z-40;
         }
 
         .contentContainer {

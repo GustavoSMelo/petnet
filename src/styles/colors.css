@@ -8,4 +8,5 @@
     --color-petnetComplementar: oklch(74.66% 0.127 95.82);
     --color-inputBackgroundColor: oklch(96.12% 0.000 0);
     --color-inputBorderColor: oklch(75.40% 0.000 0);
+    --color-transparentBGColor: #60606090;
 }
