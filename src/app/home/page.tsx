@@ -1,24 +1,23 @@
-'use client';
+"use client";
 
-import './home.style.css';
-import Navbar from "@petnet/components/navbar";
+import "./home.style.css";
 
-import PolaroidGallery from '@petnetPublic/assets/polaroid.jpg';
-import RegisterPet from '@petnetPublic/assets/cadastrarPet.jpg';
-import PetPixelart from '@petnetPublic/assets/pixelart.jpg';
-import CatFace from '@petnetPublic/assets/catface.jpg';
-import Publish from '@petnetPublic/assets/publish.jpg';
-import ViewFeed from '@petnetPublic/assets/viewFeed.jpg';
-import OtherActions from '@petnetPublic/assets/otherActions.jpg';
-import PetGames from '@petnetPublic/assets/petGames.jpg';
+import PolaroidGallery from "@petnetPublic/assets/polaroid.jpg";
+import RegisterPet from "@petnetPublic/assets/cadastrarPet.jpg";
+import PetPixelart from "@petnetPublic/assets/pixelart.jpg";
+import CatFace from "@petnetPublic/assets/catface.jpg";
+import Publish from "@petnetPublic/assets/publish.jpg";
+import ViewFeed from "@petnetPublic/assets/viewFeed.jpg";
+import OtherActions from "@petnetPublic/assets/otherActions.jpg";
+import PetGames from "@petnetPublic/assets/petGames.jpg";
 
-import { HiIdentification } from 'react-icons/hi';
-import { FaArrowsRotate } from 'react-icons/fa6';
-import { FaPencilAlt } from 'react-icons/fa';
-import Footer from '@petnet/components/footer';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import useNavbar from '@petnet/hooks/useNavbar';
+import { HiIdentification } from "react-icons/hi";
+import { FaArrowsRotate } from "react-icons/fa6";
+import { FaPencilAlt } from "react-icons/fa";
+import Footer from "@petnet/components/footer";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import useNavbar from "@petnet/hooks/useNavbar";
 
 const Home = () => {
     const router = useRouter();
@@ -48,12 +47,12 @@ const Home = () => {
                     </section>
                 </span> */}
 
-                    <section className='selectedPetProfileCard'>
-                        <figure className='petProfileCardFigure'>
-                            <img src={CatFace.src} alt='logo pet' />
+                    <section className="selectedPetProfileCard">
+                        <figure className="petProfileCardFigure">
+                            <img src={CatFace.src} alt="logo pet" />
                         </figure>
 
-                        <div className='petProfileInfoCard'>
+                        <div className="petProfileInfoCard">
                             <div>
                                 <h1>Tigrinho</h1>
                                 <p>Sexo: M</p>
@@ -63,78 +62,95 @@ const Home = () => {
                             </div>
 
                             <span>
-                                <button className='viewRPNI' type='button'>
-                                    <HiIdentification className='petProfileCardIcon' /> Visualizar RPNI
+                                <button className="viewRPNI" type="button">
+                                    <HiIdentification className="petProfileCardIcon" />{" "}
+                                    Visualizar RPNI
                                 </button>
-                                <button className='changePetProfile' type='button'>
-                                    <FaArrowsRotate className='petProfileCardIcon' />Trocar de pet
+                                <button
+                                    className="changePetProfile"
+                                    type="button"
+                                >
+                                    <FaArrowsRotate className="petProfileCardIcon" />
+                                    Trocar de pet
                                 </button>
-                                <button className='editPetProfile' type='button'>
-                                    <FaPencilAlt className='petProfileCardIcon' /> Editar pet perfil
+                                <button
+                                    className="editPetProfile"
+                                    type="button"
+                                >
+                                    <FaPencilAlt className="petProfileCardIcon" />{" "}
+                                    Editar pet perfil
                                 </button>
                             </span>
                         </div>
                     </section>
 
-                    <section className='quickActionsContainer'>
+                    <section className="quickActionsContainer">
                         <h1>Ações rapidas: </h1>
-                        <div className='quickActions'>
-                            <figure className='quickAction galleryQuickAction' onClick={() => router.push('/gallery')}>
-                                <img src={PolaroidGallery.src} alt='Polaroid gallery' />
+                        <div className="quickActions">
+                            <figure
+                                className="quickAction galleryQuickAction"
+                                onClick={() => router.push("/gallery")}
+                            >
+                                <img
+                                    src={PolaroidGallery.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                                <figcaption>
-                                    Acessar galeria
-                                </figcaption>
+                                <figcaption>Acessar galeria</figcaption>
                             </figure>
 
-                            <figure className='quickAction registerPetQuickAction'>
-                                <img src={RegisterPet.src} alt='Polaroid gallery' />
+                            <figure
+                                className="quickAction registerPetQuickAction"
+                                onClick={() => router.push("/petregister")}
+                            >
+                                <img
+                                    src={RegisterPet.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                                <figcaption>
-                                    Cadastrar pet
-                                </figcaption>
+                                <figcaption>Cadastrar pet</figcaption>
                             </figure>
 
-                            <figure className='quickAction galleryQuickAction'>
-                                <img src={PetPixelart.src} alt='Polaroid gallery' />
+                            <figure className="quickAction galleryQuickAction">
+                                <img
+                                    src={PetPixelart.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                                <figcaption>
-                                    Gerar pixelart
-                                </figcaption>
+                                <figcaption>Gerar pixelart</figcaption>
                             </figure>
 
-                            <figure className='quickAction galleryQuickAction'>
-                                <img src={Publish.src} alt='Polaroid gallery' />
+                            <figure className="quickAction galleryQuickAction">
+                                <img src={Publish.src} alt="Polaroid gallery" />
 
-                                <figcaption>
-                                    Publicar
-                                </figcaption>
+                                <figcaption>Publicar</figcaption>
                             </figure>
 
+                            <figure className="quickAction galleryQuickAction">
+                                <img
+                                    src={ViewFeed.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                            <figure className='quickAction galleryQuickAction'>
-                                <img src={ViewFeed.src} alt='Polaroid gallery' />
-
-                                <figcaption>
-                                    Visualizar feed
-                                </figcaption>
+                                <figcaption>Visualizar feed</figcaption>
                             </figure>
 
-                            <figure className='quickAction galleryQuickAction'>
-                                <img src={PetGames.src} alt='Polaroid gallery' />
+                            <figure className="quickAction galleryQuickAction">
+                                <img
+                                    src={PetGames.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                                <figcaption>
-                                    Games
-                                </figcaption>
+                                <figcaption>Games</figcaption>
                             </figure>
 
+                            <figure className="quickAction galleryQuickAction">
+                                <img
+                                    src={OtherActions.src}
+                                    alt="Polaroid gallery"
+                                />
 
-                            <figure className='quickAction galleryQuickAction'>
-                                <img src={OtherActions.src} alt='Polaroid gallery' />
-
-                                <figcaption>
-                                    Outras acoes
-                                </figcaption>
+                                <figcaption>Outras acoes</figcaption>
                             </figure>
                         </div>
                     </section>
@@ -142,7 +158,7 @@ const Home = () => {
             </main>
             <Footer />
         </>
-    )
+    );
 };
 
 export default Home;

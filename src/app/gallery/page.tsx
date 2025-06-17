@@ -3,7 +3,7 @@
 
 import { ChangeEvent, DragEvent, useState } from "react";
 import "./gallery.style.css";
-import { FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
+import { FaDownload, FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
 import { HiPencilSquare } from "react-icons/hi2";
 import { IoClose, IoGrid, IoHome } from "react-icons/io5";
 import { TfiReload } from "react-icons/tfi";
@@ -13,17 +13,21 @@ import {
     FaArrowUpWideShort,
     FaArrowUpZA,
     FaRegFloppyDisk,
-    FaBoxArchive
+    FaBoxArchive,
 } from "react-icons/fa6";
 import { MdArchive, MdDelete } from "react-icons/md";
 import Footer from "@petnet/components/footer";
 import WorrieDog from "@petnetPublic/assets/worrieDog.png";
+import { BsThreeDots } from "react-icons/bs";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Gallery = () => {
     const [filesUploaded, setFilesUploaded] = useState<Array<File>>([]);
     const [filtersMobile, setFiltersMobile] = useState(false);
     const [imageDetailsMobile, setImageDetailsMobile] = useState(false);
     const [listStyle, setListStyle] = useState<"grid" | "list">("grid");
+    const [imageDetailsMobileExpanded, setImageDetailsMobileExpanded] =
+        useState(false);
     const { width } = useWindowSize();
 
     const handleFilesUploaded = (
@@ -270,14 +274,17 @@ const Gallery = () => {
 
                             <FaList className="icon" />
                         </div>
-                        <div className="orderSwitchViewMobile">
+                        <div
+                            className="orderSwitchViewMobile"
+                            onClick={() => handleChangeListView()}
+                        >
                             <IoGrid className="icon" />
                         </div>
                     </section>
 
                     {listStyle === "grid" ? (
                         <section className="imageGalleryContainer">
-                            <figure>
+                            <figure onClick={() => setImageDetailsMobile(true)}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
@@ -293,18 +300,18 @@ const Gallery = () => {
 
                                     <span className="btnContainer">
                                         <button
-                                            className="btnArchive"
+                                            className="btnDownload"
                                             type="button"
                                         >
                                             <MdArchive className="btnIcon" />{" "}
-                                            Arquivar
+                                            Download
                                         </button>
                                         <button
-                                            className="btnDelete"
+                                            className="btnFav"
                                             type="button"
                                         >
-                                            <FaTrash className="btnIcon" />{" "}
-                                            Deletar
+                                            <FaStar className="btnIcon" />{" "}
+                                            Favoritar
                                         </button>
                                     </span>
                                 </figcaption>
@@ -558,40 +565,88 @@ const Gallery = () => {
                 {/* Full image info */}
 
                 {width! < 590 && imageDetailsMobile ? (
-                    <span
+                    <div
                         className="imageDetailsMobile"
                         onClick={() => setImageDetailsMobile(false)}
                     >
-                        <div onClick={(event) => event.stopPropagation()}>
+                        <div
+                            onClick={(event) => event.stopPropagation()}
+                            className={
+                                imageDetailsMobileExpanded
+                                    ? "imageDetailsMobileExpanded"
+                                    : ""
+                            }
+                        >
+                            <button
+                                className="expandDetails"
+                                onClick={() =>
+                                    setImageDetailsMobileExpanded(
+                                        !imageDetailsMobileExpanded
+                                    )
+                                }
+                            >
+                                {imageDetailsMobileExpanded ? (
+                                    <IoIosArrowDown className="expandDetailsIcon" />
+                                ) : (
+                                    <IoIosArrowUp className="expandDetailsIcon" />
+                                )}
+                            </button>
                             <h3>Imagen.png</h3>
 
                             <ul>
+                                <li className="info-text">
+                                    <b>Nome: </b> ImageName.png
+                                </li>
+                                <li className="info-text">
+                                    <b>Tipo: </b> image/png
+                                </li>
+                                <li className="info-text">
+                                    <b>Resolucao: </b> 200 x 200
+                                </li>
+                                {imageDetailsMobileExpanded ? (
+                                    <>
+                                        <li className="info-text">
+                                            <b>Tamanho: </b> 200kb
+                                        </li>
+                                        <li className="info-text">
+                                            <b>Upload: </b> 10/10/2001
+                                        </li>
+                                        <li className="info-text">
+                                            <b>Criacao: </b> 10/10/2000
+                                        </li>
+                                        <li className="info-text">
+                                            <b>Localizacao: </b> Sem localizacao
+                                        </li>
+                                        <li className="info-text">
+                                            <b>Arquivado: </b> -
+                                        </li>
+                                    </>
+                                ) : (
+                                    <></>
+                                )}
+                                <li className="btnDownload">
+                                    <FaDownload /> Download
+                                </li>
                                 <li className="btnFav">
                                     <FaStar /> Favoritar
-                                </li>
-                                <li className="infoText">
-                                    <b>Tamanho:</b> 300KB
-                                </li>
-                                <li className="infoText">
-                                    <b>Resolucao:</b> 600x600
-                                </li>
-                                <li className="infoText">
-                                    <b>Upload:</b> 10/10/2002
                                 </li>
                                 <li className="btnArchive">
                                     <MdArchive /> Arquivar
                                 </li>
-                                <li className="btnDelete">
-                                    <MdDelete />
-                                    Deletar
-                                </li>
+                                {imageDetailsMobileExpanded ? (
+                                    <li className="btnDelete">
+                                        <MdDelete />
+                                        Deletar
+                                    </li>
+                                ) : (
+                                    <></>
+                                )}
                             </ul>
                         </div>
-                    </span>
+                    </div>
                 ) : (
                     <></>
                 )}
-
             </main>
             <Footer />
         </>
