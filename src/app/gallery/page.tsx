@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 
-import { ChangeEvent, DragEvent, useState } from "react";
+import { ChangeEvent, DragEvent, useState, useEffect } from "react";
 import "./gallery.style.css";
 import { FaDownload, FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
 import { HiPencilSquare } from "react-icons/hi2";
@@ -17,7 +17,7 @@ import {
 } from "react-icons/fa6";
 import { MdArchive, MdDelete } from "react-icons/md";
 import Footer from "@petnet/components/footer";
-import WorrieDog from "@petnetPublic/assets/worrieDog.png";
+import Overlay from "@petnet/components/gallery/overlay";
 import { BsThreeDots } from "react-icons/bs";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
@@ -28,7 +28,18 @@ const Gallery = () => {
     const [listStyle, setListStyle] = useState<"grid" | "list">("grid");
     const [imageDetailsMobileExpanded, setImageDetailsMobileExpanded] =
         useState(false);
-    const { width } = useWindowSize();
+    const [imageDetailsDesktopExpanded, setImageDetailsDesktopExpanded] = useState(false);
+    const { width = 0 } = useWindowSize();
+
+    useEffect(() => {
+        if (imageDetailsDesktopExpanded && width! < 570) {
+            setImageDetailsMobile(true);
+            setImageDetailsDesktopExpanded(false);
+        } else if (imageDetailsMobile && width! >= 570) {
+            setImageDetailsMobile(false);
+            setImageDetailsDesktopExpanded(true);
+        }
+    }, [imageDetailsDesktopExpanded, imageDetailsMobile, width]);
 
     const handleFilesUploaded = (
         event: ChangeEvent<HTMLInputElement>
@@ -62,8 +73,19 @@ const Gallery = () => {
         listStyle === "grid" ? setListStyle("list") : setListStyle("grid");
     };
 
+    const handleImageDetails = () => {
+        if (width! > 590) {
+            setImageDetailsDesktopExpanded(!imageDetailsDesktopExpanded);
+            return;
+        }
+
+        setImageDetailsMobile(!imageDetailsMobile);
+        return;
+    };
+
     return (
         <>
+            {imageDetailsDesktopExpanded ? <Overlay /> : <></>}
             <main className="galleryContainer">
                 {width! < 1040 && filtersMobile ? (
                     <div className="filtersContainer">
@@ -284,7 +306,7 @@ const Gallery = () => {
 
                     {listStyle === "grid" ? (
                         <section className="imageGalleryContainer">
-                            <figure onClick={() => setImageDetailsMobile(true)}>
+                            <figure onClick={() => handleImageDetails()}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
