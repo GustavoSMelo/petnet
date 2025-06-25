@@ -3,7 +3,7 @@
 
 import { ChangeEvent, DragEvent, useState, useEffect } from "react";
 import "./gallery.style.css";
-import { FaDownload, FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
+import { FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
 import { HiPencilSquare } from "react-icons/hi2";
 import { IoClose, IoGrid, IoHome } from "react-icons/io5";
 import { TfiReload } from "react-icons/tfi";
@@ -15,11 +15,11 @@ import {
     FaRegFloppyDisk,
     FaBoxArchive,
 } from "react-icons/fa6";
-import { MdArchive, MdDelete } from "react-icons/md";
+import { MdArchive } from "react-icons/md";
 import Footer from "@petnet/components/footer";
 import Overlay from "@petnet/components/gallery/overlay";
 import { BsThreeDots } from "react-icons/bs";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import MobileOverlay from "@petnet/components/gallery/mobileOverlay";
 
 const Gallery = () => {
     const [filesUploaded, setFilesUploaded] = useState<Array<File>>([]);
@@ -587,85 +587,12 @@ const Gallery = () => {
                 {/* Full image info */}
 
                 {width! < 590 && imageDetailsMobile ? (
-                    <div
-                        className="imageDetailsMobile"
-                        onClick={() => setImageDetailsMobile(false)}
-                    >
-                        <div
-                            onClick={(event) => event.stopPropagation()}
-                            className={
-                                imageDetailsMobileExpanded
-                                    ? "imageDetailsMobileExpanded"
-                                    : ""
-                            }
-                        >
-                            <button
-                                className="expandDetails"
-                                onClick={() =>
-                                    setImageDetailsMobileExpanded(
-                                        !imageDetailsMobileExpanded
-                                    )
-                                }
-                            >
-                                {imageDetailsMobileExpanded ? (
-                                    <IoIosArrowDown className="expandDetailsIcon" />
-                                ) : (
-                                    <IoIosArrowUp className="expandDetailsIcon" />
-                                )}
-                            </button>
-                            <h3>Imagen.png</h3>
-
-                            <ul>
-                                <li className="info-text">
-                                    <b>Nome: </b> ImageName.png
-                                </li>
-                                <li className="info-text">
-                                    <b>Tipo: </b> image/png
-                                </li>
-                                <li className="info-text">
-                                    <b>Resolucao: </b> 200 x 200
-                                </li>
-                                {imageDetailsMobileExpanded ? (
-                                    <>
-                                        <li className="info-text">
-                                            <b>Tamanho: </b> 200kb
-                                        </li>
-                                        <li className="info-text">
-                                            <b>Upload: </b> 10/10/2001
-                                        </li>
-                                        <li className="info-text">
-                                            <b>Criacao: </b> 10/10/2000
-                                        </li>
-                                        <li className="info-text">
-                                            <b>Localizacao: </b> Sem localizacao
-                                        </li>
-                                        <li className="info-text">
-                                            <b>Arquivado: </b> -
-                                        </li>
-                                    </>
-                                ) : (
-                                    <></>
-                                )}
-                                <li className="btnDownload">
-                                    <FaDownload /> Download
-                                </li>
-                                <li className="btnFav">
-                                    <FaStar /> Favoritar
-                                </li>
-                                <li className="btnArchive">
-                                    <MdArchive /> Arquivar
-                                </li>
-                                {imageDetailsMobileExpanded ? (
-                                    <li className="btnDelete">
-                                        <MdDelete />
-                                        Deletar
-                                    </li>
-                                ) : (
-                                    <></>
-                                )}
-                            </ul>
-                        </div>
-                    </div>
+                    <MobileOverlay
+                        imagePath="/assets/catface.jpg"
+                        imageDetailsMobileExpanded={imageDetailsMobileExpanded}
+                        setImageDetailsMobile={setImageDetailsMobile}
+                        setImageDetailsMobileExpanded={setImageDetailsMobileExpanded}
+                    />
                 ) : (
                     <></>
                 )}

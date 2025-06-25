@@ -24,7 +24,7 @@
 }
 
 .galleryContainer {
-    @apply flex pt-30 justify-center overflow-x-hidden;
+    @apply flex pt-30 justify-center overflow-x-hidden min-h-screen;
 
     .filtersContainer {
         @apply flex flex-col rounded-lg px-14 flex-1/8 mt-1.5;
@@ -498,7 +498,7 @@
         }
 
         div.imageDetailsMobileExpanded {
-            @apply rounded-none h-full;
+            @apply rounded-none h-full overflow-y-scroll;
             /* animation: imageDetailsMobileExpendedAnimation; */
             /* animation-duration: .5s; */
 

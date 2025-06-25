@@ -15,7 +15,8 @@ const Home = () => {
                     <h1>
                         Conecte seu melhor
                         <br />
-                        amigo ao mundo do petnet
+                        amigo ao mundo<br />
+                        do petnet
                     </h1>
 
                     <p>

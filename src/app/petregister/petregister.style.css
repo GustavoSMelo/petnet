@@ -1,10 +1,42 @@
 @charset "UTF-8";
 @import "tailwindcss";
+@import "../../styles/customs.css";
 
 .petRegisterContainer {
-    @apply pt-28;
+    @apply pt-28 flex items-center justify-center min-w-screen flex-col;
 
     h1 {
         @apply text-3xl font-bold text-center;
+    }
+
+    .registredPetsList {
+        @apply shadow-minimalistWithShadow
+        w-4/5
+        items-center
+        justify-center
+        bg-white
+        rounded-lg;
+
+        h3 {
+            @apply text-center;
+        }
+
+        ul {
+            @apply flex items-center justify-center;
+
+            li {
+                @apply p-3;
+                figure {
+                    @apply px-3;
+                    img {
+                        @apply size-20 border-2 rounded-full;
+                    }
+
+                    figcaption {
+                        @apply text-center;
+                    }
+                }
+            }
+        }
     }
 }
