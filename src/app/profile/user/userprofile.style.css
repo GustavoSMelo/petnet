@@ -1,46 +1,105 @@
 @charset "UTF-8";
 @import "tailwindcss";
-
-@mixin containerDefaultConfig() {
-    @apply border-4 border-black rounded-md p-5 mx-4 shadow-gray-500 shadow-lg h-fit bg-white mt-6;
-}
+@import "../../../styles/customs.css";
+@import "../../../styles/colors.css";
 
 .mainUserProfileContainer {
     @apply flex mt-32 h-fit min-h-screen flex-col items-center;
     background-image: url("/assets/background.png");
     background-size: contain;
 
-    .profileTabContainer {
-        @apply flex;
-
-        figure {
-            @apply border-2
-            border-solid
+    .userProfileWrapper {
+        @apply flex w-3/5 p-4;
+        aside {
+            @apply bg-white
+            shadow-minimalistWithShadowAlt
+            border-gray-300
+            border-2
             rounded-md
-            border-black
-            h-fit
-            mx-2
-            w-44
-            flex
-            items-center
-            justify-center
-            p-2
-            cursor-pointer
-            transition-all
-            font-bold;
+            p-5
+            mr-5;
 
-            .tabIcon {
-                @apply mx-1;
+            label {
+                @apply font-semibold mt-3;
+            }
+
+            p {
+                @apply text-2xl font-medium mb-4;
+            }
+
+            .btnChangeUserProfile {
+                @apply bg-sky-500
+                text-white
+                text-2xl
+                font-bold
+                px-19
+                py-2.5
+                rounded-md
+                cursor-pointer
+                flex
+                m-auto
+                mt-4;
             }
         }
 
-        figure.profileTabSelectedOption {
-            @apply bg-sky-500 text-white border-sky-500 transition-all shadow-md shadow-gray-500;
-        }
+        .socialMediaContainer {
+            @apply w-2/3
+            bg-white
+            border-2
+            border-gray-300
+            shadow-minimalistWithShadowAlt
+            rounded-md
+            p-3;
 
-        figure.profileTabSelectedOption:hover, figure:hover {
-            @apply bg-white text-sky-500 border-sky-500 transition-all;
-        }
+            h3 {
+                @apply text-3xl font-semibold;
+            }
 
+            ul {
+                @apply flex flex-col justify-center;
+                li {
+                    @apply border-2
+                    border-gray-300
+                    rounded-sm
+                    p-5
+                    my-2
+                    flex
+                    items-center
+                    justify-between;
+
+                    span {
+                        @apply flex items-center text-2xl;
+
+                        .socialMediaIcon {
+                            @apply mr-1.5 text-3xl text-gray-600;
+                        }
+
+                        .socialMediaIconGoogleConnect {
+                            @apply text-GoogleRed;
+                        }
+
+                        .socialMediaIconFacebookConnect {
+                            @apply text-facebookBlue;
+                        }
+
+                        .socialMediaIconGithubConnect {
+                            @apply text-purple-800;
+                        }
+                    }
+
+                    button {
+                        @apply border px-6 py-2.5 cursor-pointer rounded-sm font-bold shadow-minimalistWithShadow;
+                    }
+
+                    button.btnConnect {
+                        @apply bg-lime-200 border-lime-200 text-black;
+                    }
+
+                    button.btnDisconnect {
+                        @apply bg-red-300 border-red-300 text-black;
+                    }
+                }
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@
 
 import { ChangeEvent, DragEvent, useState, useEffect } from "react";
 import "./gallery.style.css";
-import { FaList, FaPlus, FaStar, FaTrash } from "react-icons/fa";
+import { FaList, FaPlus, FaSearch, FaStar, FaTrash } from "react-icons/fa";
 import { HiPencilSquare } from "react-icons/hi2";
 import { IoClose, IoGrid, IoHome } from "react-icons/io5";
 import { TfiReload } from "react-icons/tfi";
@@ -28,7 +28,8 @@ const Gallery = () => {
     const [listStyle, setListStyle] = useState<"grid" | "list">("grid");
     const [imageDetailsMobileExpanded, setImageDetailsMobileExpanded] =
         useState(false);
-    const [imageDetailsDesktopExpanded, setImageDetailsDesktopExpanded] = useState(false);
+    const [imageDetailsDesktopExpanded, setImageDetailsDesktopExpanded] =
+        useState(false);
     const { width = 0 } = useWindowSize();
 
     useEffect(() => {
@@ -110,6 +111,9 @@ const Gallery = () => {
                                     <MdArchive className="filterIcon" />{" "}
                                     Archiveds
                                 </li>
+                                <li>
+                                    <FaSearch className="filterIcon" /> Buscar
+                                </li>
                             </ul>
 
                             <h3 className="menuText">Pets: </h3>
@@ -133,7 +137,7 @@ const Gallery = () => {
                 {/* Filters */}
 
                 {width! > 1040 ? (
-                    <div className="filtersContainer">
+                    <aside className="filtersContainer">
                         <span>
                             <h3>Opções: </h3>
                             <ul>
@@ -155,6 +159,9 @@ const Gallery = () => {
                                     <MdArchive className="filterIcon" />{" "}
                                     Archiveds
                                 </li>
+                                <li>
+                                    <FaSearch className="filterIcon" /> Buscar
+                                </li>
                             </ul>
 
                             <h3 className="menuText">Pets: </h3>
@@ -170,7 +177,7 @@ const Gallery = () => {
                                 </li>
                             </ul>
                         </span>
-                    </div>
+                    </aside>
                 ) : (
                     <></>
                 )}
@@ -591,7 +598,9 @@ const Gallery = () => {
                         imagePath="/assets/catface.jpg"
                         imageDetailsMobileExpanded={imageDetailsMobileExpanded}
                         setImageDetailsMobile={setImageDetailsMobile}
-                        setImageDetailsMobileExpanded={setImageDetailsMobileExpanded}
+                        setImageDetailsMobileExpanded={
+                            setImageDetailsMobileExpanded
+                        }
                     />
                 ) : (
                     <></>

@@ -5,29 +5,26 @@
 .petRegisterContainer {
     @apply pt-28 flex items-center justify-center min-w-screen flex-col;
 
-    h1 {
-        @apply text-3xl font-bold text-center;
-    }
-
     .registredPetsList {
         @apply shadow-minimalistWithShadow
-        w-4/5
+        w-3/5
         items-center
         justify-center
         bg-white
         rounded-lg;
 
         h3 {
-            @apply text-center;
+            @apply text-2xl font-bold text-center mt-6;
         }
 
         ul {
             @apply flex items-center justify-center;
 
             li {
-                @apply p-3;
+                @apply p-3 w-36 flex items-center justify-center flex-wrap;
                 figure {
-                    @apply px-3;
+                    @apply px-3 cursor-pointer;
+
                     img {
                         @apply size-20 border-2 rounded-full;
                     }
@@ -35,6 +32,123 @@
                     figcaption {
                         @apply text-center;
                     }
+                }
+            }
+
+            li.addPet > .addPetIcon {
+                @apply size-18 mb-6 text-gray-400 cursor-pointer;
+            }
+        }
+    }
+
+    .formContainer {
+        @apply bg-white
+        shadow-minimalistWithShadowAlt
+        border-gray-300
+        border-1
+        rounded-lg
+        mt-10
+        w-2/5
+        mb-10;
+
+        h1 {
+            @apply text-2xl font-bold text-center mt-6;
+        }
+
+        form {
+            @apply flex flex-col p-6;
+
+            input, select {
+                @apply border-2
+                rounded-md
+                px-1.5
+                py-2
+                mb-6
+                mt-1
+                border-gray-400;
+            }
+
+            span {
+                .logoPetImage {
+                    @apply hidden;
+                }
+
+                .labelLogoPetImage {
+                    @apply border-2
+                    border-dotted
+                    flex
+                    w-full
+                    py-6
+                    items-center
+                    justify-center
+                    rounded-md
+                    mt-1.5
+                    mb-4
+                    cursor-pointer flex-col;
+
+                    img {
+                        @apply size-32;
+                    }
+
+                    p {
+                        @apply text-center
+                        flex
+                        items-center
+                        justify-center
+                        flex-col;
+                    }
+                }
+            }
+
+            .buttonContainer {
+                @apply flex items-center justify-center;
+
+                button {
+                    @apply border-2 px-13 py-3 rounded-md mx-1 cursor-pointer text-xl font-bold transition-all;
+                }
+
+                button.btnSave {
+                    @apply bg-sky-500 text-white border-sky-500;
+                }
+
+                button.btnSave:hover {
+                    @apply bg-sky-600 border-sky-600 transition-all;
+                }
+
+                button.btnClean {
+                    @apply bg-red-300 text-black border-red-300;
+                }
+
+                button.btnClean:hover {
+                    @apply bg-red-400 transition-all border-red-400;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .petRegisterContainer {
+        .formContainer, .registredPetsList {
+            @apply w-4/5;
+        }
+
+        .registredPetsList {
+            ul {
+                @apply flex-wrap items-center justify-center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .petRegisterContainer {
+        .formContainer {
+            .buttonContainer {
+                @apply flex-col;
+
+                button {
+                    @apply mb-3 w-52;
                 }
             }
         }

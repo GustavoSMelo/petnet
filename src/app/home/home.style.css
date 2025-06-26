@@ -101,11 +101,11 @@
         @apply flex w-full flex-col;
 
         h1 {
-            @apply font-bold text-4xl my-12;
+            @apply font-bold text-4xl my-12 text-center;
         }
 
         .quickActions {
-            @apply flex w-full flex-wrap;
+            @apply flex w-full flex-wrap justify-center;
 
             .quickAction {
                 @apply flex
@@ -120,9 +120,8 @@
                 rounded-md
                 cursor-pointer
                 transition-all
-                duration-300;
-                /* border-4
-                border-black; */
+                duration-300
+                bg-white;
 
                 img {
                     @apply flex h-full rounded-tl-md rounded-tr-md;

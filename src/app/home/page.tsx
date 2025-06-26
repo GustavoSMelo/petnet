@@ -4,7 +4,6 @@ import "./home.style.css";
 
 import PolaroidGallery from "@petnetPublic/assets/polaroid.jpg";
 import RegisterPet from "@petnetPublic/assets/cadastrarPet.jpg";
-import PetPixelart from "@petnetPublic/assets/pixelart.jpg";
 import CatFace from "@petnetPublic/assets/catface.jpg";
 import Publish from "@petnetPublic/assets/publish.jpg";
 import ViewFeed from "@petnetPublic/assets/viewFeed.jpg";
@@ -47,7 +46,7 @@ const Home = () => {
                     </section>
                 </span> */}
 
-                    <section className="selectedPetProfileCard">
+                    {/* <section className="selectedPetProfileCard">
                         <figure className="petProfileCardFigure">
                             <img src={CatFace.src} alt="logo pet" />
                         </figure>
@@ -82,7 +81,7 @@ const Home = () => {
                                 </button>
                             </span>
                         </div>
-                    </section>
+                    </section> */}
 
                     <section className="quickActionsContainer">
                         <h1>Ações rapidas: </h1>
@@ -111,14 +110,14 @@ const Home = () => {
                                 <figcaption>Cadastrar pet</figcaption>
                             </figure>
 
-                            <figure className="quickAction galleryQuickAction">
+                            {/* <figure className="quickAction galleryQuickAction">
                                 <img
                                     src={PetPixelart.src}
                                     alt="Polaroid gallery"
                                 />
 
                                 <figcaption>Gerar pixelart</figcaption>
-                            </figure>
+                            </figure> */}
 
                             <figure className="quickAction galleryQuickAction">
                                 <img src={Publish.src} alt="Polaroid gallery" />

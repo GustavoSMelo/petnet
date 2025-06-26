@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
 
         <div>
-            <FaImage />
+            <FaImage onClick={() => router.push('/gallery')} />
             <FaCircleUser onClick={() => router.push('/profile/user')} />
         </div>
     </nav>

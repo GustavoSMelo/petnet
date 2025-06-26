@@ -119,12 +119,12 @@
             }
 
             button.btnLoginGoogle {
-                @apply bg-UARed text-white;
+                @apply bg-GoogleRed text-white;
                 animation: 1.2s btnLoginEnterFade ease-in-out;
             }
 
             button.btnLoginGoogle:hover {
-                @apply text-UARed bg-white border-2 border-UARed transition;
+                @apply text-GoogleRed bg-white border-2 border-GoogleRed transition;
             }
 
             button.btnLoginFacebook {
