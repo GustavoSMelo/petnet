@@ -19,6 +19,14 @@
             p-5
             mr-5;
 
+            span {
+                @apply flex items-center text-xl mb-2.5;
+
+                .subtitleIcon {
+                    @apply mr-2;
+                }
+            }
+
             label {
                 @apply font-semibold mt-3;
             }
@@ -98,6 +106,127 @@
                     button.btnDisconnect {
                         @apply bg-red-300 border-red-300 text-black;
                     }
+                }
+            }
+        }
+
+        .accountConfigWrapper {
+            .accountInitialPageConfig {
+                @apply flex flex-col mb-2;
+
+                select {
+                    @apply border-1 border-sky-400 py-2 px-1.5 rounded-md;
+                }
+            }
+
+            div.switchContainer {
+                @apply flex mt-3.5;
+                .btnSwitch {
+                    @apply w-17
+                        bg-sky-400
+                        rounded-full
+                        px-1
+                        py-0.5
+                        h-7.5
+                        mx-2.5 cursor-pointer
+                        flex
+                        items-center
+                        pt-[12px];
+
+                    span {
+                        @apply bg-white p-2.5 mt-[.5px] rounded-full w-3 border-2;
+                    }
+                }
+
+                .btnSwitchLightTheme {
+                    @apply bg-amber-500 justify-start;
+                }
+
+                .btnSwitchDarkTheme {
+                    @apply bg-sky-900 justify-end;
+                }
+            }
+
+            .btnContainer {
+                @apply flex flex-col;
+                button {
+                    @apply border-2 mt-3 p-2 rounded-md text-lg flex items-center justify-center;
+
+                    .btnIcons {
+                        @apply mr-1.5;
+                    }
+                }
+
+                button.btnDisable {
+                    @apply bg-amber-500;
+                }
+
+                button.btnRemove {
+                    @apply bg-red-700 text-white;
+                }
+            }
+        }
+
+        .petsContainer {
+            @apply w-2/3
+            bg-white
+            border-2
+            border-gray-300
+            shadow-minimalistWithShadowAlt
+            rounded-md
+            p-3;
+
+            h3 {
+                @apply flex text-2xl items-center font-bold;
+
+                .subtitleIcon {
+                    @apply mr-2;
+                }
+            }
+
+            ul {
+                @apply flex flex-col;
+                li {
+                    @apply flex
+                    justify-between
+                    border-gray-300
+                    border-2
+                    rounded-md
+                    p-3
+                    items-center my-1.5;
+                    figure {
+                        @apply flex items-center;
+
+                        img {
+                            @apply size-18 border-1 border-gray-400;
+                        }
+
+                        figcaption {
+                            @apply ml-2;
+                        }
+                    }
+
+                    div {
+                        .btnDetails {
+                            @apply bg-sky-500
+                            items-center
+                            text-white
+                            font-bold
+                            px-9
+                            py-3
+                            rounded-lg
+                            cursor-pointer;
+                        }
+                    }
+                }
+
+                li.addPet {
+                    @apply text-3xl
+                    text-center
+                    flex
+                    justify-center
+                    text-gray-500
+                    cursor-pointer;
                 }
             }
         }
