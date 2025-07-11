@@ -60,7 +60,11 @@
             p-3;
 
             h3 {
-                @apply text-3xl font-semibold;
+                @apply text-2xl flex items-center;
+
+                .icon {
+                    @apply mr-1;
+                }
             }
 
             ul {
@@ -177,7 +181,7 @@
             p-3;
 
             h3 {
-                @apply flex text-2xl items-center font-bold;
+                @apply flex text-2xl items-center;
 
                 .subtitleIcon {
                     @apply mr-2;
@@ -217,6 +221,10 @@
                             rounded-lg
                             cursor-pointer;
                         }
+
+                        .btnMobileDetails {
+                            @apply hidden;
+                        }
                     }
                 }
 
@@ -227,6 +235,55 @@
                     justify-center
                     text-gray-500
                     cursor-pointer;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .mainUserProfileContainer {
+        .userProfileWrapper {
+            @apply w-4/5;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .mainUserProfileContainer {
+        .userProfileWrapper {
+            @apply flex-col w-3/4;
+
+            .userInformations,
+            .socialMediaContainer,
+            .accountConfigWrapper,
+            .petsContainer {
+                @apply w-full mb-4;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mainUserProfileContainer {
+        .userProfileWrapper {
+            @apply flex-col w-[92%];
+
+            .socialMediaContainer > ul > li {
+                @apply flex-col;
+
+                span {
+                    @apply mb-3;
+                }
+            }
+
+            .petsContainer > ul > .listItemPet > div {
+                button.btnDetails {
+                    @apply hidden;
+                }
+
+                button.btnMobileDetails {
+                    @apply flex text-3xl cursor-pointer;
                 }
             }
         }
