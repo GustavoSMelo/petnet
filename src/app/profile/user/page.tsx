@@ -16,13 +16,15 @@ import { FaGears } from "react-icons/fa6";
 import { IoMdSunny } from "react-icons/io";
 import { LuDog } from "react-icons/lu";
 import { FiPlusCircle } from "react-icons/fi";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { IoGlobe } from "react-icons/io5";
 
 const UserProfile = () => {
     return (
         <>
             <main className="mainUserProfileContainer">
                 <div className="userProfileWrapper">
-                    <aside>
+                    <aside className="userInformations">
                         <span>
                             <FaUser className="subtitleIcon" />
                             <h3>Configuracoes de usuario</h3>
@@ -48,7 +50,9 @@ const UserProfile = () => {
                     </aside>
 
                     <section className="socialMediaContainer">
-                        <h3>Social Medias: </h3>
+                        <h3>
+                            <IoGlobe className="icon" /> Social Medias:{" "}
+                        </h3>
 
                         <ul>
                             <li>
@@ -142,9 +146,13 @@ const UserProfile = () => {
                                     <button className="btnDetails">
                                         Detalhes
                                     </button>
+
+                                    <button className="btnMobileDetails">
+                                        <HiOutlineDotsHorizontal />
+                                    </button>
                                 </div>
                             </li>
-                            <li>
+                            <li className="listItemPet">
                                 <figure>
                                     <img
                                         src="/assets/catface.jpg"
@@ -156,6 +164,9 @@ const UserProfile = () => {
                                 <div>
                                     <button className="btnDetails">
                                         Detalhes
+                                    </button>
+                                    <button className="btnMobileDetails">
+                                        <HiOutlineDotsHorizontal />
                                     </button>
                                 </div>
                             </li>
