@@ -24,6 +24,7 @@
 html,
 body {
     max-width: 1920px;
+    min-width: 320px;
     margin: auto;
     background-color: #fff;
     background-image: url('/assets/background.png');

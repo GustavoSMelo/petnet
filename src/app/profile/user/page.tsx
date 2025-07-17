@@ -18,10 +18,14 @@ import { LuDog } from "react-icons/lu";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { IoGlobe } from "react-icons/io5";
+import PetDetails from "@petnet/components/profile/petDetails";
+import { useState } from "react";
 
 const UserProfile = () => {
+    const [showPetDetails, setShowPetDetails] = useState(false);
     return (
         <>
+            {showPetDetails ? <PetDetails setShowPetDetails={setShowPetDetails} /> : <></>}
             <main className="mainUserProfileContainer">
                 <div className="userProfileWrapper">
                     <aside className="userInformations">
@@ -143,11 +147,11 @@ const UserProfile = () => {
                                 </figure>
 
                                 <div>
-                                    <button className="btnDetails">
+                                    <button className="btnDetails" onClick={() => setShowPetDetails(true)}>
                                         Detalhes
                                     </button>
 
-                                    <button className="btnMobileDetails">
+                                    <button className="btnMobileDetails" onClick={() => setShowPetDetails(true)}>
                                         <HiOutlineDotsHorizontal />
                                     </button>
                                 </div>
@@ -162,10 +166,10 @@ const UserProfile = () => {
                                 </figure>
 
                                 <div>
-                                    <button className="btnDetails">
+                                    <button className="btnDetails" onClick={() => setShowPetDetails(true)}>
                                         Detalhes
                                     </button>
-                                    <button className="btnMobileDetails">
+                                    <button className="btnMobileDetails" onClick={() => setShowPetDetails(true)}>
                                         <HiOutlineDotsHorizontal />
                                     </button>
                                 </div>

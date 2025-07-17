@@ -345,11 +345,10 @@ const Gallery = () => {
                                     </span>
                                 </figcaption>
                             </figure>
-                            <figure>
+                            <figure onClick={() => handleImageDetails()}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
-                                    {" "}
                                     <div>
                                         <h4>Name: </h4> Catface
                                     </div>
@@ -359,29 +358,29 @@ const Gallery = () => {
                                     <div>
                                         <h4>Upload: </h4> 10/10/2010
                                     </div>
+
                                     <span className="btnContainer">
                                         <button
-                                            className="btnArchive"
+                                            className="btnDownload"
                                             type="button"
                                         >
                                             <MdArchive className="btnIcon" />{" "}
-                                            Arquivar
+                                            Download
                                         </button>
                                         <button
-                                            className="btnDelete"
+                                            className="btnFav"
                                             type="button"
                                         >
-                                            <FaTrash className="btnIcon" />{" "}
-                                            Deletar
+                                            <FaStar className="btnIcon" />{" "}
+                                            Favoritar
                                         </button>
                                     </span>
                                 </figcaption>
                             </figure>
-                            <figure>
+                            <figure onClick={() => handleImageDetails()}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
-                                    {" "}
                                     <div>
                                         <h4>Name: </h4> Catface
                                     </div>
@@ -391,29 +390,29 @@ const Gallery = () => {
                                     <div>
                                         <h4>Upload: </h4> 10/10/2010
                                     </div>
+
                                     <span className="btnContainer">
                                         <button
-                                            className="btnArchive"
+                                            className="btnDownload"
                                             type="button"
                                         >
                                             <MdArchive className="btnIcon" />{" "}
-                                            Arquivar
+                                            Download
                                         </button>
                                         <button
-                                            className="btnDelete"
+                                            className="btnFav"
                                             type="button"
                                         >
-                                            <FaTrash className="btnIcon" />{" "}
-                                            Deletar
+                                            <FaStar className="btnIcon" />{" "}
+                                            Favoritar
                                         </button>
                                     </span>
                                 </figcaption>
                             </figure>
-                            <figure>
+                            <figure onClick={() => handleImageDetails()}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
-                                    {" "}
                                     <div>
                                         <h4>Name: </h4> Catface
                                     </div>
@@ -423,30 +422,29 @@ const Gallery = () => {
                                     <div>
                                         <h4>Upload: </h4> 10/10/2010
                                     </div>
+
                                     <span className="btnContainer">
                                         <button
-                                            className="btnArchive"
+                                            className="btnDownload"
                                             type="button"
                                         >
                                             <MdArchive className="btnIcon" />{" "}
-                                            Arquivar
+                                            Download
                                         </button>
                                         <button
-                                            className="btnDelete"
+                                            className="btnFav"
                                             type="button"
                                         >
-                                            <FaTrash className="btnIcon" />{" "}
-                                            Deletar
+                                            <FaStar className="btnIcon" />{" "}
+                                            Favoritar
                                         </button>
                                     </span>
                                 </figcaption>
                             </figure>
-
-                            <figure>
+                            <figure onClick={() => handleImageDetails()}>
                                 <img src="/assets/catface.jpg" alt="image" />
 
                                 <figcaption>
-                                    {" "}
                                     <div>
                                         <h4>Name: </h4> Catface
                                     </div>
@@ -456,20 +454,21 @@ const Gallery = () => {
                                     <div>
                                         <h4>Upload: </h4> 10/10/2010
                                     </div>
+
                                     <span className="btnContainer">
                                         <button
-                                            className="btnArchive"
+                                            className="btnDownload"
                                             type="button"
                                         >
                                             <MdArchive className="btnIcon" />{" "}
-                                            Arquivar
+                                            Download
                                         </button>
                                         <button
-                                            className="btnDelete"
+                                            className="btnFav"
                                             type="button"
                                         >
-                                            <FaTrash className="btnIcon" />{" "}
-                                            Deletar
+                                            <FaStar className="btnIcon" />{" "}
+                                            Favoritar
                                         </button>
                                     </span>
                                 </figcaption>
