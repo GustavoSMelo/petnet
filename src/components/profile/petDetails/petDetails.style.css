@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import "tailwindcss";
+@import "../../../styles/colors.css";
+@import "../../../styles/customs.css";
+
+@keyframes showMenu {
+    0% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.profilePetDetailsContainer {
+    @apply flex
+    bg-transparentBGColor
+    w-full
+    h-full
+    fixed
+    z-40
+    top-0
+    items-center
+    justify-center;
+
+    .profilePetDetailsWrapper {
+        @apply w-4/6
+            bg-white
+            flex
+            h-fit
+            rounded-lg
+            shadow-minimalistWithShadow
+            p-7
+            justify-between;
+        animation: showMenu .5s forwards;
+
+        figure > img {
+            @apply size-40 border-1 border-gray-400;
+        }
+        .basePetInfo {
+            @apply flex flex-col;
+
+            ul > li {
+                @apply text-xl mb-1 flex justify-between;
+
+                button {
+                    @apply font-bold
+                        px-9
+                        py-3
+                        rounded-md
+                        cursor-pointer;
+                }
+
+                .btnChange {
+                    @apply bg-sky-500 text-white;
+                }
+
+                .btnCancel {
+                    @apply bg-gray-300 border-2;
+                }
+
+                input {
+                    @apply border-1 p-1 rounded-md border-gray-100 ml-3;
+                }
+            }
+        }
+
+        .aditionalPetInfo {
+            h3 {
+                @apply text-3xl font-bold mb-3;
+            }
+
+            ul > li {
+                @apply flex items-center text-xl;
+
+                .aditionalIcons {
+                    @apply mr-1.5;
+                }
+
+                b {
+                    @apply mr-1.5;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1530px) {
+        .profilePetDetailsWrapper {
+            @apply w-4/5;
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        .profilePetDetailsWrapper {
+            @apply w-[92%];
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        .profilePetDetailsWrapper {
+            @apply flex-col w-3/5 items-center;
+
+            .basePetInfo,
+            .aditionalPetInfo {
+                ul > li {
+                    @apply text-base;
+                }
+            }
+
+            .aditionalPetInfo {
+                h3 {
+                    @apply text-2xl;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 560px) {
+        @apply items-end;
+
+        .profilePetDetailsWrapper {
+            @apply w-full
+                h-3/4
+                bottom-0
+                overflow-y-scroll
+                overflow-x-hidden
+                rounded-t-3xl;
+        }
+    }
+}
