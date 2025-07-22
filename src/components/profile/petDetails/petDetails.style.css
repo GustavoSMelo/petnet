@@ -80,6 +80,16 @@
                 b {
                     @apply mr-1.5;
                 }
+
+                button.btnSeePosts {
+                    @apply font-bold
+                        px-9
+                        py-3
+                        rounded-md
+                        cursor-pointer
+                        bg-sky-500
+                        text-white flex mt-6;
+                }
             }
         }
     }
@@ -98,12 +108,16 @@
 
     @media screen and (max-width: 1100px) {
         .profilePetDetailsWrapper {
-            @apply flex-col w-3/5 items-center;
+            @apply flex-col w-3/5 items-center scale-90;
 
             .basePetInfo,
             .aditionalPetInfo {
                 ul > li {
                     @apply text-base;
+
+                    .button.btnSeePosts {
+                        @apply m-auto;
+                    }
                 }
             }
 
@@ -124,7 +138,8 @@
                 bottom-0
                 overflow-y-scroll
                 overflow-x-hidden
-                rounded-t-3xl;
+                rounded-t-3xl
+                scale-100;
         }
     }
 }

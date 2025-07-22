@@ -73,6 +73,9 @@ const PetDetails = ({ setShowPetDetails }: IPetDetails) => {
                             <TbBone className="aditionalIcons" /> <b>Likes:</b>{" "}
                             30
                         </li>
+                        <li>
+                            <button className="btnSeePosts" type="button">Ver posts</button>
+                        </li>
                     </ul>
                 </span>
             </div>
