@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+@import "tailwindcss";
+@import "../../styles/customs.css";
+
+.feedContainer {
+    @apply flex
+    justify-center
+    flex-col
+    items-center;
+
+    .functionsContainer {
+        @apply mt-36
+            flex
+            p-4
+            px-7
+            rounded
+            bg-white
+            shadow-minimalistWithShadow;
+
+        * {
+            @apply flex
+            items-center
+            mx-2
+            transition-all
+            font-normal;
+        }
+
+        span {
+            @apply border-1 rounded;
+
+            input {
+                @apply p-2;
+            }
+
+            .iconSearch {
+                @apply cursor-pointer;
+            }
+        }
+
+        button {
+            @apply cursor-pointer;
+        }
+
+        button:hover {
+            @apply transition-all font-bold;
+        }
+    }
+
+    .postsContainer {
+        @apply mt-5;
+        .posts {
+            .post {
+                @apply flex
+                flex-col
+                shadow-minimalistWithShadow
+                bg-white
+                rounded
+                p-4
+                cursor-pointer
+                w-[620px]
+                my-4;
+
+                div.posterInformation {
+                    @apply border-b-2
+                    border-gray-400
+                    flex
+                    justify-between
+                    items-center;
+
+                    figure {
+                        @apply flex
+                        items-center
+                        pb-1.5;
+
+                        img {
+                            @apply size-13
+                            rounded-full
+                            border-2
+                            border-gray-400;
+                        }
+
+                        figcaption {
+                            @apply font-bold ml-2.5 mr-24;
+                        }
+                    }
+
+                    button {
+                        @apply bg-sky-500
+                        h-fit
+                        text-white
+                        px-5
+                        py-1.5
+                        rounded
+                        shadow-minimalist
+                        cursor-pointer;
+                    }
+                }
+                .postContent {
+                    @apply border-2 my-2 border-gray-400;
+                }
+
+                .postDescription {
+                    @apply text-justify px-0.5;
+                }
+
+                .postCommandContainer {
+                    @apply flex
+                    justify-between
+                    border-t-2
+                    border-gray-400
+                    pt-6
+                    px-2;
+
+                    button {
+                        @apply flex
+                        items-center
+                        text-xl
+                        cursor-pointer;
+
+                        p {
+                            @apply pl-1;
+                        }
+                    }
+
+                    button:hover {
+                        @apply text-sky-600 font-bold;
+                    }
+                }
+            }
+        }
+    }
+}
