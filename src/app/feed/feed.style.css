@@ -49,7 +49,8 @@
 
     .postsContainer {
         @apply mt-5;
-        .posts {
+        .posts, .postContainer {
+            @apply flex flex-col items-center;
             .post {
                 @apply flex
                 flex-col
@@ -57,7 +58,6 @@
                 bg-white
                 rounded
                 p-4
-                cursor-pointer
                 w-[620px]
                 my-4;
 
@@ -71,7 +71,8 @@
                     figure {
                         @apply flex
                         items-center
-                        pb-1.5;
+                        pb-1.5
+                        cursor-pointer;
 
                         img {
                             @apply size-13
@@ -85,7 +86,7 @@
                         }
                     }
 
-                    button {
+                    .btnFollow {
                         @apply bg-sky-500
                         h-fit
                         text-white
@@ -94,6 +95,10 @@
                         rounded
                         shadow-minimalist
                         cursor-pointer;
+                    }
+
+                    .btnFollowMobile {
+                        @apply hidden;
                     }
                 }
                 .postContent {
@@ -128,6 +133,139 @@
                     }
                 }
             }
+
+            .commentContainer {
+                @apply flex
+                    flex-col
+                    items-center
+                    justify-center
+                    shadow-minimalistWithShadow
+                    w-[620px]
+                    rounded-md
+                    p-5
+                    bg-white mb-6;
+
+                h1 {
+                    @apply text-left
+                    font-bold
+                    flex
+                    self-start
+                    mb-7
+                    text-xl;
+                }
+
+                ul {
+                    @apply flex items-center justify-center;
+
+                    li {
+                        @apply mb-3 border-b-2 border-gray-400 pb-3 mt-3;
+                        figure {
+                            @apply flex items-center;
+
+                            img {
+                                @apply size-14 border-2 border-gray-400 rounded-full;
+                            }
+
+                            figcaption {
+                                @apply font-bold ml-3;
+                            }
+                        }
+
+                        p {
+                            @apply text-justify;
+                        }
+                    }
+                }
+
+                div {
+                    @apply w-full flex items-center;
+
+                    input {
+                        @apply border-2 border-sky-500 rounded-full p-2 w-[90%];
+                    }
+
+                    .btnSendCommentary {
+                        @apply bg-sky-500
+                        text-4xl
+                        rounded-full
+                        text-white
+                        p-1.5
+                        flex
+                        items-center
+                        justify-center
+                        ml-2
+                        cursor-pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 650px) {
+        @apply flex-col-reverse;
+
+        .functionsContainer {
+            @apply fixed
+            mt-0
+            bottom-0
+            mb-1
+            bg-sky-500
+            text-white
+            p-3;
+
+            span {
+                @apply border-0 text-2xl;
+                input {
+                    @apply hidden;
+                }
+            }
+
+            button {
+                @apply text-2xl;
+                p {
+                    @apply hidden;
+                }
+            }
+        }
+
+        .postsContainer {
+            @apply mt-20;
+
+            .posts > .postContainer >.commentContainer,
+            .posts > .postContainer > .post {
+                @apply w-[90%];
+            }
+
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .postsContainer {
+            .posts > .postContainer > .post > .postCommandContainer > button > p {
+                @apply hidden;
+            }
+        }
+    }
+
+    @media screen and (max-width: 382px) {
+        .postsContainer {
+            .posts >
+            .postContainer >
+            .post >
+            div.posterInformation {
+                figure > img {
+                    @apply size-10;
+                }
+
+                .btnFollow {
+                    @apply hidden;
+                }
+
+                .btnFollowMobile {
+                    @apply flex text-sky-500 text-3xl;
+                }
+            }
+
         }
     }
 }
