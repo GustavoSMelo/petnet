@@ -16,7 +16,9 @@
             px-7
             rounded
             bg-white
-            shadow-minimalistWithShadow;
+            shadow-minimalistWithShadow
+            w-[620px]
+            flex-col;
 
         * {
             @apply flex
@@ -38,18 +40,48 @@
             }
         }
 
-        button {
-            @apply cursor-pointer;
-        }
+        div {
+            @apply flex
+                justify-between
+                mt-3
+                p-0
+                items-baseline
+                ml-0;
 
-        button:hover {
-            @apply transition-all font-bold;
+            button {
+                @apply cursor-pointer
+                rounded-md
+                p-3.5
+                text-base
+                shadow-minimalist;
+            }
+
+            button:hover {
+                @apply transition-all font-bold;
+            }
+
+            .btnFunctionIcons {
+                @apply text-xl;
+            }
+
+            .btnFunctionsIconHome {
+                @apply text-pink-300;
+            }
+
+            .btnFunctionsIconPost {
+                @apply text-indigo-500;
+            }
+
+            .btnFunctionsIconNPost {
+                @apply text-emerald-300;
+            }
         }
     }
 
     .postsContainer {
         @apply mt-5;
-        .posts, .postContainer {
+        .posts,
+        .postContainer {
             @apply flex flex-col items-center;
             .post {
                 @apply flex
@@ -173,6 +205,10 @@
 
                         p {
                             @apply text-justify;
+
+                            small {
+                                @apply text-gray-600;
+                            }
                         }
                     }
                 }
@@ -211,19 +247,27 @@
             mb-1
             bg-sky-500
             text-white
-            p-3;
+            p-3
+            flex-row w-fit;
 
             span {
-                @apply border-0 text-2xl;
+                @apply border-0 text-xl;
                 input {
                     @apply hidden;
                 }
             }
 
-            button {
-                @apply text-2xl;
-                p {
-                    @apply hidden;
+            div {
+                @apply mt-0;
+                button {
+                    @apply text-2xl shadow-none;
+                    p {
+                        @apply hidden;
+                    }
+                }
+
+                .btnFunctionIcons {
+                    @apply text-white;
                 }
             }
         }
@@ -231,17 +275,25 @@
         .postsContainer {
             @apply mt-20;
 
-            .posts > .postContainer >.commentContainer,
+            .posts > .postContainer > .commentContainer,
             .posts > .postContainer > .post {
                 @apply w-[90%];
             }
 
+            .posts > .postContainer > .commentContainer {
+                @apply mb-20;
+            }
         }
     }
 
     @media screen and (max-width: 500px) {
         .postsContainer {
-            .posts > .postContainer > .post > .postCommandContainer > button > p {
+            .posts
+                > .postContainer
+                > .post
+                > .postCommandContainer
+                > button
+                > p {
                 @apply hidden;
             }
         }
@@ -249,10 +301,7 @@
 
     @media screen and (max-width: 382px) {
         .postsContainer {
-            .posts >
-            .postContainer >
-            .post >
-            div.posterInformation {
+            .posts > .postContainer > .post > div.posterInformation {
                 figure > img {
                     @apply size-10;
                 }
@@ -265,7 +314,12 @@
                     @apply flex text-sky-500 text-3xl;
                 }
             }
+        }
+    }
 
+    @media screen and (max-width: 350px) {
+        .functionsContainer {
+            @apply w-full mb-0;
         }
     }
 }

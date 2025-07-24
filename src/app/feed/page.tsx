@@ -10,6 +10,7 @@ import Catface from "@petnetPublic/assets/catface.jpg";
 import Publish from "@petnetPublic/assets/publish.jpg";
 import { AiFillAlert } from "react-icons/ai";
 import { IoIosSend } from "react-icons/io";
+import { IoHome } from "react-icons/io5";
 
 const Feed = () => {
     const [search, setSearch] = useState("");
@@ -26,13 +27,21 @@ const Feed = () => {
                         onChange={(event) => setSearch(event.target.value)}
                     />
                 </span>
-                <button type="button">
-                    <BsFillFileEarmarkPostFill /> <p>Postagens</p>
-                </button>
+                <div>
+                    <button type="button">
+                        <IoHome className="btnFunctionIcons btnFunctionsIconHome" />
+                        <p>Pagina Inicial</p>
+                    </button>
+                    <button type="button">
+                        <BsFillFileEarmarkPostFill className="btnFunctionIcons btnFunctionsIconPost" />
+                        <p>Postagens</p>
+                    </button>
 
-                <button type="button">
-                    <FiPlusCircle /> <p>New Post</p>
-                </button>
+                    <button type="button">
+                        <FiPlusCircle className="btnFunctionIcons btnFunctionsIconNPost" />
+                        <p>New Post</p>
+                    </button>
+                </div>
             </section>
 
             <section className="postsContainer">
@@ -89,19 +98,27 @@ const Feed = () => {
                                         aliquid obcaecati, libero consequuntur
                                         ea omnis delectus laborum eos ratione
                                         non placeat voluptatum amet, quidem et,
-                                        minima autem pariatur molestias.
+                                        minima autem pariatur molestias.{" "}
+                                        <small>(1 mes atras)</small>
                                     </p>
                                 </li>
                             </ul>
                             <div>
-                                <input type="text" placeholder="Commentary..." />
-                                <button type="button" className="btnSendCommentary"><IoIosSend /></button>
+                                <input
+                                    type="text"
+                                    placeholder="Commentary..."
+                                />
+                                <button
+                                    type="button"
+                                    className="btnSendCommentary"
+                                >
+                                    <IoIosSend />
+                                </button>
                             </div>
                         </div>
                     </li>
                 </ul>
             </section>
-
         </div>
     );
 };
