@@ -1,7 +1,7 @@
 "use client";
 
 import "./newpost.style.css";
-import { FaFileImage, FaList, FaUpload } from "react-icons/fa";
+import { FaFileImage, FaList, FaTrash, FaUpload } from "react-icons/fa";
 import { DragEvent, useState } from "react";
 import INewPost from "./newpost.interface";
 import { isFileAnImage, isFileAnVideo } from "@petnet/helpers/fileTypeCheck";
@@ -13,6 +13,7 @@ const NewPost = () => {
     const [uploadSection, setUploadSection] =
         useState<INewPost["uploadSection"]>("unselected");
     const [uploadedFiles, setUploadedFiles] = useState<Array<File>>([]);
+    const [previewView, setPreviewView] = useState<"grid" | "list">("grid");
 
     const handleFileDragglable = (event: DragEvent<HTMLSpanElement>) => {
         event.preventDefault();
@@ -67,22 +68,45 @@ const NewPost = () => {
                         <h5>Informacoes de upload: </h5>
 
                         <ul>
-                            <li className="listInformationText"><CiFileOn className="iconText" /> Qtd de arquivos: {uploadedFiles.length}</li>
-                            <li className="listInformationText"><FaFileImage className="iconText" /> Qtd de imagens: {uploadedFiles.length}</li>
-                            <li className="listInformationText"><LuFileVideo className="iconText" /> Qtd de videos: {uploadedFiles.length}</li>
-                            <li className="listInformationText"><CiFileOn className="iconText" /> Tamanho total: {uploadedFiles.length}kb</li>
+                            <li className="listInformationText">
+                                <CiFileOn className="iconText" /> Qtd de
+                                arquivos: {uploadedFiles.length}
+                            </li>
+                            <li className="listInformationText">
+                                <FaFileImage className="iconText" /> Qtd de
+                                imagens: {uploadedFiles.length}
+                            </li>
+                            <li className="listInformationText">
+                                <LuFileVideo className="iconText" /> Qtd de
+                                videos: {uploadedFiles.length}
+                            </li>
+                            <li className="listInformationText">
+                                <CiFileOn className="iconText" /> Tamanho total:{" "}
+                                {uploadedFiles.length}kb
+                            </li>
                             <li className="previewView">
                                 <IoGrid />
                                 <button
-                                    className="btnSwitchListForm"
+                                    className={`btnSwitchListForm ${
+                                        previewView === "grid"
+                                            ? "switchGrid"
+                                            : "switchList"
+                                    }`}
                                     type="button"
+                                    onClick={() =>
+                                        setPreviewView(
+                                            previewView === "grid"
+                                                ? "list"
+                                                : "grid"
+                                        )
+                                    }
                                 >
                                     <span></span>
                                 </button>
                                 <FaList />
                             </li>
                             <li>
-                                <button type="button">Limpar</button>
+                                <button type="button">Limpar tudo</button>
                             </li>
                         </ul>
                     </div>
@@ -121,23 +145,47 @@ const NewPost = () => {
                     </div>
                 </section>
                 {uploadedFiles.length ? (
-                    <div className="filesUploaded">
+                    <div
+                        className={
+                            previewView === "grid"
+                                ? "filesUploadedGrid"
+                                : "filesUploadedList"
+                        }
+                    >
                         <ul>
                             {uploadedFiles.map((file, index) => (
                                 <li key={`${file.name}-${index}`}>
-                                    {isFileAnImage(file) ? (
-                                        <img
-                                            src={URL.createObjectURL(file)}
-                                            alt={`file: ${file.name}`}
-                                        />
-                                    ) : (
-                                        <video autoPlay muted loop controls={false}>
-                                            <source
+                                    <span>
+                                        {isFileAnImage(file) ? (
+                                            <img
                                                 src={URL.createObjectURL(file)}
+                                                alt={`file: ${file.name}`}
                                             />
-                                        </video>
+                                        ) : (
+                                            <video
+                                                autoPlay
+                                                muted
+                                                loop
+                                                controls={false}
+                                            >
+                                                <source
+                                                    src={URL.createObjectURL(
+                                                        file
+                                                    )}
+                                                />
+                                            </video>
+                                        )}
+                                        {previewView === "grid" ? (
+                                            <></>
+                                        ) : (
+                                            <p className="itemName">{file.name}</p>
+                                        )}
+                                    </span>
+                                    {previewView === "list" ? (
+                                        <FaTrash className="trashCanIcon" />
+                                    ) : (
+                                        <button type="button">Remover</button>
                                     )}
-                                    <button type="button">Remover</button>
                                 </li>
                             ))}
                         </ul>
