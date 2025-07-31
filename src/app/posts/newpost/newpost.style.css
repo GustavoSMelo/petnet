@@ -1,0 +1,222 @@
+@charset "UTF-8";
+@import "tailwindcss";
+@import "../../../styles/customs.css";
+
+.newPostContainer {
+    @apply mt-32
+        flex
+        min-h-[87vh]
+        justify-center;
+
+    aside {
+        @apply mx-10 flex flex-col items-center;
+        h1 {
+            @apply text-3xl font-bold mb-3;
+        }
+
+        .btnChooseCreatePost {
+            @apply flex
+            flex-col
+            items-center
+            justify-center
+            shadow-minimalist
+            p-4
+            rounded-md bg-white;
+
+            button {
+                @apply px-6
+                w-80
+                py-3
+                my-1.5
+                rounded-md
+                text-xl
+                font-bold
+                text-white
+                cursor-pointer
+                transition-all;
+            }
+
+            button:nth-child(1) {
+                @apply bg-indigo-500;
+
+                &:hover {
+                    @apply bg-indigo-700;
+                }
+            }
+
+            button:nth-child(2) {
+                @apply bg-emerald-400;
+
+                &:hover {
+                    @apply bg-emerald-600;
+                }
+            }
+        }
+
+        button {
+            @apply px-6
+                w-80
+                mt-8
+                py-3
+                my-1.5
+                rounded-md
+                text-xl
+                font-bold
+                text-white
+                cursor-pointer
+                transition-all;
+        }
+
+        button.proceed {
+            @apply bg-sky-500;
+        }
+
+        button.proceed:hover {
+            @apply bg-sky-600 transition-all;
+        }
+
+        button.notProceed {
+            @apply bg-gray-500 cursor-not-allowed;
+        }
+
+        button.notProceed:hover {
+            @apply bg-gray-600 transition-all;
+        }
+
+        .uploadInformations {
+            @apply shadow-minimalist
+                rounded-md
+                p-4
+                my-2
+                bg-white
+                mt-4;
+
+            h5 {
+                @apply text-lg font-bold mb-4;
+            }
+
+            ul {
+                li {
+                    @apply flex;
+
+                    button {
+                        @apply border-1 bg-red-900 text-red-300 w-80;
+                    }
+
+                    button:hover {
+                        @apply bg-red-950;
+                    }
+                }
+
+                li.listInformationText {
+                    @apply items-center flex;
+
+                    .iconText {
+                        @apply mr-1;
+                    }
+                }
+
+                li.previewView {
+                    @apply flex items-center mt-2;
+
+                    button {
+                        @apply w-16
+                            mt-0
+                            p-1
+                            mx-3
+                            rounded-full
+                            bg-sky-500
+                            border-none
+                            flex;
+
+                        span {
+                            @apply bg-white
+                            py-2.5
+                            px-2.5
+                            rounded-full
+                            border-2
+                            border-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .uploadContentWrapper {
+        @apply shadow-minimalist h-fit p-10 rounded-md;
+
+        h2 {
+            @apply text-2xl;
+        }
+
+        .sendFileContainer {
+            @apply border-3
+            border-dotted
+            rounded-md
+            flex
+            items-center
+            justify-center
+            flex-col
+            text-center
+            bg-white
+            mt-9;
+
+            label {
+                @apply text-center
+                py-20
+                px-30
+                flex
+                items-center
+                justify-center
+                flex-col
+                text-xl
+                w-full
+                h-full
+                cursor-pointer;
+            }
+
+            input {
+                @apply hidden;
+            }
+        }
+    }
+
+    .filesUploaded {
+        @apply text-center mt-6 w-[600px];
+        h2 {
+            @apply text-2xl font-bold;
+        }
+        ul {
+            @apply flex mt-8 bg-white flex-wrap;
+
+            li {
+                @apply w-44
+                    shadow-minimalistWithShadow
+                    rounded-md
+                    mr-5
+                    transition-all h-56 mb-10
+                    flex flex-col items-center;
+
+                img,
+                video {
+                    @apply p-1.5 h-[176];
+                }
+
+                button {
+                    @apply bg-red-900
+                        mt-3
+                        p-2
+                        w-full
+                        rounded-b-md
+                        text-red-300
+                        cursor-pointer;
+                }
+            }
+
+            li:hover {
+                @apply scale-105 transition-all;
+            }
+        }
+    }
+}
