@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa";
 import { ChangeEvent, DragEvent, useReducer } from "react";
 import { IStatePetRegister, IActionPetRegister } from "./interface";
 import Footer from "@petnet/components/footer";
-import isFileAnImage from "@petnet/helpers/isFileAnImage";
+import { isFileAnImage } from "@petnet/helpers/fileTypeCheck";
 
 const PetRegister = () => {
     const reducer = (state: IStatePetRegister, action: IActionPetRegister) => {
