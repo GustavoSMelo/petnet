@@ -119,7 +119,7 @@ const NewPost = () => {
                 </button>
             </aside>
 
-            <span>
+            <span className="uploadContentContainer">
                 <section className="uploadContentWrapper">
                     <h2>Enviar arquivo: </h2>
                     <div

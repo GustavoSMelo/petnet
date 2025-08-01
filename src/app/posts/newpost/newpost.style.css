@@ -152,7 +152,7 @@
     }
 
     .uploadContentWrapper {
-        @apply shadow-minimalist h-fit p-10 rounded-md;
+        @apply shadow-minimalist h-fit p-10 rounded-md bg-white;
 
         h2 {
             @apply text-2xl;
@@ -278,7 +278,7 @@
             justify-center
             mb-6;
 
-        span {
+        span.uploadContentContainer {
             @apply flex justify-center flex-col items-center;
 
             .uploadContentWrapper {
@@ -290,8 +290,34 @@
                     mb-5;
             }
 
-            .filesUploadedGrid {
+            .filesUploadedGrid,
+            .filesUploadedList {
                 @apply w-[500px];
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .newPostContainer {
+        span.uploadContentContainer {
+            @apply w-full;
+
+            .uploadContentWrapper > .sendFileContainer > label {
+                @apply px-3;
+            }
+
+            .filesUploadedGrid,
+            .filesUploadedList {
+                @apply w-4/5;
+            }
+
+            .filesUploadedGrid {
+                @apply justify-center items-center;
+
+                ul {
+                    @apply flex items-center justify-center;
+                }
             }
         }
     }
